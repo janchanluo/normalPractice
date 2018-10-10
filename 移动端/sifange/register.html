@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>注册</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" type="text/css" href="css/iconfont.css">
+    <link rel="stylesheet" href="css/register.css">
+</head>
+
+<body>
+
+    <header>
+        <a href="###" class="return" onclick="javascript:history.go(-1)">
+            <svg class="icon" aria-hidden="true">
+                <use xlink:href="#icon-return"></use>
+            </svg>
+        </a>
+        <h3>注册</h3>
+
+    </header>
+    <div id="app">
+        <div class="content">
+            <div>
+                <h3>
+                    <a href="login.html"> 已有账号？请
+                        <span>登录</span>
+                    </a>
+                </h3>
+                <input type="text" placeholder="用户名" class="name" v-model.lazy="name">
+                <input type="password" placeholder="密码" class="pass" v-model.lazy="pass">
+                <input type="password" placeholder="请再次输入密码" class="passed" v-model.lazy="passed">
+                <input type="text" placeholder="验证码" class="code" v-model.lazy="code">
+                <img :src="imgsrc" @click="yanz" >
+                <label @click="agree">
+                    <span :class="{on:agreeflag}"></span>我已阅读并同意《使用条款和隐私政策》</label>
+
+                <input type="button" value="确认注册" @click="text">
+
+                <transition name="fade">
+                    <div>
+                        <div v-show="isshown" class="nameshow">
+						<span v-bind:class="{green:isGreen}">
+                                {{usertext}}
+						</span>
+						<i></i>
+                    </div>
+                    <div v-show="isshowp" class="passshow">
+						<span v-bind:class="{green:isGreen}">
+							{{usertext}}
+						</span>
+						<i></i>
+                    </div>
+                    <div v-show="isshowe" class="passedshow">
+                            <span v-bind:class="{green:isGreen}">
+                                {{usertext}}
+                            </span>
+                            <i></i>
+                        </div>
+                </div>
+
+                </transition>
+                <!-- <transition-group tag="" name="">
+                    
+                </transition-group> -->
+            </div>
+        </div>
+
+    </div>
+    <script src="js/vue.js"></script>
+    <script src="js/vue-resource.js"></script>
+
+    <script src="js/rem.js"></script>
+    <script src="js/iconfont.js"></script>
+    <script src="js/register.js"></script>
+    
+</body>
+
+</html>

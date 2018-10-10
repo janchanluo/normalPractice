@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0; padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        .content{
+            width: 1200px;
+            margin: 0 auto;
+        }
+        .demo{
+            margin: 0 auto;
+            width: 500px;
+        }
+    .messageBook{
+        border: 1px #ccc solid;
+        height: 200px;
+        padding: 10px;
+    }
+    span{
+        float: left;
+    }
+    .message{
+        margin-top: 20px;
+     
+    }
+    textarea{
+        width: 500px;
+        height: 100px;
+    }
+    .right{
+        float: right;
+    }
+    .del{
+        cursor: pointer;
+    }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <div class="demo">
+            <div class="messageBook">
+                <ul>
+                      
+                </ul>
+            </div>
+            <div class="message">
+                <textarea name="" id="" cols="30" rows="10"></textarea>
+                <button>发布留言</button>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    var txt=document.getElementsByTagName("textarea")[0];
+    var  btn=document.getElementsByTagName("button")[0];
+    var  message=document.getElementsByTagName("ul")[0];
+    var  oli=document.getElementsByTagName("li");
+    var num=0;
+    btn.onclick=function(){
+        var val=txt.value;
+        if(val){
+        num++;
+            message.innerHTML+="<li>"+"<span class='num'>"+num+"</span>"+"."+val+'<span class="right">'+"<span class='del'>"+"确认删除"+"</span>"+"<mark>"+"第"+num+"条"+"</mark>"+"</span>"+"</li>";
+        }
+        else{
+            alert("请输入留言内容!")
+        }
+        txt.value='';
+        for(var i=0;i<oli.length;i++){
+            del=document.getElementsByClassName("del")[i];
+            del.index=i;
+            del.onclick=function(){
+                var Onum=message.getElementsByClassName('num');
+                var mark=message.getElementsByTagName('mark');
+               var nowli=(this.parentNode).parentNode;
+               nowli.remove();
+         
+               for(var i=0;i<Onum.length;i++){
+                Onum[i].innerHTML=(i+1);
+               }
+               num--;
+               if(num==0){
+                   num=0;
+               }
+               console.log( Onum[0]);
+    }
+           
+        }
+
+    }
+
+    
+       
+
+</script>
+</html>

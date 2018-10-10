@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="div">
+
+    </div>
+    <input type="button" value="click" onclick="loadXMLDoc()">
+</body>
+<script>
+    function loadXMLDoc(){
+        var xmlhttp;
+   if(window.XMLHttpRequest){
+       xmlhttp=new XMLHttpRequest;
+   }else{
+       xmlhttp=new ActiveXObject("Microsoft.XMLHTTP")
+   }
+  xmlhttp.open("GET","/txt.txt?id="+Math.random()+"&code=1")
+   xmlhttp.send();   /* GET方法 */
+/*      xmlhttp.open("POST","ajax.php");
+     xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+     xmlhttp.send("name=小明&age=17");  /* OPEN方法 */
+   xmlhttp.onreadystatechange=function(){
+       if(xmlhttp.readyState==4 && xmlhttp.status==200){
+           document.getElementById("div").innerHTML=xmlhttp.responseText;
+       }
+   }
+    }
+
+</script>
+</html>

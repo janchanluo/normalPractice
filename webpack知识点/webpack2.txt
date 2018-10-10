@@ -1,0 +1,45 @@
+1.在src新建一个img文件夹
+2.默认情况下webpack无法处理css文件中的url地址，无论是图片还是字体库
+3.在cmd中安装cnpm i url-loader file-loader -D
+4.在webpack.config.js中rules里面写上{test:/\.(jpg|png|gif|bpm|jpeg)$/,use:'url-loader'}
+5.发现所有的背景图片都转化为base64只想改小图片，所以传参
+{test：/\.(jpg|png|gif|bpm}jpeg)$/,use:'url=loader？limit=字节&[hash:8]--name=[name].[ext]'}
+当字节给定的值是图片大小，如果大于图片就转化为base64，要不就转化  
+[hash:8]--name=[name].[ext]命名为同样的名字，如果不加hash就会冲突，通过hash改变，hash最大32位
+6.在main.js中引入字体样式import 'bootstrap/dist/css/bootstrap.css'  
+他会直接省略node_modules,自动去查找
+7.在webpack.config.js中写上{test：/\.(ttf|eot|svg|woff|woff2)$/,use:'url-loader'}
+8.在main.js里面写上es6代码，webpack只能处理一些es6代码
+class Person{static info={name:'zs',age:20}}
+var p1 = new Person()
+console.log(Person.info)
+访问Person类身上的info属性
+
+java  c# 实现面向对象方式一样，class是从后端语言借鉴过来的，来实现面向对象
+static关键字可以定义静态属性，所谓静态属性就是可以直接通过类名直接访问的属性
+实例属性：只能通过类的实例来访问的属性叫做实例属性
+funtion Animal(name){
+   this.name=name
+}
+Animal.info=123
+var a1 = new Animal('小花')
+console.log（animal.info）
+
+9.处理不了static，需要借助第三方的loader来帮助webpack处理高级语法，当第三方loader把高级语法转为低级语法，会交给webpack去打包到bundle.js中
+通过babel，可以把高级语法转化为低级语法
+webpack中可以运行两套包去安装babel相关的loader功能
+第一套cnpm i  babel-loader babel-plugin-transform-runtime -D  转化语法
+第二套 cnpm i babel-preset-env  babel-preset-stage-0 -D   语法插件语法对应关系
+打开webpack的配置文件，再module节点下的rules数组中添加一个新的匹配规则
+{test：/\.js$/,use:'babel-loader',exclude:/node_mpudules/}
+注意：在配置babel的loader规则的时候，必须把node_modules目录通过exclude选项排除掉
+原因有两点
+1.如果不排除node-moudles,则babel会把node_modules中左右的第三方js文件都打包编译这样会非常耗费内存，同时打包速度慢
+2.哪怕最终babel把所有的node_modules的js文件妆化了，项目也无法完成
+
+再项目的根目录中，新建一个叫 .babelrc的配置文件，这个配置文件属于json格式所以再写.babelrc写配置的时候，必须复合json语法规范不能写注释，字符串必须用双引号
+再.babelrc写如下配置，可以把preset翻译成语法的意思
+{“presets”：["env","stage-0"],"plugins":["transform-runtime"]}
+
+
+

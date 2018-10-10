@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>确认订单</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" type="text/css" href="css/iconfont.css">
+    <link rel="stylesheet" href="css/confirm_order.css">
+</head>
+
+<body>
+    <div class="" id="app">
+        <header>
+            <a href="###" class="return" onclick="javascript:history.go(-1)">
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-return"></use>
+                </svg>
+            </a>
+            <h3>确认订单</h3>
+
+        </header>
+        <div class="content">
+            <div class="info">
+                <h3>收货人：阿开
+                    <span>13767991045</span>
+                </h3>
+                <h4>
+                    <img src="img/1confirm_order_03.png">
+                    <span>收货地址：广东省广州市海珠区港艺
+                        <br> 商务大厦1201
+                    </span>
+                </h4>
+                <p>（收货不便时，可选择免费代收货服务）</p>
+                <a href="###">
+                    <img src="img/2confirm_order_03.png" alt="">
+                </a>
+            </div>
+            <div class="shopinfo">
+                <div>
+                    <a href="###">
+                        <img src="img/tushop_cart_03.png" alt="">
+                    </a>
+                    <h3>套装系列</h3>
+                    <h4>2017新款两件套儿童春秋运动装韩版女孩</h4>
+                    <h5>中大童外套衣服 白色时尚外套黑色长裤</h5>
+                    <p>￥
+                        <b> 199.00</b>
+                        <span>x1</span>
+                    </p>
+                </div>
+                <ul>
+                    <li>
+                        <a href="###">配送方式
+                            <span>快递 免邮
+                                <img src="img/2confirm_order_03.png" alt="">
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="###">运费险
+                            <span>未选择
+                                <img src="img/2confirm_order_03.png" alt="">
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="###">发票类型
+                            <span>电子发票
+                                <img src="img/2confirm_order_03.png" alt="">
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="###">发票抬头：阿开 </a>
+                    </li>
+                    <li>
+                        <a href="###">买家留言： </a>
+                        <input type="text" placeholder="选填：对本次交易的说明">
+                    </li>
+
+                </ul>
+                <h6>共1件商品 小计：
+                    <span>￥1999.00</span>
+                </h6>
+            </div>
+        </div>
+        <footer>
+
+            <p>合计：
+                <span>￥2.00</span>
+            </p>
+            <a href="###" @click="flag=true">提交订单</a>
+        </footer>
+        <itam v-if="flag" v-on:show="show" v-on:tiao="tiao">
+
+            </itam>
+
+      
+    </div>
+    <script src="js/rem.js"></script>
+    <script src="js/iconfont.js"></script>
+    <script src="js/vue.js"></script>
+
+    <script type="x-template" id="show">
+        <transition name="show" mode="out-in">
+                <div class="pay">
+                        <div class="mask" @click="$emit('show')" ></div>
+                        <div class="payp">
+                        <div class="payall">
+                            <h2>
+                                <a href="###" @click="$emit('show')">x</a>
+                                <span>支付详情</span>
+                                <img src="img/1pay_03.png" alt="">
+                            </h2>
+                            <ul>
+                                <li>账号信息
+                                    <span>15914410621</span>
+                                </li>
+                                <li>付款信息
+                                    <span>工商银行储蓄卡（3115）</span>
+                                </li>
+                                <li>发票信息
+                                    <span>电子发票个人</span>
+                                </li>
+                                <li>需付款
+                                    <span>119.00元</span>
+                                </li>
+                            </ul>
+                            <a href="####" @click="$emit('tiao')" class="paysure">确认付款</a>
+                        </div>
+                    </div>
+                    </div>
+        </transition>
+    </script>
+    <script>
+Vue.component("itam",{
+    template:"#show"
+})
+
+        new Vue({
+            el: "#app",
+            data: {
+                flag:false
+            },
+            methods: {
+                show:function(){
+                    this.flag=!this.flag;
+
+                }
+                ,
+                tiao: function () {
+                    if (confirm("是否提交")) {
+                        location.href = "pay_success.html"
+                    } else {
+                        location.href = "pay_failure.html"
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,152 @@
+
+header{
+    background-color:#fa5f89;
+    width: 7.5rem;
+    height: 1.1rem;  
+    position: relative;
+    top: 0;
+    float: left;
+}
+.header-bgc form{
+   width: 5rem;
+    height: 0.64rem;
+    margin: 0 auto;
+    background-color: #fedde6;
+    border-radius: 5px;
+   margin-top: 0.3rem;
+   padding-left: 0.2rem;
+}
+.header-bgc form input{
+    width: 4.0rem;
+    margin: 0 auto;
+    height: 0.4rem;
+    border: 0;
+    float: left;
+    font-size: 0.28rem;
+    background-color: #fedde6;
+    margin-top: 0.1rem;
+    line-height: 0.4rem;
+}
+.header-bgc form button{
+   float: left;
+   background: url(../images/search.png) no-repeat;
+   width: 0.37rem;
+   height: 0.39rem;
+   background-size: 0.37rem 0.39rem;
+   border: 0;
+  margin-top: 0.125rem;
+  /* vertical-align: middle; */
+}
+.content{
+   width: 7.5rem;
+   margin-bottom: 2rem;
+}
+.banner{
+ width: 7.5rem;
+ overflow: hidden;
+ font-size: 0;
+}
+.banner img{
+    width: 7.5rem;
+    height: 3.8rem;
+}
+.goods-show{
+    width: 7.5rem;
+    padding: 0.1rem 0;
+}
+.goods-show .goods{
+    width: 7rem;
+    margin: 0 auto;
+    /* border: 1px solid #ccc; */
+    overflow: hidden;
+
+}
+.goods-show h4{
+    font-size: 0.28rem;
+    margin: 0.1rem;
+}
+.goods-show h4 span{
+    float: left;
+    margin-right: 0.1rem;
+}
+.hot-icon span{
+    background: url(../images/hot.png) no-repeat;
+    width: 0.29rem;
+    height: 0.38rem;
+    background-size: 0.29rem 0.38rem;
+}
+.baby-icon span{
+    background: url(../images/baby.png) no-repeat;
+    width: 0.38rem;
+    height: 0.38rem;
+    background-size: 0.38rem 0.38rem;
+}
+.goods-show ul {
+    overflow: hidden;
+}
+.goods-show ul li{
+    width: 3.28rem;
+    list-style: none;
+}
+.goods-show ul li:nth-child(n){
+    float: left;
+}
+.goods-show ul li:nth-child(2n){
+    float: right;
+}
+.goods-show ul li a{
+  color: #000;
+}
+.goods ul li i{
+    float: left;
+    font-style: normal;
+}
+.goods ul li dl{
+    font-size: 0.2rem;
+    width: 90%;
+    margin: 0 auto;
+}
+.goods ul li dl dd:nth-child(1){
+    float: left;
+    color: red;
+}
+.goods ul li dl dd:nth-child(2){
+    float: right;
+    text-decoration: line-through;
+}
+.goods-show ul li img{
+    width: 3.28rem;
+    height:3.3rem;
+}
+
+footer{
+    height: 1rem;
+    position: fixed;
+    bottom: 0;
+    width: 7.5rem;
+    overflow: hidden;
+    box-shadow: 4px -1px 8px #ccc;
+    z-index: 999;
+    background-color: #fff;
+}
+footer ul{
+    text-align: center;
+    overflow: hidden;
+    padding: 0.1rem 0;
+}
+footer ul li{
+    float: left;
+    font-size: 0.16rem;
+    width: 25%;
+    list-style: none;
+}
+footer ul li a{
+    color: #000;
+}
+footer ul li:first-child span{
+    color: #ff9900;
+}
+footer ul li img{
+    width: 0.38rem;
+    height: 0.41rem;
+}

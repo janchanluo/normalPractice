@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+      
+    var  obj={
+          name:"zsa",
+          sex:"男",
+          age:15,
+          arr:[1,2,4]
+      }
+      function clone(obj) {
+          var newObj ={};
+          if(typeof obj == null){
+              return null;
+          }else{
+              for(var key in obj){
+                newObj[key]=obj[key];
+              }
+              return newObj;
+          }
+        }
+
+    function deepclone(p,newObj) {
+        var newObj=newObj || {};
+        for( var key in p){
+            if(typeof p[key] ==="object"){
+                if(p[key].constructor == Array){
+                newObj[key]=[];
+                }else{
+                newObj[key]={};
+                }
+            deepclone(p[key],newObj[key])
+        }else{
+            newObj[key]=p[key];
+        }
+            }
+      
+        return newObj
+      }
+
+        var a=clone(obj);
+    
+
+        // a.name="fy";
+    
+        var x=deepclone(obj)
+        x.arr.push(5)
+        console.log(x,obj)
+    </script>
+</body>
+</html>

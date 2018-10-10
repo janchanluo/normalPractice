@@ -1,0 +1,207 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+ul,
+ol,
+li {
+	list-style: none;
+}
+
+header {
+	width: 7.5rem;
+	height: 1rem;
+	background-color: #ff9900;
+	font-size: 0.42rem;
+	text-align: center;
+	color: white;
+	line-height: 1rem;
+}
+
+header span {
+	display: block;
+	float: left;
+	margin-left: 0.4rem;
+}
+
+.check {
+	display: block;
+	width: 18px;
+	height: 18px;
+	background: url(../img/radio_nor.png);
+	float: left;
+	margin-left: 0.35rem;
+	margin-top: 0.55rem;
+}
+
+.active {
+	background: url(../img/radio_hig.png);
+}
+
+.tab {
+	position: fixed;
+	bottom: 0;
+	background-color: white;
+	height: 0.7rem;
+}
+.content ul li{
+	width: 7.5rem;
+	
+}
+.content ul li .title{
+	overflow: hidden;
+}
+.content ul li .title img{
+	display: block;
+	width: 0.38rem;
+	height: 0.38rem;
+	float: left;
+	margin-top: 0.3rem;
+	margin-left: 0.4rem;
+}
+.content ul li .title span{
+	display: block;
+	font-size:0.28rem;
+	float: left;
+	margin-top: 0.25rem;
+	margin-left: 0.4rem;
+}
+.list{
+	margin-top: 0.47rem;
+	overflow: hidden;
+}
+.list img{
+	width: 1.6rem;
+	height: 1.6rem;
+	float: left;
+	display: block;
+	margin-left: 0.18rem;
+}
+.list .mid{
+	width: 3rem;
+	float: left;
+	margin-left: 0.2rem;
+	
+}
+.list .mid p{
+	font-size: 0.32rem;
+	margin-bottom: 0.35rem;
+}
+.list .mid span{
+	display: block;
+	font-size: 0.28rem;
+	float: right;
+	margin-top: -0.7rem;
+	margin-right: 0.3rem;
+}
+.list .mid label{
+	float: left;
+	font-size: 0.32rem;
+	display: block;
+	width: 0.8rem;
+	height: 0.4rem;
+	border: 1px solid gray;
+	text-align: center;
+	
+}
+.list .mid input{
+	float: left;
+	display: block;
+	width: 0.8rem;
+	height: 0.4rem;
+	border: 1px solid gray;
+	text-align: center;
+}
+.list .price{
+	font-size: 0.32rem;
+	float: left;
+	margin-top: 0.6rem;
+	margin-left: 0.1rem;
+}
+.list>button{
+	float: right;
+	width: 0.95rem;
+	height: 2.1rem;
+	background-color: #ff9900;
+	border: 0;
+}
+.heji{
+	height: 1.14rem;
+	position: fixed;
+	bottom: 0.7rem;
+	border: 1px solid gray;
+	width: 7.5rem;
+	background-color: white;
+}
+.heji .all{
+	width: 0.64rem;
+	height: 0.85rem;
+	margin-left: 0.4rem;
+	margin-top: 0.18rem;
+}
+.heji .all img{
+	display: block;
+	width: 0.45rem;
+	height: 0.45rem;
+	margin: 0 auto;
+}
+.heji .all{
+	display: block;
+	font-size: 0.32rem;
+	float: left;
+}
+.heji .drow img{
+	display: block;
+	width: 0.45rem;
+	height: 0.45rem;
+	margin: 0 auto;
+}
+.heji .drow{
+	display: block;
+	font-size: 0.32rem;
+	float: left;
+	margin-left: 0.4rem;
+	margin-top: 0.18rem;
+}
+.heji .sum1{
+	font-size: 0.24rem;
+	width: 1.32rem;
+	float: left;
+	text-align: center;
+	margin-left: 1.15rem;
+	margin-top: 0.3rem;
+}
+.heji .sum1 span{
+	display: block;
+	
+}
+.heji .sum2{
+	width: 2.3rem;
+	height: 1.15rem;
+	float: right;
+	background-color: #ff5500;
+	font-size: 0.24rem;
+	color: white;
+	text-align: center;
+	line-height:1.15rem ;
+}
+.no-car{
+	width: 2.4rem;
+	height:2rem;
+	position: fixed;
+	left:2.55rem;
+	top: 3.3rem;
+	
+}
+.no-car img{
+	width: 0.9rem;
+	height: 0.9rem;
+	margin: 0 auto;
+	display: block;
+}
+.no-car p{
+	font-size: 0.32rem;
+	text-align: center;
+	margin-top: 0.1rem;
+}

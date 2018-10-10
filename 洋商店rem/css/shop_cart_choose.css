@@ -1,0 +1,86 @@
+header{
+    width: 7.5rem;
+    width: 7.5rem;
+    height: 1.1rem; 
+    position: relative;
+    background-color: #ff9900;
+    line-height: 1.1rem;
+}
+.head{
+    width: 95%;
+    margin: 0 auto;
+    position: relative;
+}
+.head i{
+    background: url(../images/back.jpg) no-repeat;
+    width: 0.28rem;
+    height: 0.42rem;
+    background-size: 0.28rem 0.42rem;
+    float: left;
+    margin-top: 0.34rem;
+}
+.head a{
+    font-size:0.37rem; 
+    color: #fff;
+    /* float: left; */
+    text-align: center;
+}
+
+.content{
+    width: 7.5rem;
+ /* text-align: center; */
+    margin-bottom: 4rem;
+}
+.content .car {
+    text-align: center;
+    width: 2.3rem;
+    margin: 0 auto;
+    margin-top: 3.3rem;
+}
+.content .car strong{
+  font-size: 0.32rem;
+  font-weight: normal;
+  display: block;
+}
+.content .car strong::before{
+    content: '';
+     margin: 0 auto;
+    display: block;
+    overflow: hidden;
+    background: url(../images/tab_shopping_nor.png) no-repeat;
+    width: 0.83rem;
+    height: 0.87rem;
+    background-size: 0.83rem 0.87rem;
+    padding-bottom: 0.35rem;
+}
+footer{
+    position: fixed;
+    height: 1rem;
+    bottom: 0;
+    width: 7.5rem;
+    overflow: hidden;
+    /* box-shadow: 4px -1px 8px #ccc; */
+    z-index: 999;
+    background-color: #fff;
+}
+footer ul{
+    text-align: center;
+    overflow: hidden;
+    padding: 0.1rem 0;
+}
+footer ul li{
+    float: left;
+    font-size: 0.16rem;
+    width: 25%;
+    list-style: none;
+}
+footer ul li a{
+    color: #000;
+}
+footer ul li:nth-child(3) span{
+    color: #ff9900;
+}
+footer ul li img{
+    width: 0.38rem;
+    height: 0.41rem;
+}

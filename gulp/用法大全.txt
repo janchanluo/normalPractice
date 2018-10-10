@@ -1,0 +1,16 @@
+﻿这个是拿来做自动生成gulp开发目录的node程序。
+
+电脑条件(第一次使用)
+    nodejs 版本 > 6.2.0+ 建议 8.9.3
+    npm的淘宝镜像 [npm install -g cnpm --registry=https://registry.npm.taobao.org]
+    安装全局gulp [cnpm install -g gulp]
+
+1：使用命令行进入当前目录
+2：执行 [node hui.js] 命令
+3：根据提示输入在哪里创建项目目录
+4：到现在就已经创建好了一个项目(YONE)了，使用cmd找到这个文件
+5：执行 [cnpm install] 命令
+6：执行 [gulp dev]就可以开发了
+
+
+如果想和php等服务器的代码保持一致，请阅读gulpfile.js的中文注释

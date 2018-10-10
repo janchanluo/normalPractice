@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<ul id="list">
+			<li>1111</li>
+			<li id="box">2222</li>
+			<li class="lis">3333</li>
+			<li>4444</li>
+		</ul>
+		<ul>
+			<li>1111</li>
+			<li class="lis">2222</li>
+			<li>3333</li>
+			<li>4444</li>
+		</ul>
+		<script type="text/javascript">
+			
+			// $('li','.lis','#box');
+			
+			var lis = $('.lis');
+			
+			console.log(lis)
+			function $(name,parent){
+				
+				parent = parent || document;
+				
+				var Sel = name.substring(0,1);
+				if(Sel == '#'){
+					var id = name.substring(1);
+					return parent.getElementById(id);
+				}else if(Sel == '.'){
+					var className = name.substring(1);
+					
+					
+				}else{
+					return parent.getElementsByTagName(name);
+				}
+				
+				
+				
+			}
+		</script>
+	</body>
+</html>

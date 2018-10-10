@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+ <script src="js/jsonp.js" type="text/javascript" charset="utf-8"></script>
+   <style type="text/css">
+   	*{
+   		padding: 0;
+   		margin: 0;
+   	}
+   	.box{
+   		margin:5px 20px;
+   	}
+   	li{
+   		list-style: none;
+   		margin: 5px 0;
+   	}
+   </style>
+	</head>
+	<body>
+		<div class="box">
+			<input type="text" name="" id="txt" />
+			<input type="button" name="btn" id="btn" value="查询" />
+		<ul class="list">
+			<!--<li></li>-->
+		</ul>
+			</div>
+	
+	</body>
+	<script type="text/javascript">
+
+		
+	    var btn=document.querySelector("#btn");
+		var txt=document.querySelector("#txt");
+		var list=document.querySelectorAll(".list")[0];
+		txt.oninput=function(){
+			var _this=this;
+			jsonp({
+			url:'https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su',
+			data:{wd:_this.value},
+			callback:"cb",
+			success:function(data){	
+	       	var os=null;
+			var strH='';
+			if(!data.s.length){
+				list.innerHTML='';	
+				return;
+			}
+             for(var i=0;i<5;i++){
+              	if(!data.s[i]){
+              		continue;
+              	}
+				strH+='<li>'+data.s[i]+'</li>'
+			}
+	       list.innerHTML=strH;
+			},
+			callback:'cb',
+			
+		})
+		    
+		}
+
+
+	</script>
+	
+</html>
+ 

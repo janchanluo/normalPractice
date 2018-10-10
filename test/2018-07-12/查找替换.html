@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.box{
+				width:400px;
+				height:500px;
+				border:1px solid #000;
+				margin:  0 auto;
+			}
+			.content{
+				height:300px;
+				border-bottom: #000000 1px solid;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<div class="content">中国—阿拉伯国家合作论坛第八届部长级会议在北京举行，国家主席习近平出席开幕式并发表重要讲话。新时代中阿关系怎么走？如何共建“一带一路”？中东地区又怎样走出一条全面振兴的新路？习近平都给出自己的分析判断。</div>
+			<div class="footer">
+				<input type="text" />
+				<input type="button" value="查找一个" />
+				<input type="button" value="查找全部" /> <br />
+				<input type="text" />
+				<input type="button" value="替换" />
+			</div>
+		</div>
+		
+		<script type="text/javascript">
+			var content = document.getElementsByClassName('content')[0];
+			var inputs = document.getElementsByTagName('input');
+			var str = content.innerHTML;
+			var nub = -1;
+			
+			
+			//  一个一个查找
+			inputs[1].onclick = function(){
+				// 获取value
+				var val = inputs[0].value;
+				if(val){
+					//  
+					var num = str.indexOf(val,0); //2
+					var arr = [];   // 存放找到字符的下标
+					arr.push(num);		
+					nub++;
+					while(str.indexOf(val,num+1) != -1){	
+						arr.push(str.indexOf(val,num+1));	
+						num = str.indexOf(val,num+1);  // 3
+					}
+					//截取字符串
+					console.log(nub);
+					if(nub> arr.length-1){
+						nub = 0;
+					}
+					var strStart = str.substring(0,arr[nub]);
+					var strEnd = str.substring(arr[nub]+1);
+					
+					content.innerHTML = strStart+'<span style="background:red;">'+val+'</span>'+strEnd;
+					
+				}else{
+					alert('请输入查找内容!')
+				}
+			}
+			
+			
+			inputs[0].onchange = function(){
+				nub = -1;
+			}
+		</script>
+	</body>
+</html>

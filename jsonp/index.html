@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+ 
+   <style type="text/css">
+   	*{
+   		padding: 0;
+   		margin: 0;
+   	}
+   	.box{
+   		margin:5px 20px;
+   	}
+   	li{
+   		list-style: none;
+   		margin: 5px 0;
+   	}
+   </style>
+	</head>
+	<body>
+		<div class="box">
+			<input type="text" name="" id="txt" />
+			<input type="button" name="btn" id="btn" value="查询" />
+		<ul class="list">
+			<!--<li></li>-->
+		</ul>
+			</div>
+	
+	</body>
+	<script type="text/javascript">
+			var os=null;
+		function fn(data){
+			var strH='';
+			if(!data.s.length){
+				list.innerHTML='';	
+				return;
+			}
+             for(var i=0;i<5;i++){
+              	if(!data.s[i]){
+              		continue;
+              	}
+				strH+='<li>'+data.s[i]+'</li>'
+			}
+	       list.innerHTML=strH;
+		}
+	var btn=document.querySelector("#btn");
+		var head=document.querySelector('head');
+		var txt=document.querySelector("#txt");
+		var list=document.querySelectorAll(".list")[0];
+		txt.oninput=function(){
+			var _this=this;
+			jsonp({
+			url:'https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su',
+			data:{wd:_this.value,cb:"fn"}
+		})
+			      os.remove();
+		}
+		function jsonp(obj){
+			var head=document.querySelector('head');
+			var strU='';
+			for(var item in obj.data){
+				strU+='&'+item+'='+obj.data[item];
+			}
+			var opation={
+				  url:obj.url+'?'+strU,	  
+			}
+			os=document.createElement("script");
+			os.src=opation.url;
+			head.appendChild(os);
+		}
+
+	</script>
+	
+</html>
+ 

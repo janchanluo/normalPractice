@@ -1,0 +1,211 @@
+body{
+    background-color: #efeeee;
+}
+header{
+    width: 7.5rem;
+    height:3.3rem;
+    background-color: #ff9900;
+    z-index: 10;
+}
+.head{
+    width: 90%;
+    margin: 0 auto;
+    position: relative;
+    padding-top: 0.3rem;
+    text-align: center;
+}
+header span:nth-child(1){
+    background: url(../images/set.png) no-repeat;
+    width: 0.49rem;
+    height: 0.49rem;
+    background-size: 0.49rem;
+    position: absolute;
+   left: 0;
+   top: 0.3rem;
+}
+header h1{
+    font-size: 0.41rem;
+    color: #fff;
+    font-weight: 400;
+}
+header span:nth-child(3){
+    float: right;
+    background: url(../images/mess.png) no-repeat;
+    width: 0.49rem;
+    height: 0.49rem;
+    background-size: 0.49rem;
+    position: absolute;
+    top: 0.3rem;
+    right: 0;
+}
+header span:nth-child(3) i{
+    display: block;
+    background-color: #ff0000;
+    font-size: 0.24rem;
+    width: 0.4rem;
+    height: 0.4rem;
+    text-align: center;
+    line-height: 0.4rem;
+    font-style: normal;
+    top: -0.2rem;
+    right: -0.2rem;
+    position: absolute;
+    border-radius: 50%;
+    color: #fff;
+}
+.content{
+    width: 7.5rem;
+    margin-bottom: 2rem;
+}
+.content-t1{
+    height: 2.6rem;
+    background-color: #fff;
+}
+.user-pic{
+    position: absolute;
+    left: 50%;
+    margin-left: -1rem;
+    margin-top: -1.4rem;
+}
+.user-pic .radius{
+    background-color: #fff;
+    border-radius: 50%;
+    width: 2rem;
+    height: 2rem;
+    margin: 0 auto;
+
+    /* margin-top: -1.4rem; */
+   
+}
+.user-pic .radius img{
+    width: 100%;
+    border-radius: 50%;
+}
+.user-pic span{
+    font-size: 0.32rem;
+    /* float: left; */
+    text-align: center;
+}
+.mySc{
+    padding-top: 1.8rem;
+    width: 7.5rem;
+    position: relative;
+    overflow: hidden;
+}
+.mySc i{
+    background: url(../images/xin.jpg) no-repeat;
+    width: 0.39rem;
+    height: 0.36rem;
+    margin-left: 0.3rem;
+    background-size: 0.39rem 0.36rem;
+    float: left;
+}
+.mySc h2{
+    font-size: 0.3rem;
+    font-weight: 400;
+    float: left;
+    padding-left: 0.25rem;
+}
+.mySc h2 span{
+    display: inline-block;
+}
+
+.content-t2{
+    margin-top: 0.1rem;
+    overflow: hidden;
+    background-color: #fff;
+}
+.content-t2 p{
+    border-bottom:1px solid #ccc; 
+    font-size: 0.3rem;
+    padding: 0.5rem 0;
+
+}
+.content-t2 p strong:nth-of-type(1){
+    float: left;
+    margin-left: 0.2rem;
+    font-weight: 400;
+}
+.content-t2 p strong:nth-of-type(2){
+    float: right;
+    font-weight: 400;
+    margin-right: 0.2rem;
+}
+.order-img{
+    width: 7.5rem;
+   padding: 0.67rem 0;
+   overflow: hidden;
+}
+.order-img ul li{
+    float: left;
+    width: 20%;
+    text-align: center;
+    position: relative;
+}
+.order-img ul li a{
+    font-size: 0.23rem;
+    display: block;
+    color: #000;
+}
+.order-img ul li a i{
+    display: block;
+    background-color: #ff0000;
+    width: 0.4rem;
+    height: 0.4rem;
+    text-align: center;
+    line-height: 0.4rem;
+    font-style: normal;
+    top: -0.2rem;
+    right: 0.2rem;
+    position: absolute;
+    border-radius: 50%;
+    color: #fff;
+}
+.order-img ul img{
+    width: 0.54rem;
+    height: 0.47rem;
+}
+.content-t3{
+    overflow: hidden;
+    background-color: #fff;
+    margin-top: 0.1rem;
+}
+.content-t3 strong{
+    font-size: 0.32rem;
+    font-weight: normal;
+    margin-left: 0.2rem;
+}
+
+
+
+footer{
+    position: fixed;
+    height: 1rem;
+    bottom: 0;
+    width: 7.5rem;
+    overflow: hidden;
+    box-shadow: 4px -1px 8px #ccc;
+    z-index: 999;
+    background-color: #fff;
+}
+footer ul{
+    text-align: center;
+    overflow: hidden;
+    padding: 0.1rem 0;
+}
+footer ul li{
+    float: left;
+    font-size: 0.16rem;
+    width: 25%;
+    list-style: none;
+}
+footer ul li a{
+    color: #000;
+}
+footer ul li:last-child span{
+    color: #ff9900;
+}
+footer ul li img{
+    width: 0.38rem;
+    height: 0.41rem;
+}

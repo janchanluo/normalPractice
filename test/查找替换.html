@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #demo {
+            width: 1200px;
+            margin: 0 auto;
+        }
+
+        .content {
+            margin: 0 auto;
+            width: 500px;
+        }
+
+        .message {
+            height: 300px;
+            padding: 10px;
+            border: 2px solid #ccc;
+        }
+
+        #serach {
+            margin-top: 20px;
+        }
+
+        .col {
+            background-color: #000;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="demo">
+        <div class="content">
+            <div class="message">每天，当新一天到来时，我会开启心中的那一扇门，迎接飘露的字香， 未尝不是一种真实。正如天，因为有了阳光所以很蓝；地，因为有了雨露滋润才变得很绿；我，因为有了文字所以也变得忙碌而充实。从此心中不再寂寞、 不再忧伤，把心情用文字尽情的装扮，把文字用心情点缀，互相给予、互相映衬，感觉真好！
+            </div>
+            <div id="serach">
+                <input class="txtSearch" type="text">
+                <button class="searchOne">查找一个</button>
+                <button class="searchAll">查找全部</button>
+            </div>
+            <div id="replace">
+                <input class="txtReplace" type="text">
+                <button class="replace">替换</button>
+            </div>
+        </div>
+    </div>
+
+    </div>
+</body>
+<script>
+    var btn = document.getElementsByTagName("button");
+    var txtSearch = document.getElementsByClassName("txtSearch")[0];
+    var txtReplace = document.getElementsByClassName("txtReplace")[0];
+    var message = document.getElementsByClassName("message")[0];
+    var str = message.innerHTML;
+    var nub = -1;
+    var all = '';
+    var stop = 0;
+
+    btn[0].onclick = function () {
+        var serchVal = txtSearch.value;
+        var txtlen = serchVal.length;/*  输入数据的长度 */
+        var arr1 = [], num = 0;
+        if (serchVal) {
+            num = str.indexOf(serchVal, 0);
+            arr1.push(num);
+            nub++;
+            while (str.indexOf(serchVal, num + 1) != -1) {
+                arr1.push(str.indexOf(serchVal, num + 1))
+                num = str.indexOf(serchVal, num + 1);
+            }
+            if (nub == arr1.length) {
+                nub = 0;
+            }
+            var startxt = str.substring(0, arr1[nub]);
+            var endtxt = str.substring(arr1[nub] + txtlen, str.length);
+            message.innerHTML = startxt + '<span class="col">' + serchVal + '</span>' + endtxt;
+
+        }
+        else {
+            alert("请输入查询的内容！")
+        }
+    }//查找一个........................../
+
+    btn[1].onclick = function () {
+        var serchVal = txtSearch.value;
+        var arr1 = [], num = 0;
+        var txtlen = serchVal.length;/*  输入数据的长度 */
+        if (serchVal) {
+            while (str.indexOf(serchVal, num + 1) != -1) {
+                arr1.push(str.indexOf(serchVal, num + 1))
+                num = str.indexOf(serchVal, num + 1);
+            }
+            if (stop < arr1.length) {
+                for (var i = 0; i < arr1.length; i++) {
+                    var alltxt = '';
+                    if (i == arr1.length - 1) {
+                        alltxt = str.substring(arr1[i] + txtlen, arr1[i + 1])
+                    }
+                    else {
+                        alltxt = str.substring(arr1[i] + txtlen, arr1[i + 1]) + '<span class="col">' + serchVal + '</span>';
+                    }
+                    all += alltxt;
+                    stop++;
+                }
+                var firstTxt = '<span class="col">' + serchVal + '</span>'
+                message.innerHTML = str.substring(0, arr1[0]) + firstTxt + all;
+                all = '';
+            }
+        }
+        else {
+            alert("请输入查询的内容！")
+        }
+    }//查找全部,.................../
+    
+    btn[2].onclick = function () {
+        var serchVal = txtSearch.value;
+        var repTxt = txtReplace.value;
+        var arr1 = [], num = 0;
+        var txtlen = serchVal.length;
+        if (serchVal) {
+            nub++;
+            while (str.indexOf(serchVal, num + 1) != -1) {
+                arr1.push(str.indexOf(serchVal, num + 1))
+                num = str.indexOf(serchVal, num + 1);
+            }
+            for (var i = 0; i < arr1.length; i++) {
+                var alltxt = '';
+                if (i == arr1.length - 1) {
+                    alltxt = str.substring(arr1[i] + txtlen, arr1[i + 1])
+                }
+                else {
+                    alltxt = str.substring(arr1[i] + txtlen, arr1[i + 1]) + '<span class="col">' + repTxt + '</span>';
+                }
+                all += alltxt;
+                stop++;
+            }
+            var firstTxt = '<span class="col">' + repTxt + '</span>'
+            message.innerHTML = str.substring(0, arr1[0]) + firstTxt + all;
+            all = '';
+        }
+    }/* 替换全部 */
+    
+    txtSearch.onchange = function () {
+        nub = -1;
+        stop = 0;
+        alltxt = '';
+    }
+</script>
+
+</html>

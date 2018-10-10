@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+<style type="text/css">
+#tab{
+    border:5px solid #333;
+}
+#tab th,#tab td{
+	width: 200px;
+	text-align: center;
+	border: 1px solid #333;
+}
+#tab thead{
+	background:#ccc;
+}
+.bacol{
+    background-color:yellow;
+    color:#000
+}
+
+</style>
+</head>
+<body>
+	<table id="tab">
+		<thead>
+			<th><input type="checkbox" name="" id="qx" value="" />商品全选</th>
+			<th>商品编号</th>
+			<th>商品名称</th>
+			<th>商品价格</th>
+			<th>商品数量</th>
+			<th>商品删除</th>
+		</thead>
+		<tbody>
+			<!-- <tr>
+                <td>21</td>
+                <td>21</td>
+                <td>32</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>21</td>
+                <td>21</td>
+                <td>32</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+           </tr> -->
+		</tbody>
+	</table>
+<script type="text/javascript">
+var aData = [
+	{
+		num  : 1,
+		name : '雪碧',
+		price : 2.2,
+		count : 50
+	},
+	{
+		num  : 2,
+		name : '可口可乐',
+		price : 2.3,
+		count : 55
+	},
+	
+	{
+		num  : 3,
+		name : '百事可乐',
+		price : 2.3,
+		count : 56
+	},
+	
+	{
+		num  : 4,
+		name : '美年达',
+		price : 2.1,
+		count : 45
+	},
+	
+	{
+		num  : 5,
+		name : '醒目',
+		price : 2.0,
+		count : 35
+	},
+	
+	{
+		num  : 6,
+		name : '健力宝',
+		price : 2.6,
+		count : 40
+	},
+	
+	{
+		num  : 7,
+		name : '七喜',
+		price : 2.2,
+		count : 42
+	},
+	
+	{
+		num  : 8,
+		name : '王老吉',
+		price : 3.2,
+		count : 30
+	},
+	
+	{
+		num  : 9,
+		name : '加多宝',
+		price : 3.3,
+		count : 45
+	},
+	
+	{
+		num  : 10,
+		name : '芬达',
+		price : 2.3,
+		count : 48
+	}
+    
+];
+var qx=document.getElementById("qx");
+var tbody =document.getElementsByTagName("tbody")[0];
+// var ifCheck=null; /* 判断目前是否有选中元素 */
+for(var i=0;i<aData.length;i++){
+    var td=tbody.getElementsByTagName("td");
+    var tr =document.createElement("tr") //创建tr标签
+    var checkbox=tbody.getElementsByClassName("dx");
+    var tr_=tbody.getElementsByTagName("tr");
+    var del=tbody.getElementsByClassName("del");
+   tr.innerHTML= '<td>'+'<input class="dx" type="checkbox" name=""  value="" />'+'</td>'+'<td>'+'<i>'+aData[i].num+'<i>'+'</td>'+'<td>'+aData[i].name+'</td>'+'<td>'+aData[i].price+'</td>'+'<td>'+aData[i].count+'</td>' +'<td>'+
+   '<span class="del">'+"删除" +'</span>'+'</td>';
+   tbody.appendChild(tr); 
+   if(i%2==1){
+    tr_[i].style.cssText ="background-color:#fff;";
+    }else{
+        tr_[i].style.cssText ="background-color:#666;color:#fff";
+    }       
+ /*    删除数据 */
+    del[i].onclick=function(){
+        this.parentNode.parentNode.remove();
+        aData.length=aData.length-1;    
+        for(var i=0;i<aData.length;i++){
+         if(checkbox[i].checked ==true){
+                 this.parentNode.parentNode.style.cssText ="background-color:yellow;color:#000"; 
+           }else{
+                if(i%2==1){
+        tr_[i].style.cssText ="background-color:#fff; ";
+    }else{
+        tr_[i].style.cssText ="background-color:#666;color:#fff";
+    } 
+            
+    }
+        }
+         }
+}
+
+/* 全选  */
+qx.onclick=function(){     
+  /*   if(num==null){
+        num=1;
+    }
+    else{
+        num=null;
+    } */
+    console.log(qx.checked)
+    for(var i=0;i<aData.length;i++){
+
+        checkbox[i].checked=  qx.checked;
+    if(qx.checked ){
+    checkbox[i].checked=true;
+    checkbox[i].parentNode.parentNode.style.cssText ="background-color:yellow;color:#000";
+   }
+   else{
+    checkbox[i].checked=false;
+    if(i%2==1){
+        checkbox[i].parentNode.parentNode.style.backgroundColor="#fff";
+        }else{
+            checkbox[i].parentNode.parentNode.style.cssText ="background-color:#666;color:#fff";
+        }
+   }
+ 
+}
+  }
+for(var i=0;i<checkbox.length;i++){
+    checked=checkbox[i];
+    checked.index=i;
+    checked.onclick=function(){
+        var checkNum=0;
+            if(this.checked==true){
+                this.parentNode.parentNode.style.cssText ="background-color:yellow;color:#000";
+            }
+            else{
+                if((this.index)%2==1){
+                this.parentNode.parentNode.style.backgroundColor="#fff";
+            }else{
+                this.parentNode.parentNode.style.cssText ="background-color:#666;color:#fff";
+            }
+            }
+            for(var j=0;j<checkbox.length;j++){
+        if(checkbox[j].checked==true){
+            checkNum++;
+        }else{
+            qx.checked=false;
+        }
+        if(checkNum==checkbox.length){
+            qx.checked=true;
+        }
+        else{
+            qx.checked=false;
+        }
+            }
+   }
+}
+
+
+
+	/*
+		1.点击删除的时候，始终保持各行变色
+		
+		2.如果都选中，那么全选按钮要全选
+		
+		3.只要有一个没选中，那么全选按钮不打钩
+		
+		4.删除的时候如果剩下tr的都为选中的，那么全选也要打钩
+		
+		5.勾选变黄色，取消勾选要还原颜色
+		
+		6.全选
+	*/
+	//console.log(aData);
+	
+</script>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			@keyframes move{
+				0%{transform: rotateY(0deg);}
+				10%{transform: rotateY(36deg);}
+				20%{transform: rotateY(72deg);}
+				30%{transform: rotateY(108deg);}
+				40%{transform: rotateY(144deg);}
+				50%{transform: rotateY(180deg);}
+				60%{transform: rotateY(216deg);}
+				70%{transform: rotateY(252deg);}
+				80%{transform: rotateY(288deg);}
+				90%{transform: rotateY(324deg);}
+				100%{transform: rotateY(360deg);}
+			}
+			.box{
+				width:200px;
+				height:150px;
+				border:1px solid #000;
+				margin: 100px auto;
+				position: relative;
+				transform-style:preserve-3d ;
+				perspective: 1000px;
+			}
+			.box div{
+				width:180px;
+				height:120px;
+				transform-style:preserve-3d ;
+				position: absolute;
+				transform: rotateY(36deg);
+				transform-origin: 0px 0;
+				top:0;
+				left:200px;
+			}
+			.box span{
+				width:180px;
+				height:120px;
+				position: absolute;
+				top:0;
+				left:0;
+				line-height: 120px;
+				text-align: center;
+				font-size: 30px;
+				color: #000;
+				background: green;
+			}
+			
+			.box>div{
+				transform: rotateY(0deg);
+				transform-origin: center center -318px;
+				left:0;
+				top:10px;
+				
+			}
+			.box{
+				transform: rotateX(-20deg);
+				transition: 1s;
+			}
+			.box:hover >div{
+				/*transition: 3s;*/
+				/*transform: rotateY(36deg)*/
+				/*transform: rotateY(360deg);*/
+				/*animation: move 10s infinite linear;*/
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div class="box">
+			
+			<!--<div>
+				<span>1</span>
+				<div>
+					<span>2</span>
+					<div>
+						<span>3</span>
+					</div>
+				</div>
+			</div>-->
+		</div>
+		<script type="text/javascript">
+			var box = document.getElementsByClassName('box')[0];
+			var str = '';
+			
+			for(var i=0;i<10;i++){
+				str = '<div><span>'+(10-i)+'</span>'+str+'</div>';
+			}
+			
+			box.innerHTML = str;
+			
+			var first = box.children[0];
+			
+			
+			box.onmousedown = function(ev){
+				
+				var x = ev.pageX;
+				
+				box.onmousemove = function(ev){
+					
+					var disx = ev.pageX - x;
+					first.style.transform = 'rotateY('+disx*0.5+'deg)';
+					
+				}
+				
+				
+				
+				box.onmouseup = function(){
+					box.onmousemove = null;
+					box.onmouseup = null;
+				}
+				ev.preventDefault();
+			}
+			
+			
+			function getCss(obj,attr){
+				if(obj.currentStyle){
+					// ie浏览器
+					return obj.currentStyle[attr];
+				}else{
+					// 谷歌
+					return getComputedStyle(obj)[attr];
+				}
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>选项卡</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" href="css/tab.css" />
+	</head>
+	<body>
+		<div id="app">
+			<img src="img/detail2.jpg" class="list1"/>
+			<img src="img/detail-tab.jpg" class="list" />
+			<div class="shop">
+				<h3>总价:</h3><span>￥{{pay}}</span>
+				<button class="on" @click="show">立即购买</button>
+				<button @click="show">加入购物车</button>
+			</div>
+			
+			<transition name = "fade">
+                 <div class="shangla" v-show="show1">
+				<div class="top">
+					<img src="img/tab1.jpg"/>
+					<div class="mid">
+						<span class="on" v-for="dj in tablist[3]">￥{{dj.danjia}}</span>
+						<span>库存123456件</span>
+						<span>请选择商品属性</span>
+					</div>
+					<button @click="wrong"></button>
+					<div class="clear"></div>
+					<div class="nums">
+						<p>购买数量</p>
+						<span @click="sub">+</span>
+						<input type="text" :value="nums.num" v-for="nums in tablist[2]" />
+						<span @click="sup">-</span>
+					</div>
+				</div>
+				<div class="shen">
+					<p>大小</p>
+					<ul>
+						<li v-for="(shen,index) in tablist[0]" class="rl" @click="rong(index)">
+							{{shen.name}}
+						</li>
+						
+					</ul>
+				</div>
+				<div class="lei">
+					<p>年龄</p>
+					<ul>
+						<li v-for="(lei,index) in tablist[1]" class="lei2" @click="leibie(index)">
+							{{lei.name}}
+						</li>
+						
+					</ul>
+				</div>
+				
+			</div>
+			
+			</transition>
+			
+				
+			
+			
+			
+			
+			
+		</div>
+	</body>
+</html>
+<script type="text/javascript" src="js/vue.js"></script>
+<script type="text/javascript" src="js/mint-ui.js"></script>
+<script type="text/javascript" src="js/rem.js"></script>
+<script type="text/javascript" src="js/vue-resource.js"></script>
+<script type="text/javascript">
+	new Vue({
+		el:"#app",
+		data(){
+			return{
+				tablist:[],
+				show1:false,
+				price5:0,
+				price6:0,
+				num5:0
+				
+			}
+		},
+		created(){
+			
+			this.$http.get('js/tab.js').then(res=>{
+				this.tablist=res.body
+				
+			})
+			
+		},
+		methods:{
+			show(){
+				this.show1=!this.show1
+			},
+			wrong(){
+				this.show1=!this.show1
+			},
+			rong(i){
+				let rl1= document.querySelectorAll('.rl');
+				let len = rl1.length;
+				//通过for循环来做，搜刚开始颜色都给变成默认一样的
+				for(let x = 0; x<len; x++){
+					rl1[x].style.backgroundColor="#dddddd";
+					rl1[x].style.color="#999999";
+				}
+				rl1[i].style.backgroundColor='#ff9900';
+				rl1[i].style.color="white"
+				this.price5=this.tablist[0][i].price
+				
+			},
+			leibie(i){
+				let lei= document.querySelectorAll('.lei2');
+				let len = lei.length;
+				//通过for循环来做，搜刚开始颜色都给变成默认一样的
+				for(let x = 0; x<len; x++){
+					lei[x].style.backgroundColor="#dddddd";
+					lei[x].style.color="#999999";
+				}
+				lei[i].style.backgroundColor='#ff9900';
+				lei[i].style.color="white"
+				this.price6=this.tablist[1][i].price
+				
+			},
+			sub(){
+				
+				this.tablist[2][0].num++;
+				this.num5 = this.tablist[2][0].num
+			},
+			sup(){
+				if(this.tablist[2][0].num<=1) return;
+				this.tablist[2][0].num--;
+				this.num5 = this.tablist[2][0].num
+			}
+			
+			
+		},
+		computed:{
+			pay(){
+				let sum = 0;
+				if(isNaN(this.price5 || this.price6)){
+					this.price5=0;
+					this.price6=0;
+				}
+				sum = (this.price5+this.price6)*this.num5
+				return sum
+			}
+		}
+		
+		
+		
+	})
+	
+	
+	
+</script>

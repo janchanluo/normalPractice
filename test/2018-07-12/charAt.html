@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/*
+			 
+			 *     charAt(索引)   :  获取字符串里面下标为n的字符
+			 * 
+			 * 	   charCodeAt(索引) : 获取字符串里面下标为n的字符,把这个字符转换成ASCII 码
+			 * 
+			 * 	  toLocaleLowerCase() ： 把字符串里面的所有大写字母变成小写
+			 * 
+			 * 		
+			 * 	  toLocaleUpperCase()  : 把所有的小写字母变成大写字母
+			 * 
+			 * 		
+			 * 		 split(参数)  : 把字符串拆分成数组
+			 * 
+			 * 			按参数来拆分字符串
+			 * 
+			 * 
+			 * 		substring(截取的开始位置，结束位置)  : 截取字符串里面的某些字符
+			 * 					包涵开始位置，不包含结束位置
+			*/
+			
+			var str = 'abcdefghafde';
+			
+			var box = str.charAt(1);
+			var box1 = str.charCodeAt(0);
+			var box2 = str.toLocaleLowerCase();
+			
+			var box3 = str.toLocaleUpperCase();
+			
+			var arr = str.split('');
+			
+			var box4 = str.substring(2,5);
+			
+			console.log(box4)
+		</script>
+	</body>
+</html>

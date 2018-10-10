@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.box{
+				width:300px;
+				border:1px solid #000;
+				margin: 0 auto;
+				
+			}
+			.box div{
+				border:1px solid #000;
+				height:300px;
+				display: none;
+			}
+			.box .active{
+				display: block;
+			}
+			.box .bj{
+				background: green;
+			}
+			
+			
+			.box1{
+				width:300px;
+				border:1px solid #000;
+				margin: 0 auto;
+				
+			}
+			.box1 div{
+				border:1px solid #000;
+				height:300px;
+				display: none;
+			}
+			.box1 .active{
+				display: block;
+			}
+			.box1 .bj{
+				background: green;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<input type="button" value="按钮一" class="bj"/>
+			<input type="button" value="按钮二"/>
+			<input type="button" value="按钮三"/>
+			<input type="button" value="按钮四"/>
+			
+			<div class="active">1111</div>
+			<div>2222</div>
+			<div>33333</div>
+			<div>14444</div>
+		</div>
+		
+		<div class="box1">
+			<input type="button" value="按钮一" class="bj"/>
+			<input type="button" value="按钮二"/>
+			<input type="button" value="按钮三"/>
+			<input type="button" value="按钮四"/>
+			
+			<div class="active">1111</div>
+			<div>2222</div>
+			<div>33333</div>
+			<div>14444</div>
+		</div>
+		
+		
+	<div id="do">
+			
+		<input type="button" value="tab1切换"/>
+		<input type="button" value="tab2切换"/>
+		<input type="button" value="tab1停止切换"/>
+		<input type="button" value="tab2停止切换"/>
+		<input type="button" value="tab1反向运动"/>
+		<input type="button" value="tab2反向运动"/>
+		<input type="button" value="tab2和1反向运动"/>
+	</div>
+	</body>
+	
+	<script type="text/javascript">
+		
+		function Tab(box){
+				this.box = document.getElementsByClassName(box)[0];
+				this.btns = this.box.getElementsByTagName('input');
+				this.divs = this.box.getElementsByTagName('div');
+				this.a = 0;
+				this.Play=null;
+				this.off=false;
+		}
+		Tab.prototype.click = function(){
+					var that = this;
+					for(var i=0;i<this.btns.length;i++){
+						this.btns[i].index = i;
+						this.btns[i].onclick = function(){
+							that.setStyle(this.index);
+							that.a = this.index;
+						}
+					}
+				}
+		Tab.prototype.setStyle = function(num){
+					for(var i=0;i< this.btns.length;i++ ){
+						this.btns[i].className = '';
+						this.divs[i].className = '';
+					}
+					this.btns[num].className = 'bj';
+					this.divs[num].className = 'active';
+				}
+			
+			Tab.prototype.autoPlay = function(){
+				var that = this;
+				this.Play=setInterval(function(){
+					that.a++;
+					that.a = that.a%that.btns.length;
+					that.setStyle(that.a);
+					
+				},800)
+				this.off=true;
+			}
+			Tab.prototype.stopPlay = function(){
+			  clearInterval(this.Play);
+			  this.off=false;
+	
+			}
+			Tab.prototype.change = function(){
+			  if(this.off){
+                  this.stopPlay()
+			  }else{
+			  	 this.autoPlay()
+			  }
+				
+			}
+			
+			var t = new Tab('box');
+			var d = new Tab('box1');
+			t.click();
+			d.click();
+//			
+			var Do=document.getElementById("do");
+			var Dobtn=Do.getElementsByTagName("input");
+			Dobtn[0].onclick=function(){
+			  t.autoPlay(); 	
+			}
+		    Dobtn[1].onclick=function(){
+			  d.autoPlay(); 	
+			}
+		    Dobtn[2].onclick=function(){
+			  t.stopPlay(); 	
+			}
+		    Dobtn[3].onclick=function(){
+		       d.stopPlay(); 	
+			}
+		    Dobtn[4].onclick=function(){
+			  t.change(); 	
+			}
+		    Dobtn[5].onclick=function(){
+			  d.change(); 	
+			}
+		    Dobtn[6].onclick=function(){
+			   t.change(); 	
+			   d.change(); 
+			}
+	
+
+			
+	</script>
+</html>

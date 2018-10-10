@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    .blue{
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        position: absolute;
+        top: 200px;left: 200px;
+        background: blue;
+    }
+    .red{
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        position: absolute;
+        top: 200px;left: 800px;
+        background: red;
+    }
+</style>
+<body>
+    <div class="blue"></div>
+    <div class="red"></div>
+</body>
+<script>
+    var blue=document.getElementsByClassName("blue")[0];
+    var red=document.getElementsByClassName("red")[0];
+    blue.onmousedown=function(e){
+       var disX=e.clientX-this.offsetLeft;
+       console.log(disX,this.offsetLeft,e.clientX)
+       var  disY=e.clientY-this.offsetTop;
+       document.onmousemove=function(e){
+         l=e.clientX-disX;
+        //  console.log()
+         t=e.clientY-disY;
+        blue.style.left=l+"px";
+        blue.style.top=t+"px";
+        // console.log(blue.offsetTop+blue.offsetHeight/2)
+        if(poke()){
+            red.style.background="yellow";
+        }else{
+            red.style.background="red";
+        }
+     }
+    }
+	blue.onmouseup = function(){
+					document.onmousemove = document.onmouseup = null;
+				}
+
+    function poke(){
+        var T1=blue.offsetTop+blue.offsetHeight/2;
+        var L1=blue.offsetLeft+blue.offsetWidth/2;
+        var r=blue.offsetWidth/2+red.offsetHeight/2;
+        var T2=red.offsetTop+blue.offsetHeight/2;
+        var L2=red.offsetLeft+blue.offsetWidth/2;
+        if((T2-T1)*(T2-T1)+(L2-L1)*(L2-L1) > r*r){
+            return false  ;
+                  }
+                  else{
+                      return true;
+                  }
+    }
+</script>
+</html>

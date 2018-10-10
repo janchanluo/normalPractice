@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>    
+
+   var a=[
+   {
+    "id": 1,
+    "startTime": "2017-12-12 10:36:50"
+         },
+         {
+    "id": 3,
+    "startTime": "2017-12-12 10:36:50"
+         },
+         {
+    "id": 4,
+    "startTime": "2017-12-12 10:36:50"
+         }
+       ];
+       
+    for(item in a){
+        console.log(a[item])
+    }
+    // a.forEach(element => {
+    //     console.log(element.id)
+    // });
+var sum=0;
+    function f1(callback) {
+
+    setTimeout(function ( ) { 
+      for(var i=0;i<10000000;i++){
+            sum+=i;
+        }
+        console.log(sum)
+         }, 0);
+         callback()
+    }
+    
+      function f2(){
+          console.log(0)
+      }
+      f1(f2)
+      console.log(1)
+</script>
+</html>

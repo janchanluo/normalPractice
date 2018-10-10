@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="https://cdn.bootcss.com/Swiper/4.3.0/css/swiper.css" rel="stylesheet">
+</head>
+<body>
+    <div class="banner">
+        <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    
+                                <div class="swiper-slide"><a href="#"><img src="images/l3.jpg"" alt=""></a></div>
+                                <div class="swiper-slide"><a href="#"><img src="images/l4.jpg"" alt=""></a></div>
+                                <div class="swiper-slide"><a href="#"><img src="images/l5.jpg"" alt=""></a></div>
+                                <div class="swiper-slide"><a href="#"><img src="images/l5.jpg"" alt=""></a></div>                  
+                        </div>
+                <!-- 如果需要分页器 -->
+                <div class="swiper-pagination"></div>
+                
+                <!-- 如果需要导航按钮 -->
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+                
+                <!-- 如果需要滚动条 -->
+                <div class="swiper-scrollbar"></div>
+            </div>
+   
+</div>
+</body>
+<script src="https://cdn.bootcss.com/Swiper/4.2.5/js/swiper.js"></script>
+
+<script>
+var mySwiper = new Swiper ('.swiper-container', {
+    direction: 'horizontal',
+    loop: false,
+    
+    // 如果需要分页器
+    pagination: {
+      el: '.swiper-pagination',
+    },
+    
+    // 如果需要前进后退按钮
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    
+    // 如果需要滚动条
+    scrollbar: {
+      el: '.swiper-scrollbar',
+    },
+  })        
+/*     for (var i = 0; i < 3; i++) {
+  var i = 'abc';
+  console.log(i);
+}
+
+
+let a=5;
+ function c(){
+     let a=10;
+    
+ }
+ c(); */
+/*  function bar(x = 2, y = x) {
+  return [x, y];
+}
+
+function f() { console.log('I am outside!'); }
+
+(function () {
+  if (true) {
+    // 重复声明一次函数f
+    function f() { console.log('I am inside!'); }
+  }
+
+  f();
+}()); */
+
+/* function log(x, y = 'World') {
+  console.log(x, y);
+}
+log("hello");
+console.log(bar()) */
+//  console.log(a)
+
+
+
+/* var a = [];
+for (let i = 0; i < 10; i++) {
+  a[i] = function () {
+    console.log(i);
+  };
+}
+a[9](); // 6
+
+for (let i = 0; i < 3; i++) {
+  let i = 'abc';
+  console.log(i);   
+} */        /* 变量污染 */
+
+
+
+// let x= 1;
+// console.log(this.x)
+
+
+/* function ax() {
+  return  [1,3,4];
+  }
+  let [x,y,z]=ax();
+  console.log(x,y,z); */  /* 解构赋值 */
+
+function ax({x,y}={x:1,y:2}) { 
+  return [x,y];
+ }
+
+ console.log( ax({}));
+
+ var vv='𠮷';
+ console.log(vv[0])
+</script>
+
+</html>

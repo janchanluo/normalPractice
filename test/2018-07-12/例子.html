@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			
+			var str = 'qing yin li aa bb cc dd ff'; // Qing Yin Li 
+			
+			//  把字符串拆分成数组
+			var arr = str.split(' ');
+			var str2 = ''
+			for(var i=0;i<arr.length;i++){
+				str2 += arr[i].substring(0,1).toLocaleUpperCase()+arr[i].substring(1)+' ';
+				
+			}
+			
+			console.log(str2)
+		</script>
+	</body>
+</html>

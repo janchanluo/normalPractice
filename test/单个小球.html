@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    #cav{
+        box-shadow: 0 0 5px #333;
+        display: block;
+        margin:  20px auto;
+        
+    }
+    </style>
+</head>
+<body>
+    <canvas width="1200" height="600" id="cav">
+        
+    </canvas>
+</body>
+<script>
+    var cav = document.getElementById("cav");
+     var ctx=cav.getContext("2d");
+
+    //  ctx.arc(200,200,100,0,Math.PI*2);
+   var x=200;
+   var y=200;
+   var speedY=5;
+   var speedX=5;
+
+  function move(){
+    ctx.beginPath();
+    ctx.clearRect(0,0,1200,600);
+
+    ctx.font="40px blue";
+    ctx.globalCompositeOperation="source-over";
+    ctx.fillStyle="#fff";
+    ctx.fillText("侯宇",x,y);
+    ctx.textAlign="center"; 
+
+    ctx.fillStyle="green";
+    ctx.arc(x,y,100,0,Math.PI*2);
+    ctx.globalCompositeOperation="destination-over";
+
+         if(x>1100){
+            speedX=-speedX;
+         }else if(x<100){
+            speedX=-speedX;
+         }
+         if(y>=500){
+            speedY=-speedY;
+         }else if(y<=100){
+            speedY=-speedY;
+         }
+         x+=speedX;
+         y+=speedY;
+         console.log(y,x)
+         ctx.fill();
+         requestAnimationFrame(move);
+     }
+     move();
+
+</script>
+</html>
+     

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+  .info{
+      /* border: 1px #ccc solid; */
+      width: 300px;
+      height: 300px;
+      margin-top: 20px;
+  }
+  .del{
+      color: blue;
+  }
+</style>
+<body>
+   <input type="text"><button>提交</button> 
+   <div class="info">
+<p style="display: none"></p>
+   </div>
+</body>
+<script>
+    var info=document.getElementsByClassName("info")[0];
+    var btn=document.getElementsByTagName("button");
+    var input=document.getElementsByTagName("input");
+    btn[0].onclick=function(){
+        var val=input[0].value;
+        if(val){
+            var p=document.createElement("p");
+            var del=document.getElementsByClassName("del");
+            var pbef=document.getElementsByTagName("p")[0];
+            p.innerHTML=val+"<span class='del'>"+"删除"+"</span>";
+           info.insertBefore(p,pbef);  
+           input[0].value='';
+        }
+        else{
+            alert("你什么都没有输入！")
+        }
+        for(var i=0;i<del.length;i++){
+            del[i].onclick=function(){
+                x=confirm("确定要删除这条数据!")
+                if(x){
+                    this.parentNode.remove();
+                }
+    
+            }
+        }
+     
+    }
+
+    console.log(0/0)
+</script>
+<!-- //1.将son of the beach 输出为 beach the of sun
+//2.去掉空格 "sldw3  kf s230"
+//3.统计数字出现的次数"sahiuwd4@#12*~14" -->
+
+<script>
+    var str1="son of the beach";
+    var strNew='';
+    var strArr=str1.split(" ");
+    for(var i=0;i<strArr.length;i++){
+        strNew+=strArr[(strArr.length-i-1)]+" ";
+    }
+    console.log(strNew);//1.将son of the beach 输出为 beach the of sun(1)
+    console.log(strArr.reverse().join(' '))//1.将son of the beach 输出为 beach the of sun(2)
+
+
+  var str2="sldw3  kf s230";
+  var strArr3='';
+  strArr2=str2.split(' ');
+  for(var i=0;i<strArr2.length;i++){
+      if(strArr2[i]==' '){
+          continue;
+      }else{
+        strArr3+=strArr2[i];
+      }
+  }
+  console.log(strArr3)//2.去掉空格 "sldw3  kf s230"(1)
+  console.log(strArr2.join(''))   //2.去掉空格 "sldw3  kf s230"(2)
+
+
+ var  str3="sahi1uwd4@#12*~";
+ var strArr4=str3.split("");
+ var  num=null;
+ for(var i=0;i<strArr4.length;i++){
+    if(!isNaN(Number(strArr4[i])) ){
+            num++
+     }
+ }
+ console.log(num)
+</script>
+</html>

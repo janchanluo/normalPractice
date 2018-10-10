@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>主页</title>
+    <link rel="stylesheet" href="css/common.css">
+
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <link rel="stylesheet" href="css/homepage.css">
+
+    <style>
+        	@import url(http://cdn.bootcss.com/font-awesome/4.4.0/css/font-awesome.min.css);
+	@import url(http://fonts.googleapis.com/css?family=Montserrat);
+	
+        	.sidenav { position: absolute; top: 0; left: 0; bottom: 0; background: linear-gradient(rgba(50,60,60, 1), rgba(50,60,60, 0.7)); width: 50px; transition: all 0.25s; overflow: hidden; padding-top: 100px;}
+		.sidenav li { overflow: hidden; width: 5.5rem; }
+		.sidenav a { text-decoration: none; color: #eee;  display: block; line-height: 48px;  }
+		.sidenav span {display: block;}
+		.sidenav b { padding-left: 10px; display: block; color: white; font-family: Montserrat; font-size: 12px; line-height: 4; opacity: 0; }
+		.sidenav a i { display: block; float: left; font-size: 16px; line-height: 48px; width: 50px; text-align: center; }
+
+		/*All instances*/
+		/* .grid>li:hover .sidenav {width: 150px;}
+		.grid>li:hover section {margin-left: 150px;}
+		.grid>li:hover b {opacity: 1;} */
+
+		.sidenav li:nth-child(1) b, .sidenav li:nth-child(1) a {transition-delay: .08s;}
+		.sidenav li:nth-child(2) b, .sidenav li:nth-child(2) a {transition-delay: .16s;}
+		.sidenav li:nth-child(3) b, .sidenav li:nth-child(3) a {transition-delay: .24s;}
+		.sidenav li:nth-child(4) b, .sidenav li:nth-child(4) a {transition-delay: .32s;}
+		.sidenav li:nth-child(5) b, .sidenav li:nth-child(5) a {transition-delay: .40s;}
+		.sidenav li:nth-child(6) b, .sidenav li:nth-child(6) a {transition-delay: .48s;}
+
+	
+		.sidenav li:nth-child(1) i {transition-delay: .48s;}
+		.sidenav li:nth-child(2) i {transition-delay: .40s;}
+		.sidenav li:nth-child(3) i {transition-delay: .32s;}
+		.sidenav li:nth-child(4) i {transition-delay: .24s;}
+		.sidenav li:nth-child(5) i {transition-delay: .16s;}
+		.sidenav li:nth-child(6) i {transition-delay: .08s;}
+
+		/*Six*/
+		.sa a {transform: scale(1.5); opacity: 0;}
+        /* .sa:hover a {transform: scale(1);  opacity: 1; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);}
+         */.sa{display: none}
+        #app{
+          transition: all 0.25s
+        }
+    </style>
+</head>
+
+<body>
+    
+   <div class="sa">
+        <ul class="sidenav">
+                <li><a><i class="fa fa-check"></i><b>Tasks</b></a></li>
+                <li><a><i class="fa fa-inbox"></i><b>Messages</b></a></li>
+                <li><a><i class="fa fa-pencil"></i><b>New Post</b></a></li>
+                <li><a><i class="fa fa-cog"></i><b>Settings</b></a></li>
+                <li><a><i class="fa fa-star"></i><b>Starred</b></a></li>
+                <li><a><i class="fa fa-power-off"></i><b>Logout</b></a></li>
+            </ul>
+   </div>
+                <div id="app">
+                    <div class="allmask" @click="tiao"></div>
+                    <header>
+                        <a href="###" class="return">
+                            <img src="img/8home_03.png" alt="">
+                        </a>
+                        <h3 onclick="location.href='pro_search.html'">
+                            <img src="img/4pro_search_03.png" alt="">
+                            <input type="text" placeholder="金丝绒秋冬套装">
+
+                        </h3>
+                        <a href="###" class="search">
+                            <img src="img/8home_05.png" alt="">
+                        </a>
+                    </header>
+
+                    <div class="content">
+                        <div class="banner">
+                            <div class="swiper-container">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        <img src="img/8home_02.png" alt="">
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="img/banner1.png" alt="">
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="img/banner2.png" alt="">
+                                    </div>
+
+                                </div>
+                                <!-- Add Pagination -->
+                                <div class="swiper-pagination"></div>
+                            </div>
+
+                            <!-- Swiper JS -->
+
+
+                        </div>
+
+                        <div class="sub">
+                            <ul>
+                                <li>
+                                    <a href="pro_categorles.html">
+                                        <img src="img/10home_03.png" alt="">
+                                        <br> 今日热销
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="pro_categorles.html">
+                                        <img src="img/10home_05.png" alt="">
+                                        <br> 会员中心
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="pro_categorles.html">
+                                        <img src="img/10home_07.png" alt="">
+                                        <br> 我的收藏
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="pro_categorles.html">
+                                        <img src="img/10home_09.png" alt="">
+                                        <br> 我的收藏
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="pro_categorles.html">
+                                        <img src="img/10home_11.png" alt="">
+                                        <br> 全部分类
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </div>
+                        <div class="baokuan">
+                            <div class="title">
+                                爆款商品
+                            </div>
+
+                            <ul>
+                                <li>
+                                    <a href="pro_details.html">
+                                        <img src="img/12home_03.png" alt="">
+
+                                        <p>
+                                            <span> 男装中长款加厚风衣
+                                                <i> ¥128.00</i>
+                                            </span>
+                                            <b></b>
+                                            <span></span>
+                                        </p>
+                                    </a>
+                                    <h4>
+                                        <span></span>
+                                        <img src="img/chehome_03.png" alt="">
+                                    </h4>
+                                </li>
+                                <li>
+                                    <a href="pro_details.html">
+                                        <img src="img/12home_05.png" alt="">
+
+                                        <p>
+                                            <span> 秋季套装新系列
+                                                <i> ¥128.00</i>
+                                            </span>
+                                            <b></b>
+                                            <span></span>
+                                        </p>
+                                    </a>
+                                    <h4>
+                                        <span></span>
+                                        <img src="img/chehome_03.png" alt="">
+                                    </h4>
+                                </li>
+                                <li>
+                                    <a href="pro_details.html">
+                                        <img src="img/12home_09.png" alt="">
+
+                                        <p>
+                                            <span> 秋季套装新系列
+                                                <i> ¥128.00</i>
+                                            </span>
+                                            <b></b>
+                                            <span></span>
+                                        </p>
+                                    </a>
+                                    <h4>
+                                        <span></span>
+                                        <img src="img/chehome_03.png" alt="">
+                                    </h4>
+                                </li>
+                            </ul>
+                        </div>
+
+
+                        <div class="rexiao">
+                            <div class="title">
+                                热销商品
+                            </div>
+                            <ul>
+                                <li>
+                                    <a href="pro_details.html">
+                                        <img src="img/12home_03.png" alt="">
+
+                                        <p>
+                                            <span> 毛呢外
+                                                <i> ¥128.00</i>
+                                            </span>
+                                            <b></b>
+                                            <span></span>
+                                        </p>
+                                    </a>
+                                    <h4>
+                                        <span></span>
+                                        <img src="img/chehome_03.png" alt="">
+                                    </h4>
+                                </li>
+                                <li>
+                                    <a href="pro_details.html">
+                                        <img src="img/12home_05.png" alt="">
+
+                                        <p>
+                                            <span> 秋季套
+                                                <i> ¥128.00</i>
+                                            </span>
+                                            <b></b>
+                                            <span></span>
+                                        </p>
+                                    </a>
+                                    <h4>
+                                        <span></span>
+                                        <img src="img/chehome_03.png" alt="">
+                                    </h4>
+                                </li>
+                                <li>
+                                    <a href="pro_details.html">
+                                        <img src="img/12home_05.png" alt="">
+
+                                        <p>
+                                            <span> 秋季套
+                                                <i> ¥128.00</i>
+                                            </span>
+                                            <b></b>
+                                            <span></span>
+                                        </p>
+                                    </a>
+                                    <h4>
+                                        <span></span>
+                                        <img src="img/chehome_03.png" alt="">
+                                    </h4>
+                                </li>
+                                <li>
+                                    <a href="pro_details.html">
+                                        <img src="img/12home_09.png" alt="">
+
+                                        <p>
+                                            <span> 秋季套
+                                                <i> ¥128.00</i>
+                                            </span>
+                                            <b></b>
+                                            <span></span>
+                                        </p>
+                                    </a>
+                                    <h4>
+                                        <span></span>
+                                        <img src="img/chehome_03.png" alt="">
+                                    </h4>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="recom">
+                            <div class="title">
+                                推荐商品
+                            </div>
+                            <ul>
+                                <li>
+                                    <a href="pro_details.html">
+                                        <img src="img/12home_05.png" alt="">
+
+                                        <p>
+                                            <span> 毛呢外
+                                                <i> ¥128.00</i>
+                                            </span>
+                                            <b></b>
+                                            <span></span>
+                                        </p>
+                                    </a>
+                                    <h4>
+                                        <span></span>
+                                        <img src="img/chehome_03.png" alt="">
+                                    </h4>
+                                </li>
+                                <li>
+                                    <a href="pro_details.html">
+                                        <img src="img/12home_03.png" alt="">
+
+                                        <p>
+                                            <span> 秋季套
+                                                <i> ¥128.00</i>
+                                            </span>
+                                            <b></b>
+                                            <span></span>
+                                        </p>
+                                    </a>
+                                    <h4>
+                                        <span></span>
+                                        <img src="img/chehome_03.png" alt="">
+                                    </h4>
+                                </li>
+                                <li>
+                                    <a href="pro_details.html">
+                                        <img src="img/12home_05.png" alt="">
+
+                                        <p>
+                                            <span> 秋季套
+                                                <i> ¥128.00</i>
+                                            </span>
+                                            <b></b>
+                                            <span></span>
+                                        </p>
+                                    </a>
+                                    <h4>
+                                        <span></span>
+                                        <img src="img/chehome_03.png" alt="">
+                                    </h4>
+                                </li>
+                                <li>
+                                    <a href="pro_details.html">
+                                        <img src="img/12home_09.png" alt="">
+
+                                        <p>
+                                            <span> 秋季套
+                                                <i> ¥128.00</i>
+                                            </span>
+                                            <b></b>
+                                            <span></span>
+                                        </p>
+                                    </a>
+                                    <h4>
+                                        <span></span>
+                                        <img src="img/chehome_03.png" alt="">
+                                    </h4>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="fashion">
+                            <div class="title">
+                                时尚大咖
+                            </div>
+
+                            <ul>
+                                <li>
+                                    <a href="pro_details.html">
+                                        <img src="img/12home_05.png" alt="">
+
+                                        <p>
+                                            <span> 男装中长款加厚风衣
+                                                <i> ¥128.00</i>
+                                            </span>
+                                            <b></b>
+                                            <span></span>
+                                        </p>
+                                    </a>
+                                    <h4>
+                                        <span></span>
+                                        <img src="img/chehome_03.png" alt="">
+                                    </h4>
+                                </li>
+                                <li>
+                                    <a href="pro_details.html">
+                                        <img src="img/12home_03.png" alt="">
+
+                                        <p>
+                                            <span> 秋季套装新系列
+                                                <i> ¥128.00</i>
+                                            </span>
+                                            <b></b>
+                                            <span></span>
+                                        </p>
+                                    </a>
+                                    <h4>
+                                        <span></span>
+                                        <img src="img/chehome_03.png" alt="">
+                                    </h4>
+                                </li>
+                                <li>
+                                    <a href="pro_details.html">
+                                        <img src="img/12home_09.png" alt="">
+
+                                        <p>
+                                            <span> 秋季套装新系列
+                                                <i> ¥128.00</i>
+                                            </span>
+                                            <b></b>
+                                            <span></span>
+                                        </p>
+                                    </a>
+                                    <h4>
+                                        <span></span>
+                                        <img src="img/chehome_03.png" alt="">
+                                    </h4>
+                                </li>
+                            </ul>
+                        </div>
+
+
+                    </div>
+                    <footer>
+                        <ul>
+                            <li class="on">
+                                <a href="homepage.html">
+                                    <img src="img/13home_03.png" alt="">
+                                    <br> 首页</a>
+                            </li>
+                            <li>
+                                <a href="pro_categorles.html">
+                                    <img src="img/13home_06.png" alt="">
+                                    <br> 分类</a>
+                            </li>
+                            <li>
+                                <a href="weihu.html">
+                                    <img src="img/pro_categorles_07.png" alt="">
+                                    <br> 消息</a>
+                            </li>
+                            <li>
+                                <a href="shop_cart.html">
+                                    <img src="img/pro_categorles_10.png" alt="">
+                                    <br>购物车</a>
+                            </li>
+                            <li>
+                                <a href="user.html">
+                                    <img src="img/pro_categorles_13.png" alt="">
+                                    <br>我的帆歌</a>
+                            </li>
+                        </ul>
+                    </footer>
+
+
+                    <!-- <div class="cebian" v-show="flag" v-on:swipeRight="fun">
+                        <div class="mask">
+
+                        </div>
+                        <ul>
+                            <li>
+                                <a href="weihu.html">
+                                    <img src="img/6user_07.png" alt=""> 购买记录
+                                    <img src="img/2confirm_order_03.png" alt="">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="weihu.html">
+                                    <img src="img/6user_10.png" alt=""> 我的收藏
+                                    <img src="img/2confirm_order_03.png" alt="">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="weihu.html">
+                                    <img src="img/6user_12.png" alt=""> 我的订单
+                                    <img src="img/2confirm_order_03.png" alt="">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="weihu.html">
+                                    <img src="img/6user_14.png" alt=""> 管理收货地址
+                                    <img src="img/2confirm_order_03.png" alt="">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="register.html">
+                                    <img src="img/6user_16.png" alt=""> 修改个人资料
+                                    <img src="img/2confirm_order_03.png" alt="">
+                                </a>
+                            </li>
+                        </ul>
+                    </div> -->
+                </div>
+       
+      
+
+    
+                <script type="text/javascript" src="http://www.htmleaf.com/assets/js/prefixfree.min.js"></script>
+    <script src="js/swiper.min.js"></script>
+    <script src="js/vue.js"></script>
+    <script src="js/zepto.js"></script>
+    <script src="js/hammer.js"></script>
+    <script src="js/rem.js"></script>
+    <script>
+ var hammertime = new Hammer(document.querySelector("html"));
+ hammertime.on("swiperight ", function (e) {   
+     $(".sa").find("a").css({transform: "scale(1)", opacity: 1, transition:" all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)"})     
+     document.querySelector(".sa").style.display="block"
+     document.querySelector(".sidenav").style.width="5.5rem"
+     document.querySelector(".allmask").style.display="block";           
+    document.getElementById("app").style.marginLeft="5.5rem";
+    document.querySelector("header").style.left="5.5rem"
+  
+});
+// console.log(document.querySelector(".allmask"))
+// var aa=document.querySelector(".allmask")
+// $(".allmask").on("tap",function(){
+// console.log(1)
+// })
+    
+   
+
+        new Vue({
+
+            el: "#app",
+            data: {
+                flag: true
+            },
+            methods: {
+                fun: function () {
+                    console.log(1)
+                },
+                tiao:function(){
+                       document.getElementById("app").style.marginLeft="0rem";
+    document.querySelector("header").style.left="0rem"
+    document.querySelector(".sidenav").style.width="0rem"
+     document.querySelector(".allmask").style.display="none";  
+                }
+            }
+
+        })
+        var swiper = new Swiper('.swiper-container', {
+            pagination: '.swiper-pagination',
+            paginationClickable: true
+        });
+    </script>
+</body>
+
+</html>

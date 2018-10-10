@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div class="box">
+        <select  id="shen">
+            <option value="">选择省</option>
+        </select>
+        <select  id="city">
+                <option value="">选择市</option>
+            </select>
+            <select  id="country">
+                    <option value="">选择县</option>
+                </select>
+    </div>
+</body>
+<script src="https://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+<script>
+  var dataCity=[
+       {
+           "code":"001",
+           "name":"广东省",
+           "citys":[
+               {
+                   code:"001001",name:"广州市",
+            "xian":[
+                {code:"001001001",name:"z县"},
+                {code:"001001002",name:"v县"}
+            ]
+            
+            },
+               {code:"001002",name:"z市",
+            
+               "xian":[
+                {code:"001002001",name:"z县"},
+                {code:"001002002",name:"v县"}
+            ]
+            },
+               {code:"001003",name:"x市",
+               "xian":[
+                {code:"001001001",name:"z县"},
+                {code:"001001002",name:"v县"}
+            ]
+            
+            }
+        
+        ]
+    },{
+        "code":"002",
+           "name":"xx省",
+           "citys":[
+               {code:"002001",name:"v市",
+            
+               "xian":[
+                {code:"001001001",name:"zxxx县"}
+            ]},
+               {code:"002002",name:"b市",
+               "xian":[
+                {code:"001001001",name:"zsdasd县"},
+                {code:"001001002",name:"vdasdas县"}
+            ]},
+               {code:"002003",name:"n市",
+               "xian":[
+                {code:"001001001",name:"zadsxz县"},
+                {code:"001001002",name:"v112县"}
+            ]}
+        
+        ]
+    }
+  
+  ]
+$.each(dataCity,function () {
+    $("<option></option>").val(this.code).text(this.name).appendTo('#shen');
+    // console.log(this.code)
+    var city=this.citys;
+    var Ocode=this.code;
+     $.each(city,function(){
+         var _this=this;
+         var xians=this.xian;
+         var Tcode=this.code;
+        //  console.log(xians)
+         $("#shen").change(function () {
+      console.log(1)
+             $("#city option:gt(0)").remove();
+           console.log(this)
+      
+             if($(this).val()==Ocode){
+                $("<option></option>").val(_this.code).text(_this.name).appendTo('#city');  
+             }
+           })
+       $.each(xians,function () { 
+        var _this=this;
+        $("#city").change(function () {
+            if($(this).val()==Tcode){
+                $("<option></option>").val(_this.code).text(_this.name).appendTo('#country');  
+}
+        })
+      
+        })
+     })
+
+  })
+
+
+
+
+ 
+</script>
+
+</html>

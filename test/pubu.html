@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+    <style>
+    .box{
+        width: 1200px;
+        margin:  0 auto;
+    }
+    ul{
+        float: left;
+        width: 150px;
+        margin: 0 5px;
+
+    }
+    li{
+        list-style: none;
+        background: #ccc;
+        margin-bottom: 10px;
+    }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <ul></ul>
+        <ul></ul>
+        <ul></ul>
+        <ul></ul>
+        <ul></ul>
+    </div>
+<div class="box"></div>
+</body>  
+  <script>
+var box1=document.getElementsByClassName("box")[1];
+
+    var box=document.getElementsByClassName("box")[0];
+
+    obsa(20);
+    document.onscroll=function(){
+        var arr=[];
+        var shortH=0,index=null;
+        var Oul=document.getElementsByTagName("ul");
+        // var windowH = windowH()
+        for(var i=0;i<Oul.length;i++){
+            arr.push(Oul[i].offsetHeight);
+        }
+        shortH=Math.min.apply(null, arr);
+        console.log(shortH,windowH()+bodyH())
+        if((windowH()+bodyH())>=shortH ){
+            obsa(10);
+        }
+        }
+
+    function obsa(num) {
+        for(var i=0;i<num;i++){
+            Oli();
+        }
+      }
+    function Oli(){
+        var Oul = document.getElementsByTagName("ul");
+        var Oli=document.getElementsByTagName("li");
+        var newli =document.createElement("li");
+        newli.style.height=rand(100,300)+"px";
+           var shortH,index;
+	    	var arr = [];
+	    	for(var i=0;i<Oul.length;i++){
+	    		arr.push(Oul[i].offsetHeight);
+	    	}
+	    	var shortH = Math.min.apply(null,arr);
+	    	index = arr.indexOf(shortH);
+	    	Oul[index].appendChild(newli);
+    }
+    
+    function rand(min,max) {
+        return  parseInt( min+(max-min)*Math.random())
+      }
+      function windowH() {  
+        return  document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;
+    }
+    function bodyH() {  
+        return window.innerHeight  || document.documentElement.clientHeight;
+    }
+    </script>
+</html>

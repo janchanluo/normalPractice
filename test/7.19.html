@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    .box{
+        width: 300px;
+        border: 3px solid #ccc;
+    }
+    </style>
+</head>
+<body>
+    <button>展开</button><button>收缩</button>
+    <div class="box">
+
+    </div>
+</body>
+<script>
+    var btn=document.getElementsByTagName("button");
+    var str="速度快拉上我们的拉升";
+    var box=document.getElementsByClassName("box")[0];
+    var i=0;
+    btn[0].onclick=function(){
+        timer1=setInterval(function(){
+            i++
+        box.innerHTML=str.substring(i,i+1);
+        if(i>str.length){
+            clearInterval();
+        }
+        },30)
+       
+    }
+console.log(typeof NaN)
+var str="1 plus 2 equal 3"
+document.write(str.match(/\d+/g))
+</script>
+</html>

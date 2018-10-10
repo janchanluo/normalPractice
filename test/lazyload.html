@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /* body{
+            height: 2000px;
+        } */
+       /* .box{
+           height: 2000px;
+       } */
+       img{
+           margin: 100px;
+       } 
+    </style>
+</head>
+<body>
+    <div class="box">
+        <img class="lazyload" alt="" width="1000"  height="50" data-original="http://images.h-ui.net/www/AD-1000x60.gif" />
+        <img class="lazyload" alt="" width="1000"  height="50" data-original="http://images.h-ui.net/www/AD-1000x60.gif" />
+        <img class="lazyload" alt="" width="1000"  height="50" data-original="http://images.h-ui.net/www/AD-1000x60.gif" />
+        <img class="lazyload" alt="" width="1000"  height="50" data-original="http://images.h-ui.net/www/AD-1000x60.gif" />
+        <img class="lazyload" alt="" width="1000"  height="50" data-original="http://images.h-ui.net/www/AD-1000x60.gif" />
+        <img class="lazyload" alt="" width="1000"  height="50" data-original="http://images.h-ui.net/www/AD-1000x60.gif" />
+        <img class="lazyload" alt="" width="1000"  height="50" data-original="http://images.h-ui.net/www/AD-1000x60.gif" />
+        <img class="lazyload" alt="" width="1000"  height="50" data-original="http://images.h-ui.net/www/AD-1000x60.gif" />
+        <img class="lazyload" alt="" width="1000"  height="50" data-original="http://images.h-ui.net/www/AD-1000x60.gif" />
+        <img class="lazyload" alt="" width="1000"  height="50" data-original="http://images.h-ui.net/www/AD-1000x60.gif" />
+        <img class="lazyload" alt="" width="1000"  height="50" data-original="http://images.h-ui.net/www/AD-1000x60.gif" />
+    
+    </div>
+        
+</body>
+<script src="https://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/jquery_lazyload/1.7.2/jquery.lazyload.min.js"></script>
+<script src="https://cdn.bootcss.com/jquery-cookie/1.2.0/jquery.cookie.min.js"></script>
+
+<script>
+    // $(".box").click(function () {
+    //     alert(1)
+    //   })
+    $(function() {
+    $("img.lazyload").lazyload({
+    threshold       : 0,
+    failure_limit   : 0,
+    event           : "scroll",
+    effect          : "fadeIn",
+    container       : window,
+    data_attribute  : "original",
+    skip_invisible  : true,
+    appear          : null,
+    load            : null
+
+})
+});
+
+// $.cookie('name', 'peiqi');
+// $.cookie('the_cookie', 'the_value', { expires: 1 }); 
+var sum=0;
+  function a(callback) {
+      setTimeout(function () {
+        for(var i=0;i<1000000000;i++){
+          sum=i;
+      }
+      console.log(sum);
+       
+        },0)
+        callback();
+    }
+
+    function b(){
+        console.log(1)
+    }
+    a(b);
+ console.log(122)
+</script>
+</html>

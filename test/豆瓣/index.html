@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/index.css"/>
+	    <script src="js/jsonp.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="header">
+			<div class="header_menu">
+				<ul>
+					<li>豆瓣</li>
+					<li>读书</li>
+					<li>电影</li>
+					<li>音乐</li>
+					<li>同城</li>
+					<li>小组</li>
+					<li>阅读</li>
+					<li>FM</li>
+					<li>时间</li>
+					<li>豆品</li>
+					<li>更多</li>
+					             
+				</ul>
+			</div>
+			<div class="header_set">
+				<ul>
+					<li>下载豆瓣客户端豆瓣</li>
+					<li>登录</li>
+					<li>注册</li>
+				</ul>
+			</div>
+		</div>
+		<div class="header-box">
+		<div class="header-title">
+			<div class="search">
+				<h1>豆瓣电影</h1>
+				<input id="inp-query" name="search_text" size="22" maxlength="60" placeholder="搜索电影、电视剧、综艺、影人" value="" autocomplete="off">
+				<input type="button" name="btn" id="inp-btn" value="search" />
+				
+				<div class="search-list">
+					<ul id="search-list-ul">
+						<!--<li>
+							<div class="movie-pic">
+								<img src="https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2531648684.webp" alt=""  width="50" height="60" alt="" />
+							</div>
+							<div class="movie-txt">
+								<span>说的</span>
+								<span>sdad</span>
+							</div>
+						</li>-->
+					</ul>
+				</div>
+			</div>
+			<div class="search-menu">
+				<ul>
+					<li>影讯&购票</li>
+					<li> 选电影</li>
+					<li>电视剧</li>
+					<li>排行榜</li>
+					<li> 分类</li>
+					<li>影评</li>
+					<li>2017年度榜单</li>
+					<li>2017观影报告</li>
+				</ul>
+				     
+			</div>
+		</div>
+		</div>
+		
+		<div class="content">
+			<div class="content-left">
+				<div class="movie-menu">
+				<h2>
+					正在热映
+					<a href="javascript:;">全部正在热映»</a>
+					<a href="javascript:;">即将上映»</a>
+				</h2>
+			</div>
+			<div class="movie-show">
+				<ul class="movie-mes">
+					<!--<li>
+			
+					<img src="https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2531648684.webp" alt=""  width="115" height="161"/>
+					<a href="#">虎胆追凶</a>
+			      <span>*****6.5</span>
+			        <a href="#" class="buy-titck">选座购票</a>
+					</li>-->
+				</ul>
+			</div>
+			</div>
+			
+		</div>
+	</body>
+	<script type="text/javascript">
+		
+//		window.onstorage=function(){
+//			
+//			alert("我兄弟被点了")
+//		}
+		var inpQuery=document.getElementById("inp-query");
+		var inpBtn=document.getElementById('inp-btn');
+		var movieMes=document.querySelector(".movie-mes");
+		var listUl=document.getElementById("search-list-ul");
+		var movieShow=document.getElementsByClassName("movie-mes")[0];
+		var Oli=movieMes.getElementsByTagName('li');
+		var movieStorage=null;
+		inpBtn.onclick=function(){
+     	 listUl.innerHTML='';
+				jsonp({
+			url:"https://api.douban.com/v2/movie/search",
+			data:{start :0,count:6,q:inpQuery.value,},
+			callback:"callback",
+			success:function(data){
+				var strHtml='';
+			  	for(var i=0;i<6;i++){
+			  		var Licreat=document.createElement("li");
+			  		html='<div class="movie-pic">'+
+								'<img src='+data.subjects[i].images.small +' alt="" width="50" height="60" alt="" />'+
+							'</div>'+
+							'<div class="movie-txt">'+
+								'<span>'+data.subjects[i].title+'</span>'+
+								'<span>'+data.subjects[i].year+'</span>'+
+							'</div>';
+					  Licreat.innerHTML=html;
+			          listUl.appendChild(Licreat)
+			  	}
+	
+			  	
+			}
+			
+		})
+		}
+//		     var data=window.localStorage.getItem("movieStorage");
+//               data=JSON.parse(data)
+//           for(var i=0;i<data.length;i++){
+//           	var Licreat=document.createElement("li");
+//          	var html='<img src='+ data[i].images.small+' alt=""  width="115" height="161"/>'+
+//					'<a href="#">'+data[i].title+'</a>'+
+//			     ' <span>*****'+data[i].rating.average+'</span>'+
+//			       ' <a href="#" class="buy-titck">选座购票</a>';  
+//			           Licreat.setAttribute('moveid',data[i].id);
+//			             Licreat.innerHTML=html;
+//			           movieMes.appendChild(Licreat)
+//		         Oli[i].onclick=function(){
+//		         	var id=this.getAttribute('moveid');
+//		         	console.log(id)
+//		         	jsonp({
+//						url:"https://api.douban.com/v2/movie/subject/27069427",
+//						callback:"callback",
+//						success:function(data){
+//							console.log(data)
+//						}
+//				 })
+//			             
+//				}
+//
+//				}   
+		
+
+		jsonp({
+			url:"https://api.douban.com/v2/movie/in_theaters",
+			data:{start :0,count:10,city:"北京",},
+			callback:"callback",
+			success:function(data){
+
+//			movieStorage  =	window.localStorage.setItem("movieStorage",JSON.stringify(data.subjects));
+//			console.log(movieStorage)
+			for(var i=0;i<data.count;i++){
+			var Licreat=document.createElement("li");
+			var html='<img src='+ data.subjects[i].images.small+' alt=""  width="115" height="161"/>'+
+					'<a href="#">'+data.subjects[i].title+'</a>'+
+			     ' <span>*****'+data.subjects[i].rating.average+'</span>'+
+			       ' <a href="#" class="buy-titck">选座购票</a>';  
+			           Licreat.setAttribute('moveid',data.subjects[i].id);
+			             Licreat.innerHTML=html;
+			           movieMes.appendChild(Licreat)
+			           
+			         Oli[i].onclick=function(){
+		         	var id=this.getAttribute('moveid');
+		         	console.log(id)
+		         	jsonp({
+						url:"https://api.douban.com/v2/movie/subject/"+id,
+//						data:{name:"1"},
+						callback:"callback",
+						success:function(data){
+							console.log(data)
+						}
+				 })
+			             
+				}
+			         
+//			           Oli[i].onmouseover=function(){
+//				       var id=this.getAttribute('moveid');
+//			         	console.log(id)
+//			         	jsonp({
+//							url:"https://api.douban.com/v2/movie/subject/"+id,
+//	//						data:{name:"1"},
+//							callback:"callback",
+//							success:function(data){
+//								console.log(data)
+//						}
+//				            })
+//			           }
+			           
+				   }
+				
+
+				}
+
+			
+		})
+
+
+	
+	</script>
+	
+</html>

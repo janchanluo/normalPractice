@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>购物车</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" href="css/mint-ui.css" />
+		<link rel="stylesheet" type="text/css" href="css/shopcar.css"/>
+	</head>
+	<body>
+		<div id="app">
+			<!--头部-->
+			<header>
+				<span><</span>
+				购物车
+			</header>
+			
+			
+			
+			
+			<!--内容区域-->
+			<div class="content">
+				<div class="no-car" v-show="msg2">
+					<img src="img/tab_shopping_nor.png"/>
+					<p>购物车还是空的快去逛逛吧~</p>
+				</div>
+				<ul>
+					<li v-for="(car,index) in carlist" class="shops">
+						<div class="title"><img :src="car.icon" /><span v-text="car.title"></span></div>
+						<div class="list">
+							<label class="check" :class="{active:car.ispicked}" @click="check(car)" v-show="msg1"></label>
+							<img :src="car.radios" />
+							<div class="mid">
+								<p v-text="car.content"></p>
+								<span v-text="car.lishu"></span>
+								<label @click="sub(index)">-</label>
+								<input type="text" :value="car.num" />
+								<label @click="sup(index)">+</label>
+							</div>
+							<div class="price">￥{{car.price}}</div>
+							<button v-show="msg" @click="del(index)">删除</button>
+						</div>
+					</li>
+				</ul>
+				<div class="heji" v-show="msg3">
+					<div class="all" @click="checkall"><img src="img/radio_hig.png"/>全选</div>
+					<div class="drow" @click="edit"><img src="img/editor_hig.png"/>编辑</div>
+					<div class="sum1">合计:￥{{pay}}<span>(不含运费)</span></div>
+					<div class="sum2">去结算</div>
+				</div>
+			</div>
+			
+			
+			
+			
+			
+			
+			
+			
+			<!--底部-->
+			<mt-tabbar class="tab">
+			  <mt-tab-item id="tab1">
+			    <img slot="icon" src="img/tab_home_nor.png">
+			    首页
+			  </mt-tab-item>
+			  <mt-tab-item id="tab2">
+			    <img slot="icon" src="img/tab_menu_nor.png">
+			    分类
+			  </mt-tab-item>
+			  <mt-tab-item id="tab3">
+			    <img slot="icon" src="img/tab_shopping_hig.png">
+			    购物车
+			  </mt-tab-item>
+			  <mt-tab-item id="tab4">
+			    <img slot="icon" src="img/tab_me_nor.png">
+			    我
+			  </mt-tab-item>
+			</mt-tabbar>
+		</div>
+	</body>
+</html>
+<script type="text/javascript" src="js/rem.js"></script>
+<script type="text/javascript" src="js/vue.js"></script>
+<script type="text/javascript" src="js/mint-ui.js"></script>
+<script type="text/javascript" src="js/vue-resource.js"></script>
+<script type="text/javascript">
+	new Vue({
+		el:"#app",
+		data(){
+			return{
+				carlist:[],
+				msg:false,
+				all:true,
+				msg1:true,
+				msg2:false,
+				msg3:true
+			}
+		},
+		//获取后台数据
+		created(){
+			this.$http.get('js/shopcar.js').then(res=>{
+				
+				this.carlist=res.body
+
+			})	
+		},
+		methods:{
+			check(car){
+				//取car的相反值
+				car.ispicked=!car.ispicked
+				
+				
+			},
+			
+			sub(i){
+				if(this.carlist[i].num<=1) return;//不能让数量小于1
+				this.carlist[i].num-- //让输入框中的字递减
+				
+			},
+			sup(i){
+				this.carlist[i].num++
+				
+			},
+			checkall(){
+				//找到所有的li,对li里面所有的按钮都要选中
+				this.carlist.forEach((ele)=>{
+					ele.ispicked=this.all;
+					
+				})
+				this.msg=false
+				this.msg1=true
+
+			},
+			edit(){
+				this.msg=true
+				this.msg1=false
+				
+				
+			},
+			del(i){
+				this.carlist.splice(i,1);
+				if(this.carlist.length<=0){
+					this.msg2=true;
+					msg3=false
+				}
+			}
+			
+		},
+		computed:{
+			pay(){
+				//定义值进行返回
+				let sum = 0;
+				console.log(this.carlist)
+				this.carlist.forEach(ele=>{
+					//对勾选有没有选中判断
+					if(ele.ispicked){
+						
+						sum+=ele.num*ele.price
+						
+					}
+					
+					
+				})
+				return sum
+
+				
+			}
+			
+		}
+		
+		
+		
+	})
+	
+	
+	
+	
+</script>

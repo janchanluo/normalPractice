@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/*
+			    indexOf(): 判断一个数据在数组里面是否有
+			    		返回值：  如果有返回该数据的下标
+			    				如果没有，返回-1
+			    
+			    	
+			        数组去重
+			 * 
+			*/
+			
+			var arr = [2,3,3,2,32,2]; // [2,3,32]
+			var box = arr.indexOf(3);
+			var arr1 = [];
+			
+			for(var i=0;i<arr.length;i++){
+				if(arr1.indexOf(arr[i]) != -1){
+					// 
+					
+				}else{
+					//没有的时候把arr里面的数据放到arr1里面
+					arr1.push(arr[i])
+				}
+				
+			}
+			
+			
+			//  复用    
+			
+			function repeatDel(arr){
+				var box = arr.indexOf(3);
+				var arr1 = [];
+				for(var i=0;i<arr.length;i++){
+					if(arr1.indexOf(arr[i]) != -1){
+					
+					}else{
+						//没有的时候把arr里面的数据放到arr1里面
+						arr1.push(arr[i])
+					}
+				}
+				return arr1;
+			}
+			
+			var a = repeatDel([1,2,1,2,1,1,1,1]);
+			var b = repeatDel(['2','2',3,3,'1','1']);
+			
+			
+			console.log(a,b)
+		</script>
+	</body>
+</html>

@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>购物车</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" type="text/css" href="css/iconfont.css">
+    <link rel="stylesheet" href="css/shop_cart.css">
+</head>
+
+<body>
+    <div id="app">
+        <header>
+            <a href="###" class="return" onclick="javascript:history.go(-1)">
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-return"></use>
+                </svg>
+            </a>
+            <h3>我的购物车</h3>
+            <a href="###" class="search" @click="del">编辑</a>
+        </header>
+
+        <div class="content">
+            <ul>
+                <li v-for=" v in prolist">
+                    <label type="checkbox" @click="checked(v.id,v.title)" :class="{on:v.checked}">
+
+                    </label>
+                    <a :href="v.ahref">
+                        <img :src="v.img"></a>
+                        <h3 v-text="v.title">套装系列</h3>
+                        <h4 v-text="v.sptext">2017新款两件套儿童春秋运动装韩版女孩</h4>
+                        <h5 v-text="v.instroduce ">中大童外套衣服 白色时尚外套黑色长裤</h5>
+                    
+                    <p>￥
+                        <span v-text="v.price">199.00</span>
+                    </p>
+
+                    <div>
+                        <input type="button" value="-" @click="changNum(v,-1)">
+                        <input type="number" maxlength="2" @change="changNum(v,0)" v-model.lazy="v.num">
+                        <input type="button" value="+" @click="changNum(v,1)">
+                    </div>
+
+                    <!-- <label type="checkbox">
+
+                </label>
+                <a href="pro_details.html">
+                <img src="img/tushop_cart_03.png" >
+                <h3>套装系列</h3>
+                <h4>2017新款两件套儿童春秋运动装韩版女孩</h4>
+                <h5>中大童外套衣服 白色时尚外套黑色长裤</h5>
+                </a>
+                <p>￥<span>199.00</span></p>
+
+                <div>
+                    <input type="button" value="-">
+                    <input type="text" value="1">
+                    <input type="button" value="+">
+                </div> -->
+                </li>
+            </ul>
+        </div>
+
+
+        <footer>
+            <label type="checkbox" @click="checkAll()" class="checkall">
+                <span :class="{on:ischecked}"></span>
+                全选
+            </label>
+            <input type="button" value="删除所选" v-show="btnflag" @click="btndel">
+            <p>合计：
+                <span v-text="totalmoney">￥2.00</span>
+            </p>
+            <a href="confirm_order.html">去结算</a>
+        </footer>
+    </div>
+    <script src="js/rem.js"></script>
+    <script src="js/iconfont.js"></script>
+    <script src="js/vue.js"></script>
+    <script src="js/productlist.js"></script>
+    <script src="js/shop.js"></script>
+    <script>
+        // Vue.use(shop)
+        new Vue({
+            el: "#app",
+            data: {
+                productlist: null,
+                prolist: null,
+                ischeck: false,
+                check:false,
+                btnflag:false
+
+            },
+            created: function () {
+                if (Vue.shopcar.getshop()) {
+                    this.productlist = Vue.shopcar.getshop();
+                    this.prolist = this.productlist.prolist
+                }
+                // console.log(this.productlist,this.prolist)
+            },
+            computed: {
+                totalmoney: function () {
+                    var totalmoney = 0;
+                    if (this.prolist) {
+                        this.prolist.forEach(e => {
+                            if (e.checked == true) {
+                                totalmoney += parseFloat(e.num * e.price)
+                            }
+                        });
+                        this.productlist.totalmoney=totalmoney;
+                        Vue.shopcar.setshop(this.productlist)
+                        return "￥" + totalmoney
+                    }
+                },
+                ischecked: function () {
+                    var num = 0;
+                    if (this.prolist) {
+                        for (var i = 0; i < this.prolist.length; i++) {
+                            if (this.prolist[i].checked == true) {
+                                num++
+                            }
+                        }
+                        if (num == this.prolist.length) {
+                            // this.ischeck=true;
+                            return true
+
+                        } else {
+                            // this.ischeck=false
+                            return false
+                        };
+                    }
+                },
+                
+            },
+            methods: {
+                btndel:function(){
+                    var arr=[];
+                    this.prolist.forEach((e,i) => {
+                        if(e.checked==true){
+                            arr.push(i) 
+                            // this.prolist.splice(i,1)
+                           
+                        }
+                        //
+                        
+                    }) 
+                //    console.log(arr)
+                    //   console.log(this.prolist)
+                    for(var i=0;i<arr.length;i++){
+                        console.log(i)
+                    
+                            this.prolist.splice(arr[i]-i,1)
+                       
+                         
+                    }
+                    // console.log(this.prolist)
+                  
+                },
+                del:function(){
+                 this.btnflag=!this.btnflag
+               },
+                checked: function (id, title) {
+                    this.prolist.forEach(e => {
+
+                        if (e.id == id && e.title == title) {
+                            e.checked = !e.checked
+                            Vue.shopcar.setshop(this.productlist)
+                            // console.log(e.checked,this.productlist)
+
+                        }
+                    });
+
+                },
+                checkAll: function () {
+                    console.log(this.ischeck)
+                    // this.ischeck = !this.ischeck;
+                    if(this.ischeck==true){
+                        this.ischeck=false;
+                    }else{
+                        this.ischeck=true;
+                    }
+                    console.log(this.ischeck)
+                    
+                    this.prolist.forEach(e => {
+                        e.checked = this.ischeck
+                    })
+                    
+
+                },
+
+                changNum: function (prolist, num) {
+                    if (num == 1) {
+                        prolist.num++
+                        if(prolist.num>99){
+                            prolist.num=99
+                        }
+                    } else if (num == -1) {
+                        prolist.num--
+                            if (prolist.num <= 1) {
+                                prolist.num = 1
+                            }
+                    }else if(num==0){
+                        prolist.num=parseInt(prolist.num)
+                        if(isNaN(prolist.num)||prolist.num<1){
+                            prolist.num=1
+                        }else if(prolist.num>99){
+                            prolist.num=99
+                        }
+                    }
+
+                    Vue.shopcar.setshop(this.productlist)
+
+                }
+            }
+        })
+
+
+
+
+
+
+        // console.log(Vue.namea)
+        //     var vm= new Vue({
+        //     el:"#app",
+        //     data:{
+
+
+        //     },
+        //     methods:{
+        //         fun:function(){
+        //             console.log(Vue.namea)
+        //         }
+        //     }
+        // })
+
+        // 
+        // vm.fun()
+        // console.log(Vue.shopcar.getshop())
+    </script>
+</body>
+
+</html>

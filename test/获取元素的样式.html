@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.box{
+				width:100px;
+				height:100px;
+				background: red;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div class="box" style="width:200px;" id="box"></div>
+		
+		<script type="text/javascript">
+			
+			var box = document.getElementById('box');
+			
+			
+			//var w = box.style.width;
+			/*
+			     getComputedStyle() : 获取元素表现出来的样式
+			     
+			     
+			     低版本ie浏览器获取元素表现出来的样式
+			     currentStyle
+			 * 
+			 */
+			
+//			var obj = box.currentStyle;
+//			
+//			console.log(obj)
+			
+//			var obj = getComputedStyle(box)
+//			console.log(obj.backgroundColor)
+			
+			
+			function getCss(obj,attr){
+				if(obj.currentStyle){
+					// ie浏览器
+					return obj.currentStyle[attr];
+				}else{
+					// 谷歌
+					return getComputedStyle(obj)[attr];
+				}
+			}
+			
+			var num = getCss(box,'width');
+			
+			console.log(num)
+		</script>
+	</body>
+</html>

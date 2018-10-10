@@ -1,0 +1,599 @@
+.return img {
+  display: block;
+  margin-left: 0.15rem;
+}
+
+.search img {
+  width: 0.43rem;
+  height: 0.43rem;
+}
+
+header h3 {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  width: 5.5rem;
+  height: 0.4rem;
+  background: white;
+  border-radius: 0.3rem;
+  overflow: hidden;
+}
+
+header h3 input {
+  height: 0.4rem;
+  margin-left: 1.8rem;
+  line-height: 0.5rem;
+  display: block;
+  color: #999999;
+}
+
+header h3 img {
+  display: block;
+  position: absolute;
+  top: 0.07rem;
+  left: 0.2rem;
+  width: 0.3rem;
+  height: 0.3rem;
+}
+
+.content {
+  margin-top: 0.9rem;
+}
+
+.banner {
+  width: 100%;
+  height: 3.2rem;
+}
+
+.swiper-container {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  /* Center slide text vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+.swiper-pagination-bullet-active {
+  background: white;
+}
+
+.swiper-pagination-bullet {
+  width: 6px;
+  height: 6px;
+}
+
+.allmask {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: black;
+  z-index: 999;
+  top: 0;
+  opacity: 0.7;
+  display: none;
+}
+
+.sub {
+  height: 1.8rem;
+  background: white;
+}
+
+.sub ul {
+  width: 7.5rem;
+  display: flex;
+  justify-content: space-around;
+}
+
+.sub ul li {
+  padding-top: 0.1rem;
+  width: 1.18rem;
+  font-size: 0.24rem;
+}
+
+.sub ul li a {
+  color: #333333;
+}
+
+.sub ul li img {
+  width: 1.1rem;
+  height: 1.1rem;
+}
+
+.title {
+  height: 2.18rem;
+  width: 7.5rem;
+  padding-top: 0.1rem;
+  margin-top: 0.16rem;
+  font-size: 0.36rem;
+  text-align: center;
+  color: #333333;
+  background: url(../img/11home_02.png);
+  background-size: contain;
+}
+
+.baokuan {
+  background: white;
+  overflow: hidden;
+}
+
+.baokuan ul {
+  width: 7.5rem;
+  padding: 0.08rem;
+}
+
+.baokuan ul li:first-child {
+  width: 3.6rem;
+  height: 6.1rem;
+}
+
+.baokuan ul li {
+  float: left;
+  position: relative;
+  width: 3.6rem;
+  height: 3rem;
+  margin-right: 0.1rem;
+  margin-top: 0.1rem;
+}
+
+.baokuan ul li h4 {
+  position: absolute;
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 50%;
+  overflow: hidden;
+  bottom: 0.6rem;
+  right: 0.1rem;
+}
+
+.baokuan ul li h4 img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+}
+
+.baokuan ul li h4 span {
+  display: block;
+  width: 0.6rem;
+  height: 0.6rem;
+  opacity: 0.6;
+}
+
+.baokuan ul li a {
+  color: white;
+}
+
+.baokuan ul li a p {
+  position: absolute;
+  bottom: 0;
+  height: 0.48rem;
+  font-size: 0.24rem;
+}
+
+.baokuan ul li a p span {
+  position: absolute;
+  z-index: 5;
+  float: right;
+  width: 3.4rem;
+  height: 0.48rem;
+  line-height: 0.48rem;
+  padding-left: 0.1rem;
+  padding-right: 0.1rem;
+}
+
+.baokuan ul li a p span i {
+  float: right;
+  font-style: normal;
+}
+
+.baokuan ul li a p b {
+  z-index: 4;
+  display: block;
+  width: 3.58rem;
+  height: 0.48rem;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  opacity: 0.6;
+  background: black;
+}
+
+.rexiao {
+  background: white;
+  overflow: hidden;
+}
+
+.rexiao .title {
+  background: url(../img/11home_04.png);
+  background-size: contain;
+}
+
+.rexiao ul {
+  width: 7.5rem;
+  padding: 0.08rem;
+}
+
+.rexiao ul li:first-child {
+  width: 2.34rem;
+  height: 5.1rem;
+}
+
+.rexiao ul li:nth-child(2) {
+  width: 4.8rem;
+}
+
+.rexiao ul li:nth-child(2) p span {
+  width: 4.6rem;
+}
+
+.rexiao ul li:nth-child(2) p b {
+  width: 4.78rem;
+}
+
+.rexiao ul li {
+  float: left;
+  position: relative;
+  width: 2.34rem;
+  height: 2.5rem;
+  margin-right: 0.1rem;
+  margin-top: 0.1rem;
+}
+
+.rexiao ul li h4 {
+  position: absolute;
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 50%;
+  overflow: hidden;
+  bottom: 0.6rem;
+  right: 0.1rem;
+}
+
+.rexiao ul li h4 img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+}
+
+.rexiao ul li h4 span {
+  display: block;
+  width: 0.6rem;
+  height: 0.6rem;
+  opacity: 0.6;
+}
+
+.rexiao ul li a {
+  color: white;
+}
+
+.rexiao ul li a p {
+  position: absolute;
+  bottom: 0;
+  height: 0.48rem;
+  font-size: 0.24rem;
+}
+
+.rexiao ul li a p span {
+  position: absolute;
+  z-index: 5;
+  float: right;
+  width: 2.14rem;
+  height: 0.48rem;
+  line-height: 0.48rem;
+  padding-left: 0.1rem;
+  padding-right: 0.1rem;
+}
+
+.rexiao ul li a p span i {
+  float: right;
+  font-style: normal;
+}
+
+.rexiao ul li a p b {
+  z-index: 4;
+  display: block;
+  width: 2.34rem;
+  height: 0.48rem;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  opacity: 0.6;
+  background: black;
+}
+
+.recom {
+  background: white;
+  overflow: hidden;
+}
+
+.recom .title {
+  background: url(../img/11home_06.png);
+  background-size: contain;
+}
+
+.recom ul {
+  width: 7.5rem;
+  padding: 0.08rem;
+}
+
+.recom ul li:nth-child(2) {
+  width: 2.34rem;
+  height: 5.1rem;
+}
+
+.recom ul li:first-child {
+  width: 4.8rem;
+}
+
+.recom ul li:first-child p span {
+  width: 4.6rem;
+}
+
+.recom ul li:first-child p b {
+  width: 4.78rem;
+}
+
+.recom ul li:nth-child(3), .recom ul li:nth-child(4) {
+  margin-top: -2.5rem;
+}
+
+.recom ul li:nth-child(4) {
+  margin-left: 2.44rem;
+}
+
+.recom ul li {
+  float: left;
+  position: relative;
+  width: 2.34rem;
+  height: 2.5rem;
+  margin-right: 0.1rem;
+  margin-top: 0.1rem;
+}
+
+.recom ul li h4 {
+  position: absolute;
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 50%;
+  overflow: hidden;
+  bottom: 0.6rem;
+  right: 0.1rem;
+}
+
+.recom ul li h4 img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+}
+
+.recom ul li h4 span {
+  display: block;
+  width: 0.6rem;
+  height: 0.6rem;
+  opacity: 0.6;
+}
+
+.recom ul li a {
+  color: white;
+}
+
+.recom ul li a p {
+  position: absolute;
+  bottom: 0;
+  height: 0.48rem;
+  font-size: 0.24rem;
+}
+
+.recom ul li a p span {
+  position: absolute;
+  z-index: 5;
+  float: right;
+  width: 2.14rem;
+  height: 0.48rem;
+  line-height: 0.48rem;
+  padding-left: 0.1rem;
+  padding-right: 0.1rem;
+}
+
+.recom ul li a p span i {
+  float: right;
+  font-style: normal;
+}
+
+.recom ul li a p b {
+  z-index: 4;
+  display: block;
+  width: 2.34rem;
+  height: 0.48rem;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  opacity: 0.6;
+  background: black;
+}
+
+.fashion {
+  background: white;
+  overflow: hidden;
+}
+
+.fashion .title {
+  background: url(../img/11home_09.png);
+  background-size: contain;
+}
+
+.fashion ul {
+  width: 7.5rem;
+  padding: 0.08rem;
+}
+
+.fashion ul li:nth-child(2) {
+  width: 3.6rem;
+  height: 6.1rem;
+}
+
+.fashion ul li:nth-child(3) {
+  margin-top: -3rem;
+}
+
+.fashion ul li {
+  float: left;
+  position: relative;
+  width: 3.6rem;
+  height: 3rem;
+  margin-right: 0.1rem;
+  margin-top: 0.1rem;
+}
+
+.fashion ul li h4 {
+  position: absolute;
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 50%;
+  overflow: hidden;
+  bottom: 0.6rem;
+  right: 0.1rem;
+}
+
+.fashion ul li h4 img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+}
+
+.fashion ul li h4 span {
+  display: block;
+  width: 0.6rem;
+  height: 0.6rem;
+  opacity: 0.6;
+}
+
+.fashion ul li a {
+  color: white;
+}
+
+.fashion ul li a p {
+  position: absolute;
+  bottom: 0;
+  height: 0.48rem;
+  font-size: 0.24rem;
+}
+
+.fashion ul li a p span {
+  position: absolute;
+  z-index: 5;
+  float: right;
+  width: 3.4rem;
+  height: 0.48rem;
+  line-height: 0.48rem;
+  padding-left: 0.1rem;
+  padding-right: 0.1rem;
+}
+
+.fashion ul li a p span i {
+  float: right;
+  font-style: normal;
+}
+
+.fashion ul li a p b {
+  z-index: 4;
+  display: block;
+  width: 3.58rem;
+  height: 0.48rem;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  opacity: 0.6;
+  background: black;
+}
+
+.cebian {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 101;
+}
+
+.cebian .mask {
+  width: 100%;
+  height: 100%;
+  background: black;
+  opacity: 0.3;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 102;
+}
+
+.cebian ul {
+  position: absolute;
+  background: wheat;
+  overflow: hidden;
+  width: 50%;
+  height: 100%;
+  z-index: 103;
+}
+
+.cebian ul li {
+  float: left;
+  margin-top: 0.4rem;
+  width: 3.70rem;
+  height: 0.78rem;
+  padding-left: 0.2rem;
+  padding-right: 0.2rem;
+  background: white;
+}
+
+.cebian ul li a {
+  line-height: 0.78rem;
+  font-size: 0.28rem;
+  color: #111111;
+  display: block;
+}
+
+.cebian ul li a img:first-child {
+  width: 0.5rem;
+  float: left;
+  margin-top: 0.15rem;
+  margin-right: 0.15rem;
+  height: 0.5rem;
+}
+
+.cebian ul li a img:last-child {
+  float: right;
+  width: 0.25rem;
+  height: 0.4rem;
+  margin-top: 0.15rem;
+}

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#demo{
+				width: 500px;
+				font-size: 0;
+				position: relative;
+				top: 50px;
+				left: 50px;
+			}
+			#demo img{
+				width: 100%;
+			}
+			span{
+				width: 100px;
+				height: 100px;
+				background: yellow;
+				opacity: 0.2;
+				position: absolute;
+			}
+			#zoom{
+				width: 500px;
+				height: 500px;
+				position: absolute;
+                overflow: hidden;
+			}
+			#zoom img{
+				width: 2500px;
+				position: absolute;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="demo" _src="img/小兔兔.jpg">
+			<img src="img/小兔兔.jpg" alt="" />
+		</div>
+		<script type="text/javascript">
+			var demo=document.getElementById("demo");
+			demo.onmouseenter=function(){
+				 if(!this.span){
+				 	alert(1)
+				 	this.span=document.createElement("span");
+				 	this.zoom=document.createElement("div");
+				 	this.zoom.id="zoom";
+				 	this.zoom.innerHTML='<img src="'+demo.getAttribute('_src')+'" />';
+				 		}
+	           	zoomx=this.offsetWidth+this.offsetLeft;
+				 	zoomy=this.offsetTop;		 	
+				 	this.appendChild(this.span);
+				 	document.body.appendChild(this.zoom)
+				 	this.zoom.style.left=zoomx+"px";
+				 	this.zoom.style.top=zoomy+"px";
+			     	}
+				demo.onmousemove=function(e){
+				 	spanx=e.clientX-this.offsetLeft-50;
+				 	spany=e.clientY-this.offsetTop-50;
+				 	if(spanx<0){spanx=0;
+				 	}
+				   if(spanx>this.offsetWidth-this.span.offsetWidth){
+				   	spanx=this.offsetWidth-this.span.offsetWidth;
+				   }
+				    if(spany<0){spany=0;
+				 }
+				 if(spany>this.offsetHeight-this.span.offsetHeight){
+				   	spany=this.offsetHeight-this.span.offsetHeight;
+				  }
+				this.span.style.left=spanx+"px";
+				 this.span.style.top=spany+"px";
+				 bigImgx=spanx/(this.offsetWidth-100)*(this.zoom.children[0].offsetWidth-this.zoom.offsetWidth);
+			 bigImgy=spany/(this.offsetHeight-100)*(this.zoom.children[0].offsetHeight-this.zoom.offsetHeight);
+			  console.log(this.zoom.offsetHeight)
+				 this.zoom.children[0].style.left=-bigImgx+"px";
+				  this.zoom.children[0].style.top=-bigImgy+"px";
+				
+			}
+		demo.onmouseleave=function(){
+			this.removeChild(this.span);
+			document.body.removeChild(this.zoom)
+			}
+			
+		</script>
+	</body>
+</html>

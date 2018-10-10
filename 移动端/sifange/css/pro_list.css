@@ -1,0 +1,105 @@
+.content {
+  margin-top: 0.9rem;
+}
+
+.sub ul {
+  display: flex;
+  justify-content: space-around;
+  background: white;
+  width: 7.5rem;
+  height: 0.5rem;
+}
+
+.sub ul li {
+  font-size: 0.24rem;
+  color: #333333;
+  line-height: 0.5rem;
+}
+
+.sub ul li.on {
+  color: #ee9834;
+  border-bottom: 2px solid #ee9834;
+}
+
+header img {
+  width: 0.39rem;
+  height: 0.39rem;
+}
+
+.order ul li {
+  position: relative;
+  width: 7.1rem;
+  height: 2.6rem;
+  background: white;
+  border-top: 1px solid #cccccc;
+  padding: 0.2rem;
+}
+
+.order ul li a.buy {
+  position: absolute;
+  right: 0.8rem;
+  bottom: 0.1rem;
+  width: 2.2rem;
+  height: 0.5rem;
+  background: #ff2626;
+  font-size: 0.24rem;
+  color: white;
+  display: block;
+  margin-left: 4.46rem;
+  text-align: center;
+  line-height: 0.5rem;
+}
+
+.order ul li a.pay {
+  position: absolute;
+  right: 0.16rem;
+  bottom: 0.16rem;
+}
+
+.order ul li a.pay img {
+  width: 0.39rem;
+  height: 0.36rem;
+}
+
+.order ul li img {
+  width: 2.22rem;
+  height: 2.22rem;
+  float: left;
+}
+
+.order ul li h3,
+.order ul li h4,
+.order ul li h5,
+.order ul li h6 {
+  width: auto;
+  margin-left: 2.6rem;
+  font-size: 0.24rem;
+}
+
+.order ul li h3 {
+  color: #999999;
+}
+
+.order ul li h4 {
+  color: #333333;
+  font-weight: 600;
+}
+
+.order ul li h5 {
+  color: #666666;
+}
+
+.order ul li h6 {
+  margin-top: 0.2rem;
+  color: #ec5252;
+}
+
+.order ul li h6 b {
+  font-size: 0.28rem;
+  font-weight: 400;
+}
+
+.order ul li h6 span {
+  float: right;
+  color: #666666;
+}

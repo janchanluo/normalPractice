@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://cdn.bootcss.com/bootstrap/3.1.1/css/bootstrap.css" rel="stylesheet">
+    
+    <title>bootstrap</title>
+    <style>
+        .header{
+            width: 100%;
+            background-color:#666;
+            height: 60px;
+            position: fixed;
+            top: 0;
+            z-index: 1;
+        }
+        .headertop{
+            text-align: center;
+        }
+        ul{
+            list-style: none;
+        }
+        ul.headerul li{
+            float: left;
+            padding: 0 5px;
+        }
+        .headerbottom{
+            margin-top: 20px;
+        }
+        .headerul:after{
+            content: ".";
+            clear: both;
+            display: block;
+            overflow: hidden;
+            font-size: 0;
+            height: 0;
+        }
+      .mouseclick{
+         position: fixed;
+         color: #fff;
+          left: 20px;
+          line-height: 60px;
+          z-index: 1;
+      }
+      .showclick{
+          background-color: #666;
+          width: 200px;
+          height: 100%;
+          color: #fff;
+          position: fixed;
+          left: -200px;
+          transition: left 0.5s;
+      }
+      .showclick ul{
+          margin-top: 60px;
+          text-align: center;
+          padding-left: 0;
+         
+      }
+      .mdshow ul>li{
+          float: left;
+          padding: 0 10px;
+          line-height: 50px;
+      }
+      .tel{
+          line-height: 50px;
+      }
+      .banner .bannerimg{
+          widows: 100%;
+          overflow: hidden;
+          z-index: -1px;
+
+      }
+                  
+.item{
+　　 box-sizing: border-box;
+　　break-inside: avoid;
+　  padding:10px;
+}
+.item-content{
+   display: flex;
+flex-direction: column;
+  justify-content:center;
+ align-items: center;
+　padding:10px;
+height: auto;
+　　　font-size: 20px;
+color: #686868;
+　　box-sizing: border-box;
+　　border: 1px solid #ccc;
+}
+    </style>
+</head>
+
+<body>
+   
+ <div class="header">
+<div class="container">
+<div class="headertop row" style="line-height: 60px;" >
+    <div class="col-md-4 col-sm-6  col-lg-4  hidden-xs " style="color: #fff;">
+           <p>REALSTATE地产，您居家置业最信赖的地产！</p> 
+    </div>
+    <div class="headericon col-md-3 col-sm-3 col-lg-2 col-sm-offset-3  col-md-offset-5  col-lg-offset-6  hidden-xs">
+        <ul class="headerul">
+            <li><img src="11"></li>
+            <li><img src="11"></li>
+            <li><img src="11"></li>
+            <li><img src="11"></li>
+        </ul>
+       
+    </div>
+   
+     <span class="glyphicon glyphicon-align-justify mouseclick"></span>
+     <div class="showclick hidden-lg hidden-md">
+            <ul>
+                <li><span>首页</span></li>
+                <li><span>全新楼盘</span></li>
+                <li><span>二手楼盘</span></li>
+                <li><span>全新楼盘</span></li>
+                <li><span>二手楼盘</span></li>
+            </ul>
+        </div>
+
+        <div class=" col-md-2 col-xs-4 col-xs-offset-4 col-md-offset-0 hidden-lg  hidden-md hidden-sm"><img src="https://ccdn.goodq.top/caches/7f72634bb4b7fbd4cacee150ae5ac686/aHR0cDovLzVhNWM1YzVmNjU5NmQudDczLnFpZmVpeWUuY29tL3FmeS1jb250ZW50L3VwbG9hZHMvMjAxOC8wMS8xMzNkM2NmMThmYzMxOGQwNTE5MWRjNzIwOTI3ZmFhNS5wbmc_p_p100_p_3D.png">
+        </div>
+</div>
+
+
+
+<div class="row headerbottom" style="text-align: center">
+        <div class=" col-md-3 col-xs-4 col-xs-offset-4 col-md-offset-0 hidden-xs col-lg-3 col-lg-offset-0 hidden-sm"><img src="https://ccdn.goodq.top/caches/7f72634bb4b7fbd4cacee150ae5ac686/aHR0cDovLzVhNWM1YzVmNjU5NmQudDczLnFpZmVpeWUuY29tL3FmeS1jb250ZW50L3VwbG9hZHMvMjAxOC8wMS8xMzNkM2NmMThmYzMxOGQwNTE5MWRjNzIwOTI3ZmFhNS5wbmc_p_p100_p_3D.png">
+        </div>
+        <div class="mdshow col-md-6  hidden-sm hidden-xs col-lg-5 ">
+            <ul>
+                <li><span>首页</span></li>
+                <li><span>全新楼盘</span></li>
+                <li><span>二手楼盘</span></li>
+                <li><span>全新楼盘</span></li>
+                <li><span>二手楼盘</span></li>
+            </ul>
+        </div>
+        <div class="tel col-md-3 hidden-sm hidden-xs">
+          <p>  <span class="glyphicon glyphicon-phone-alt" style="padding-right: 5px;">
+              
+          </span>008-6666 6666 
+                <button class="btn btn-primary">一般信息</button>
+            </p>
+           
+        </div>
+</div>
+</div>
+<div class="banner">
+    <div class="bannerimg"><img src="https://ccdn.goodq.top/caches/7f72634bb4b7fbd4cacee150ae5ac686/aHR0cDovLzVhNWM1YzVmNjU5NmQudDczLnFpZmVpeWUuY29tL3FmeS1jb250ZW50L3VwbG9hZHMvMjAxOC8wMS84MzY4MTYwYTk5NWQ4OTg4YWNmNmM5NjIxYWJiYzg5My0xODAweDYwMC5qcGc_p_p100_p_3D.jpg"></div>
+
+</div>
+
+</div>
+</body>
+<script src="https://cdn.bootcss.com/jquery/3.0.0-rc1/jquery.js"></script>
+
+<script>
+      $(document).ready(function(){
+        $(".glyphicon").click(function(e){
+                $(".showclick").css("left","0")
+                e.stopPropagation()
+            })
+      })
+      $(document).click(function(){
+        $(".showclick").css("left","-200px")
+      })
+           
+    
+    </script>
+</html>

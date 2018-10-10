@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<style type="text/css">
+			.box{
+				height: 1000px;
+				width: 100%;
+				background-color: red;
+			}
+			@media screen and (max-width:768px ) {
+				.box{
+					background-color: orange;   /*小型移动端*/
+				}
+			}
+			@media screen and (min-width: 768px) and (max-width: 992px) {
+				.box{
+					background-color: yellow;  /*平板*/
+				}
+			}
+			@media screen and (min-width: 992px) and (max-width: 1200px) {
+				.box{
+					background-color: green;   /*介于平板和电脑之间*/
+				}
+			}
+			@media only screen and (min-width:1200px ) {
+				.box{
+					background-color: cyan;  /*基于电脑*/
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box"></div>
+	</body>
+</html>

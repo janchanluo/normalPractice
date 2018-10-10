@@ -1,0 +1,120 @@
+.content {
+  margin-top: 0.9rem;
+}
+
+.sub ul {
+  display: flex;
+  justify-content: space-around;
+  background: white;
+  width: 7.5rem;
+  height: 0.5rem;
+}
+
+.sub ul li {
+  font-size: 0.24rem;
+  color: #333333;
+  line-height: 0.5rem;
+}
+
+.sub ul li.on {
+  color: #ee9834;
+  border-bottom: 2px solid #ee9834;
+}
+
+.order ul li {
+  height: 3.9rem;
+  margin-top: 0.2rem;
+  width: 7.5rem;
+  background: white;
+}
+
+.order ul li p {
+  text-align: right;
+  margin-right: 0.25rem;
+  font-size: 0.24rem;
+  color: #666666;
+}
+
+.order ul li p span {
+  color: #ff2f2f;
+}
+
+.order ul li p a:last-child {
+  margin-right: 0.32rem;
+}
+
+.order ul li p a {
+  display: block;
+  background: #ee9834;
+  width: 1.6rem;
+  height: 0.4rem;
+  float: right;
+  color: white;
+  border-radius: 0.1rem;
+  text-align: center;
+  line-height: 0.4rem;
+}
+
+.order ul li div {
+  padding: 0.2rem;
+  padding-bottom: 0;
+  height: 2.38rem;
+}
+
+.order ul li div img {
+  width: 2.22rem;
+  height: 2.22rem;
+  float: left;
+}
+
+.order ul li div h3,
+.order ul li div h4,
+.order ul li div h5,
+.order ul li div h6 {
+  width: auto;
+  margin-left: 2.6rem;
+  font-size: 0.24rem;
+}
+
+.order ul li div h3 {
+  color: #999999;
+}
+
+.order ul li div h4 {
+  color: #333333;
+  font-weight: 600;
+}
+
+.order ul li div h5 {
+  color: #666666;
+}
+
+.order ul li div h6 {
+  margin-bottom: 0.92rem;
+  border-bottom: 1px solid #ccc;
+  color: #ec5252;
+}
+
+.order ul li div h6 b {
+  font-size: 0.28rem;
+  font-weight: 400;
+}
+
+.order ul li div h6 span {
+  float: right;
+  color: #666666;
+}
+
+.order ul li h2 {
+  line-height: 0.48rem;
+  padding-left: 0.2rem;
+  padding-right: 0.2rem;
+  color: #666666;
+  font-size: 0.24rem;
+  border-bottom: 1px solid #ccc;
+}
+
+.order ul li h2 span {
+  color: #ff2f2f;
+  float: right;
+}

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            height: 2000px;
+            position: relative;
+        }
+    #move1{
+        background: greenyellow;
+        position: absolute;
+        width: 200px;
+        height: 200px;
+        text-align: center;
+        line-height: 200px;
+        margin-top: 100px;
+        margin-left: 200px;
+    }
+    #move2{
+        background: rebeccapurple;
+        position: absolute;
+        width: 200px;
+        height: 200px;
+        text-align: center;
+        line-height: 200px;
+        margin-top: 200px;
+        margin-left: 600px;
+    }
+    #move3{
+        background: rebeccapurple;
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        text-align: center;
+        line-height: 100px;
+        margin-top: 100px;
+        margin-left: 500px;
+        border-radius: 50%;
+    }
+    </style>
+</head>
+<body>
+    <div id="move1">
+        拖动我！
+    </div>
+
+    <div id="move2">
+        拖动我！
+    </div>
+    <div id="move3">
+        拖动我！
+    </div>
+</body>
+<script>
+    // var move=document.getElementsByClassName("move")[0];
+    var h,w,scrtop;
+   new Drog("move1");
+   new Drog("move2");
+   new Drog("move3");
+    function Drog(id) { 
+        var  _this=this;
+        console.log(this)
+        this.oDiv=document.getElementById(id);
+        this.oWidth=  this.oDiv.offsetWidth;
+        this.oHeight=  this.oDiv.offsetHeight;
+        this.oTop=this.oDiv.offsetTop;
+        this.oLeft=this.oDiv.offsetLeft;
+        this.oDiv.onmousedown=function(e){
+            _this.down(e);
+        }
+        this.oDiv.onmouseup=function(){
+            _this.up();
+        } 
+     }
+    // console.log()
+Drog.prototype.down= function(e) {
+    var   _this=this;
+    console.log(this)
+    this.disX=e.clientX- this.oDiv.offsetLeft;
+    this.disY=e.clientY- this.oDiv.offsetTop;
+document.onmousemove= function(e) {
+    _this.move(e);
+    } 
+}
+ Drog.prototype.move=function (e) {
+    this.l=e.clientX- this.disX;
+    this.t=e.clientY- this.disY;
+    this.oDiv.style.left= this.l-this.oLeft+"px";
+    this.oDiv.style.top= this.t-this.oTop+"px";
+    if(this.l<0) this.oDiv.style.left=-this.oLeft+"px";
+    if(this.t<0) this.oDiv.style.top=-this.oTop+"px";
+    if(this.l>(windowW()-this.oWidth))this.oDiv.style.left=windowW()-(this.oLeft+this.oWidth)+"px";
+    if(this.t>(windowH()-this.oHeight)+scrollTop())this.oDiv.style.top=windowH()-(this.oTop+this.oHeight)+scrollTop()+"px";
+    // console.log(scrollTop())
+   }
+Drog.prototype.up=function(){
+    document.onmousemove=this.onmouseup=null;
+}
+
+function windowH(){
+    return h= window.innerHeight || document.documentElement.clientHeight;
+
+}
+function windowW(){
+    return w= window.innerWidth || document.documentElement.clientWidth;
+}
+function scrollTop(){
+    return scrtop = document.documentElement.scrollTop || document.body.scrollTop;
+}
+// console.log(windowH())
+
+var sum=0;
+function a(x,y) {
+    for(var i=0;i<=100;i++)
+   sum+=i
+return sum;
+  }
+  console.log(a())
+
+var a=[1,2];
+var b=[3,4];
+console.log(a.concat(b),a)
+
+
+    //   var z=10;
+      function zz() {
+          z=0;
+          console.log(z);
+        }
+        zz(); // 0
+        console.log(z) //10
+
+
+
+///////////////////////////////////
+        
+        function fn1() {
+            var n=20;
+            　nAdd=function(){n+=1}
+            function fn2() {
+               return n;
+              }
+            // return fn2;
+          }
+        var aa=fn1();
+        console.log(aa)  
+        //  console.log(fn1()()) ;  
+         　nAdd();
+    //    console.log(aa()) ;  
+///////////////////////////////////////////
+    
+</script>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	<style type="text/css">
+		#wrap{
+			width: 1020px;
+			margin:  0 auto;
+			
+		}
+		ul{
+			width: 100px;
+			list-style: none;
+			float: left;
+			margin:  0 5px;
+		}
+		ul li{
+			width: 100px;
+			margin-bottom: 10px;
+			background: #CCCCCC;
+		}
+	</style>
+</head>
+<body>
+	<div id="wrap">
+		<ul></ul>
+		<ul></ul>
+		<ul></ul>
+		<ul></ul>
+		<ul></ul>
+	</div>
+	<script type="text/javascript">
+		addNodes(20);
+		
+	   document.onscroll = function(){
+	   	//每触发一次事件,就会获得一个新的高度
+	   var  newHeight = scrollY() + clientH();
+	   	//找出最短的一列
+	   	var ulArr = document.getElementsByTagName("ul");
+	   	var heightArr = [];//盛放每个ul高度的数组
+	   	for(var i=0;i<ulArr.length;i++){
+	   		heightArr.push(ulArr[i].offsetHeight);
+	   	}
+	   	var shortHeight = Math.min.apply(null,heightArr);
+	   	if(newHeight >= shortHeight ){
+	   		addNodes(10);
+	   	}
+	   	console.log(newHeight,shortHeight)
+	   }
+	   //控制生成几个li
+	   function addNodes(num){
+	  
+	   	  for(var i=0;i<num;i++){
+//	   	  	创建li的函数
+                createLi();
+	   	  }
+	   }
+	   //创建li
+	    function createLi(){
+	    	var liArr = document.getElementsByTagName("li");
+	    	var index;//最短的一列ul所对应的下标
+	    	var newLi = document.createElement("li");
+	    	newLi.style.height = rand(100,300) + "px";
+	    	newLi.innerHTML = liArr.length + 1;
+	    	//新增的li的编号
+	    	
+	    	//追加到最短的一列ul上
+	    	//
+	    	var ulArr = document.getElementsByTagName("ul");
+	    	var heightArr = [];//盛放所有ul高度的数组
+	    	for(var i=0;i<ulArr.length;i++){
+	    		heightArr.push(ulArr[i].offsetHeight);
+	    	}
+	    	var shortHeight = Math.min.apply(null,heightArr);
+	    	//找到最短的高度,找出最短高度的下标
+	    	index = heightArr.indexOf(shortHeight);
+	    	ulArr[index].appendChild(newLi);
+	    }
+	   
+ 
+	   //随机函数
+	     function rand(min,max){
+	     	return parseInt(min+(max-min)*Math.random());
+	     }
+	  //兼容火狐浏览器和计算滚动条高度
+	     function scrollY(){
+	     	return document.body.scrollTop || document.documentElement.scrollTop;
+	     }
+	  // 兼容火狐浏览器和计算浏览器的高度
+	     function clientH(){
+	     	return window.innerHeight || document.documentElement.clientHeight;
+	     }
+	</script>
+</body>
+</html>
+<!--
+	瀑布流实现原理:
+	  1.每次滚动滚动条,可以获得新的可视区域
+	  2.找出当前高度最短的一列,将最短的一列和可视高度相比较,当最短的高度比可视高度小时,创建新的元素
+-->
+

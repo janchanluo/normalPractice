@@ -1,0 +1,190 @@
+*{margin: 0; padding: 0;}
+ul,li{list-style: none;}
+.clear{
+	clear: both;
+}
+.list1{
+	width: 7.5rem;
+}
+.shop{
+	width: 7.5rem;
+	height: 1rem;
+	position: fixed;
+	bottom: 0;
+	border-top: 1px solid gray;
+	background-color: white;
+}
+.shop h3{
+	font-size: 0.32rem;
+	line-height: 1rem;
+	float: left;
+	margin-left: 0.3rem;
+}
+.shop span{
+	display: block;
+	font-size: 0.32rem;
+	line-height: 1rem;
+	float: left;
+	color: red;
+}
+.shop button{
+	border: 0;
+	width: 2rem;
+	height: 1rem;
+	font-size: 0.3rem;
+	color: white;
+	float: right;
+	display: block;
+	background-color: #ff9900;
+}
+.shop button.on{
+	background-color: #eb2222;
+}
+.list{
+	width: 7.5rem;
+	padding-bottom: 1rem;
+}
+.shangla{
+		height: 5.75rem;
+		position: fixed;
+		bottom: 1rem;
+		z-index: 99;
+		background-color: white;
+		border-bottom: 1px solid gray;
+}
+.top{
+	width: 7.5rem;
+	background-color: white;
+}
+.top>img{
+	display: block;
+	width: 2.16rem;
+	height: 2.16rem;
+	float: left;
+	margin-top: -0.25rem;
+	margin-left: 0.42rem;
+}
+.top .mid{
+	width: 1.76rem;
+	float:left ;
+	margin-left: 0.24rem;
+	margin-top: 0.64rem;
+}
+.top .mid span{
+	font-size: 0.25rem;
+	display: block;
+}
+.top .mid span.on{
+	color: red;
+}
+.top button{
+	width: 0.54rem;
+	height: 0.54rem;
+	background-image: url(../img/close.jpg);
+	background-size: 0.54rem 0.54rem;
+	border: 0;
+	float: right;
+	margin-right: 0.27rem;
+	margin-top: 0.27rem;
+}
+.nums{
+	margin: 0 auto;
+	width: 6.65rem;
+	margin-top: 0.3rem;
+	overflow: hidden
+	
+}
+.nums p{
+	font-size: 0.25rem;
+	float: left;
+	
+}
+.nums span{
+	float: right;
+	display: block;
+	font-size: 0.3rem;
+	width: 0.5rem;
+	height: 0.5rem;
+	background-color: gray;
+	text-align: center;
+	color: white;
+}
+.nums input{
+	float: right;
+	display: block;
+	width: 1.05rem;
+	height: 0.48rem;
+	border: 0;
+	border: 0.01rem solid gray;
+	text-align: center;
+}
+.shen{
+	width: 6.65rem;
+	margin: 0 auto;
+	margin-top: 0.25rem;
+}
+.shen p{
+	font-size: 0.4rem;
+}
+.shen ul{
+	overflow: hidden;
+	margin-top: 0.15rem;
+}
+.shen ul li{
+	width: 1.2rem;
+	height: 0.45rem;
+	font-size: 0.3rem;
+	float: left;
+	text-align: center;
+	background-color: #dddddd;
+	color: #999999;
+	border-radius: 5px;
+	margin-left: 0.2rem;
+}
+.shen ul li:nth-child(1){
+	margin-left: 0;
+}
+/*.shen ul li:nth-child(1){
+	background-color: #ff9900;
+	color: white;
+}*/
+.lei{
+	width: 6.65rem;
+	margin: 0 auto;
+	margin-top: 0.26rem;
+}
+.lei p{
+	font-size: 0.4rem;
+}
+.lei ul{
+	overflow: hidden;
+	margin-top: 0.15rem;
+}
+.lei ul li{
+	width: 1.2rem;
+	height: 0.45rem;
+	font-size: 0.3rem;
+	float: left;
+	text-align: center;
+	background-color: #dddddd;
+	color: #999999;
+	border-radius: 5px;
+	margin-left: 0.2rem;
+}
+.lei ul li:nth-child(1){
+	margin-left: 0;
+}
+/*.lei ul li:nth-child(1){
+	background-color: #ff9900;
+	color: white;
+}*/
+.fade-enter-active, .fade-leave-active {
+    transition: all 0.5s;
+}
+.fade-enter, .fade-leave-to  {
+    /*opacity: 1;*/
+    bottom:-6.75rem;
+    z-index: 2;
+    
+    
+}

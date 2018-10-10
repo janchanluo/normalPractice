@@ -1,0 +1,305 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<link href="style/weibo.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div class="znsArea">
+<!--留言-->
+     <div class="takeComment">
+        <textarea name="textarea" class="takeTextField" id="tijiaoText"></textarea>
+        <div class="takeSbmComment">
+            <input type="button" id="btn1" class="inputs" value="" />
+            <span>(可按 Enter 回复)</span>
+        </div>
+    </div>
+<!--已留-->
+    <div class="commentOn">
+        <div class="messList" id="div1" style="height:502px"></div>
+        <div class="page">
+        	<a href="javascript:;" class="active">1</a>
+        	<a href="javascript:;">2</a>
+        	<a href="javascript:;">3</a>
+        </div>
+    </div>
+</div>
+</body>
+<script src="jquery-1.11.1.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	var box = $('.takeComment');
+	var Text = box.find('#tijiaoText');
+	var btn = box.find('#btn1');
+	var content = $('#div1');//插入的box
+	var hash = window.location.hash;
+	var newPage = 1;
+	
+	if(hash){
+		if(hash.split('=')[1]){
+			newPage = parseInt(hash.split('=')[1]);
+		}else{
+			window.location.hash = 'page=1';
+		}
+	}else{                                                        //当没有hash值时，默认为1
+		newPage = 1;
+		window.location.hash = 'page=1';
+	}
+	
+	
+	
+	btn.on('click',function(){
+		var val = Text.val();
+		if(!val){
+			alert('请输入内容....');
+			return;
+		}
+		/*
+			weibo.php?act=add&content=xxx	添加一条
+				返回：{error:0, id: 新添加内容的ID, time: 添加时间} 
+		*/
+		
+		$.ajax({
+			url:'weibo.php?act=add&content='+val,
+			type:'get',
+			success:function(data){
+				var json = eval('('+data+')');
+				
+
+				console.log(json);
+				//2016-06-02 10:14:50
+				if(!json.error){ //成功了
+				
+					//改变hash值，使它变到第一页
+					window.location.hash = 'page=1';   
+					
+					//按确定以后把页面刷到第一页
+					var newDiv = creatDiv(val,json.time,json.id,0,0);
+					
+					//插入，重新渲染页面
+					content.prepend(newDiv);
+					
+					pageFn();
+					
+					Text.val('');
+				}
+			}
+		});
+	});
+	
+	/*
+		ctrl+回车的时候发送 
+	*/
+
+	
+	Text.on('keyup',function(ev){
+		if(ev.keyCode == 13 && ev.ctrlKey){
+			
+			//事件委托，拥有btn点击的功能,相等于执行了btn
+			btn.trigger('click');
+		}
+	});
+	
+	
+
+	/*
+		weibo.php?act=get&page=1		获取一页数据,1可变
+				返回：[{id: ID, content: "内容", time: 时间戳, acc: 顶次数, ref: 踩次数}, {...}, ...] 
+	*/
+	//刷新页面时，只取第一页
+	getPage(newPage);
+	function getPage(num){
+	
+	    //先把所有清空
+		content.html('');
+		$.ajax({
+			url:'weibo.php?act=get&page='+num,
+			type:'get',
+			success:function(data){
+				var arr = eval('('+data+')');
+
+				$.each(arr,function(i,elem){
+					var newDiv = creatDiv(elem.content,elem.time,elem.id,elem.acc,elem.ref);
+					content.append(newDiv);
+				});
+			}
+		});
+	}
+	
+	/*
+		生成页码：
+			weibo.php?act=get_page_count	获取页数
+				返回：{count:页数}
+			
+	*/
+	var pageBox = $('.page'); 
+	pageFn();
+	function pageFn(){
+		//alert(1)
+		pageBox.html('');
+		$.ajax({
+		url:'weibo.php?act=get_page_count',
+			type:'get',
+			dataType:'json',
+			success:function(data){
+				//var i=n-3;i<n+3;i++
+				if(newPage < 4){
+					newPage = 4;
+				}
+				if(newPage > data.count-3){
+					newPage = data.count-3;
+				}
+				
+				//console.log(data.count)
+//				for(var i=0;i<data.count;i++){
+				for(var i=newPage-3;i<=newPage+3;i++){
+					
+					if(i<1 || i>data.count){
+						continue;
+					}
+					
+					var oA = $('<a href="javascript:;">'+(i)+'</a>');
+					
+					oA.click(function(){
+						
+						window.location.hash = 'page='+ $(this).html();
+					});
+					
+					
+					pageBox.append(oA);
+				}
+				
+				pageBox.find('a').each(function(i,elem){
+					if($(elem).html() == window.location.hash.split('=')[1]){
+						$(elem).addClass('active');
+					}
+				});
+			}
+		});
+	}
+	
+	
+	
+	$(window).on('hashchange',function(){
+		
+		
+		//console.log(newPage)
+		
+		newPage = parseInt(window.location.hash.split('=')[1]);
+		getPage(newPage);
+		pageBox.find('a').each(function(i,elem){
+			//console.log(2222)
+			if($(elem).html() == window.location.hash.split('=')[1]){
+				$(elem).addClass('active').siblings('a').removeClass('active');
+			}
+		});
+		
+		
+		if(newPage == 1){
+			return;
+		}
+		pageFn();
+//		pageBox.find('a').each(function(i,elem){
+//				if($(elem).html() == newPage){
+//				$(elem).addClass('active').siblings('a').removeClass('active');
+//			}
+//		});
+		
+	});
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	function creatDiv(val,time,id,down,up){
+		//时间;
+		var oDate = new Date(time*1000);
+		var iYear = oDate.getFullYear();
+		var iMon = oDate.getMonth()+1;
+		var iD = oDate.getDate();
+		var iH = oDate.getHours();
+		var iMi = oDate.getMinutes();
+		var iS = oDate.getSeconds();
+		
+		var str = toDou(iYear)+'-'+toDou(iMon)+'-'+toDou(iD)+' '+toDou(iH)+':'+toDou(iMi)+':'+toDou(iS);
+		
+		var newDiv = $('<div class="reply">');
+		var html = '<p class="replyContent">'+val+'</p>'+
+            '<p class="operation">'+
+                '<span class="replyTime">'+str+'</span>'+
+                '<span class="handle">'+
+                	'<a href="javascript:;" class="top" _index="'+id+'">'+down+'</a>'+
+                    '<a href="javascript:;" class="down_icon">0</a>'+
+                   '<a href="javascript:;" class="cut">删除</a>'+
+                '</span></p>';
+		newDiv.html(html);
+		
+		
+		/*
+			顶一条数据
+			weibo.php?act=acc&id=num
+			返回：{error:0}
+		*/
+		var down = newDiv.find('.top');
+		var onOff = true;
+		down.click(function(){
+			var num = parseInt(down.html());
+			if(!onOff){
+				alert('今天已经提交过，请明天再来!');
+				return;
+			}
+			$.ajax({
+				url:'weibo.php?act=acc&id='+id,
+				type:'get',
+				success:function(data){
+					var json = eval('('+data+')');
+					if(!json.error){
+						onOff = false;
+						num++;
+						down.html(num);
+					}
+				}
+			});
+		});
+		
+		
+		/*
+			删除： weibo.php?act=del&id=num
+			返回：{error:0}
+		*/
+		
+		var cut = newDiv.find('.cut');
+		
+		cut.click(function(){
+			$.ajax({
+				url:'weibo.php?act=del&id='+id,
+				type:'get',
+				success:function(data){
+					var json = eval('('+data+')');
+					if(!json.error){
+						//cut.closest('.reply').remove();
+						getPage(window.location.hash.split('=')[1]);
+					}
+					//console.log(data)
+				}
+			});
+			//alert(1)
+		});
+		return newDiv;
+	}
+	
+	
+	
+	function toDou(n){
+		return n = n<10?'0'+n:''+n;
+	}
+	
+	
+</script>
+</html>

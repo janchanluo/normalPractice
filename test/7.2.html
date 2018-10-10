@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--[if lt ie 9]>
+   <script src="https://cdn.bootcss.com/html5shiv/3.7/html5shiv.min.js"></script>
+<![endif]-->
+
+    <title>Document</title>
+    <style>
+        .clearfix:after{
+            content:'';display:block;clear:both;height:0;overflow:hidden;visibility:hidden;
+        }
+        .clearfix{zoom:1;}
+        header{
+            background-color: rgb(33, 192, 46);width: 100px; height: 100px;
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <header></header>
+    <div class="clearfix">
+    <div style="float: left; background-color: #000;width: 100px; height: 100px;"></div>
+    <div style="float: left; background-color: red;width: 100px; height: 100px;"></div>
+    <div style="float: left; background-color: blue;width: 100px; height: 100px;"></div>     
+</div>
+
+<!-- <div style="clear: both;"></div> -->
+    <div   style=" background-color:yellow;width: 100px; height: 100px;" ></div>
+    <button>点击</button>
+    <p>hello world!</p>
+</body>
+<script>
+    var c = 0;
+    document.querySelector("button").onclick = function () {
+        if (c % 2) {
+            document.querySelector("p").style.color = "";
+            c++;
+        }
+        else {
+            document.querySelector("p").style.color = "red";
+            c++;
+        }
+    }
+ var json={
+        "a":"232",
+        "b":2
+    }
+    var arr= [,1,undefined,null,1,1],arr1=[];
+    console.log(arr.length)
+    arr1.push("22");
+    for(var i=0;i<arr.length;i++){
+        arr1+=arr[i];
+        
+    }
+    var scores="";
+    for(var score in arr){
+        scores+=arr[score]+",";
+
+    }
+
+    var item,tex="";
+    for(item in json){
+        tex+=json[item] +",";
+    }
+    // console.log(tex); 
+    var object = new String();
+    String(123);
+
+    for(var i=0;i<10;i++){
+        i=i+0;
+        console.log(i)
+    }
+    function a(){
+    console.log("1")
+}
+var b=a();
+console.log(a())
+
+var aaa={
+    x:function(){
+        alert(1)
+    },
+    y:1
+}
+console.log(aaa['y'])
+
+</script>
+
+</html>

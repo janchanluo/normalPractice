@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>产品分类</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" type="text/css" href="css/iconfont.css">
+    <link rel="stylesheet" href="css/pro_categorles.css">
+</head>
+
+<body>
+
+    <div id="app">
+    <header>
+        <a href="###" class="return" onclick="javascript:history.go(-1)">
+            <svg class="icon" aria-hidden="true">
+                <use xlink:href="#icon-return"></use>
+            </svg>
+        </a>
+        <h3>思帆歌商城</h3>
+        <a href="###" class="search"><img src="img/sou-suo.png" alt=""></a>
+    </header>
+
+<div class="content">
+    <div class="conleft">
+        <ul >
+            <li v-for="(v,index) in productlist" v-bind:class="{on:index==num}" @click="fun(index)" >
+                <p v-text="v.title"></p>
+            </li>
+        </ul>
+    </div>
+    <div class="conright">
+        <ul  v-for="(x,index) in productlist" v-if="index==num">
+           <li v-for="a in x.prolist">
+                <a :href="a.ahref">
+                    <img :src="a.img" alt="">
+                    <p></p>
+                    <span v-text="a.sptext"></span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+<footer>
+    <ul>
+        <li><a href="homepage.html"><img src="img/pro_categorles_03.png" alt=""><br> 首页</a></li>
+        <li class="on"><a href="pro_categorles.html"><img src="img/pro_categorles_05.png" alt=""><br> 分类</a></li>
+        <li><a href="weihu.html"><img src="img/pro_categorles_07.png" alt=""><br> 消息</a></li>
+        <li><a href="shop_cart.html"><img src="img/pro_categorles_10.png" alt=""> <br>购物车</a></li>
+        <li><a href="user.html"><img src="img/pro_categorles_13.png" alt=""><br>我的帆歌</a></li>
+    </ul>
+</footer>
+</div>
+<script src="js/productlist.js"></script>
+    <script src="js/rem.js"></script>
+    <script src="js/iconfont.js"></script>
+    <script src="js/vue.js"></script>
+ 
+    <script src="js/pro_categorles.js"></script>
+    <script> 
+
+ 
+    
+    new Vue({
+        el:"#app",
+        data:{
+            flag:"true",
+            productlist:productlist,
+            num:""
+            
+        },
+        methods:{
+            fun:function(index){
+           
+                this.num=parseFloat(index);
+               
+             },
+            // checkFun:function(){
+            //     if(this.num==0){
+            //         this.flag=true;
+            //     }else if(this.num==1){
+            //         this.flag=true;
+            //     }else if(this.num==2){
+            //         this.flag=true;
+                    
+                    
+            //     }
+            // }
+        }
+    })
+    </script>
+</body>
+
+</html>

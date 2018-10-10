@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .content{
+            width: 1200px;
+            margin: 0 auto;
+        }
+        .demo{
+            margin-top: 50px;
+            float: left;
+        }
+        .demo1{
+            margin-top: 50px;
+            float: left;
+            margin-left: 100px;
+        }
+    .one li{
+        border: 1px #ccc solid;
+        list-style: none;
+        padding: 5px;
+        margin-right: 10px;
+        float: left;
+    }
+    .two{
+        clear: both;
+        width: 500px;
+    }
+    .two li{
+        display: none;
+        list-style: none;
+        border: 1px #ccc solid;
+        padding: 10px;
+    }
+    #show{
+        display: block;
+    }
+    </style>
+</head>
+<body>
+    <div class="content">
+            <div class="demo">
+                    <ul class="one">
+                        <li>选项一</li>
+                        <li>选项二</li>
+                        <li>选项三</li>
+                    </ul>
+                    <ul class="two">
+                        <li id="show">最佳答案: 面向对象是OOP,包含类,继承,封装等等内容。很多,不是打几个字就能说明白的。你百度下,网上的很详细。 显卡的型号也是需要积累才能明白。每年 NV 和AMD...
+                                更多关于面向对象选显卡的问题>></li>
+                        <li>最佳答案: 面向对象是OOP,包含类,继承,封装等等内容。很多,不是打几个字就能说卡的型号也是需要积累才能明白。每年 NV 和AMD...
+                                更多关于面向对象选显卡的问题>></li>
+                        <li>最佳答案: 面向对象是OOP,包含类,继承,封装等等内容。很多,不是打几个字就能说明白的。你百度下,网上的很详细。 显卡的型号也是需要积累才能明白。每年 NV 和AMD...
+                                更多关于面向对象选显卡的问题>></li>
+                    </ul>
+                </div>
+            
+                <div class="demo1">
+                        <ul class="one">
+                            <li>选项一</li>
+                            <li>选项二</li>
+                            <li>选项三</li>
+                        </ul>
+                        <ul class="two">
+                            <li id="show">安徽大厦打算的撒打算快乐熊猫撒海鲜大咖实践教学点安徽大厦打算的撒打算快乐熊猫撒海鲜大咖实践教学点开链接安徽大厦打算的撒打算快乐熊猫撒海鲜大咖实践教学点开链接开链接</li>
+                            <li>安徽大厦打算的撒打算快乐熊猫撒海鲜大咖实践教学点开链接时大时小擦擦按时</li>
+                            <li>安徽大厦打算的撒打算快乐熊猫撒海鲜大咖实践教学点开链接安徽大厦打算的撒打算快乐熊猫撒海鲜大咖实践教学点开链接安徽大厦打算的撒打算快乐熊猫撒海鲜大咖实践教学点开链接</li>
+                        </ul>
+                    </div>
+    </div>
+
+</body>
+<script>
+
+    function Demo(demo,head,content){
+        var _this=this;
+        this.oDemo=document.getElementsByClassName(demo)[0];
+        this.oHead= this.oDemo.getElementsByClassName(head)[0];  
+        this.oContent= this.oDemo.getElementsByClassName(content)[0];
+        this.Ooneli = this.oHead.getElementsByTagName("li");
+        this.Otwoli= this.oContent.getElementsByTagName("li");
+        for(var j=0;j<this.Ooneli.length;j++){
+            this.Ooneli[j].index=j; 
+            this.Ooneli[j].onclick=function(){
+            _this.Headclick(this);
+        }
+         } 
+    }
+    Demo.prototype.Headclick=function(aBtn){  
+        //   console.log(aBtn.index)
+        for(var i=0;i<this.Ooneli.length;i++){
+           this.Otwoli[i].style.display="none";
+           this.Ooneli[i].style.cssText="background-color: #fff;color: #000;";
+        }
+         this.Otwoli[aBtn.index].style.display="block";
+         this.Ooneli[aBtn.index].style.cssText="background-color: #000;color: #fff;";
+    }
+    new Demo("demo","one","two");
+
+    new Demo("demo1","one","two");
+    </script>
+</html>

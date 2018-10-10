@@ -1,0 +1,205 @@
+*{margin: 0; padding: 0; border: 0;}
+ul,li,ol{list-style: none;}
+.clear{
+	clear: both;
+}
+header{
+	width: 7.5rem;
+	position: relative;
+}
+header img{
+	display: block;
+	width: 7.5rem;
+	height: auto;
+}
+header form{
+	width: 5.2rem;
+	height: 0.6rem;
+	display: block;
+	overflow: hidden;
+	position: absolute;
+	left:1.16rem;
+	top: 0.3rem;
+}
+header form input{
+	width: 4.55rem;
+	height: 0.6rem;
+	display: block;
+	float: left;
+	background-color: #fed8e2;
+	font-size: 0.28rem;
+	text-indent: 0.2rem;
+}
+header form button{
+	width: 0.65rem;
+	height: 0.6rem;
+	display: block;
+	float: left;
+	background-color: #fed8e2;
+	background-image: url(../img/search.png);
+	background-repeat: no-repeat;
+	background-size: 0.38rem 0.38rem;
+	background-position: 0 0.1rem;
+}
+/*内容区域*/
+.content{
+	background-color: #fafafa;
+	padding-bottom: 1rem;
+}
+.hot{
+	width: 7.5rem;
+}
+.hot .title{
+	overflow: hidden;
+	margin-top: 0.28rem;
+}
+.hot .title img{
+	width: 0.33rem;
+	height: 0.39rem;
+	display: block;
+	float: left;
+	margin-left: 0.23rem;
+}
+.hot .title h3{
+	font-weight: normal;
+	font-size: 0.28rem;
+	float: left;
+	margin-left: 0.2rem;
+}
+.hot ul{
+	overflow: hidden;
+}
+.hot ul li{
+	width: 3.23rem;
+	height: 4.63rem;
+	border: 1px solid #f3f3f3;
+	padding-bottom: 0.18rem;
+	margin-left: 0.2rem;
+	margin-top: 0.3rem;
+	float: left;
+}
+.hot ul li img{
+	display: block;
+	width: 3.23rem;
+	height: auto;
+}
+.hot ul li .sell{
+	font-size: 0.28rem;
+	color: red;
+	display: block;
+	float: left;
+	margin-left: 0.3rem;
+	margin-top: 0.45rem;
+}
+.hot ul li .sell1{
+	font-size: 0.24rem;
+	color: #666666;
+	display: block;
+	float: left;
+	text-decoration: line-through;
+	margin-left: 0.8rem;
+	margin-top: 0.5rem;
+}
+.hot ul li p{
+	font-size: 0.28rem;
+	color: #666666;
+	width: 2.38rem;
+	margin-left: 0.16rem;
+	margin-top: 0.23rem;
+}
+/*专区*/
+.zhuanqu{
+	width: 7.5rem;
+}
+.zhuanqu .title{
+	overflow: hidden;
+	margin-top: 0.28rem;
+}
+.zhuanqu .title img{
+	width: 0.33rem;
+	height: 0.39rem;
+	display: block;
+	float: left;
+	margin-left: 0.23rem;
+}
+.zhuanqu .title h3{
+	font-weight: normal;
+	font-size: 0.28rem;
+	float: left;
+	margin-left: 0.2rem;
+}
+.zhuanqu ul li ol li{
+	float: left;
+}
+.zhuanqu ul li ol{
+	overflow: hidden;
+}
+.zhuanqu ul li ol li{
+	width: 3.23rem;
+	height: 4.63rem;
+	border: 1px solid #f3f3f3;
+	padding-bottom: 0.18rem;
+	margin-left: 0.2rem;
+	margin-top: 0.3rem;
+	float: left;
+}
+.zhuanqu ul li ol li img{
+	display: block;
+	width: 3.23rem;
+	height: auto;
+}
+.zhuanqu ul li ol li p{
+	font-size: 0.2rem;
+	color: #666666;
+	width: 2.38rem;
+	margin-left: 0.16rem;
+	margin-top: 0.23rem;
+}
+.zhuanqu ul li ol li .sell{
+	font-size: 0.28rem;
+	color: red;
+	display: block;
+	float: left;
+	margin-left: 0.3rem;
+	margin-top: 0.45rem;
+}
+.zhuanqu ul li ol li .sell1{
+	font-size: 0.24rem;
+	color: #666666;
+	display: block;
+	float: left;
+	text-decoration: line-through;
+	margin-left: 0.8rem;
+	margin-top: 0.5rem;
+}
+.tab{
+	position: fixed;
+	bottom:0;
+	background-color: white;
+	/*display: none;*/
+}
+#app>a{
+	display: block;
+	float: left;
+	font-size: 0.32rem;
+	width: 25%;
+	color: red;
+	text-decoration: none;
+	text-align: center;
+	padding-bottom: 1rem;
+}
+#app .aaa{
+	
+	font-size: 0.32rem;
+	display: block;
+	background-color: green;
+	color: white;
+	text-align: center;
+	height: 0.5rem;
+}
+/*.route{
+	position: fixed;
+	bottom:0;
+	z-index: 3;
+	width: 100%;
+}*/

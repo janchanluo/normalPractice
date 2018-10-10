@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var str = 'abcdefg';  //gfedcba
+			
+			
+			/*
+			 * var arr = [2,3,4,55];
+			 * str[0] = 'k';
+				arr[0] = 444;
+				console.log(str[0],arr[0])
+			 
+			    数组里面的数据可以通过下标改变
+			    字符串是不能改变的
+			 * 
+			*/
+			var num = '';
+			for(var i=0;i<str.length;i++){
+				num += str.charAt(str.length-1-i);
+				
+			}
+			console.log(num)
+		</script>
+	</body>
+</html>

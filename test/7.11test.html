@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .demo ul li {
+            list-style: none;
+            float: left;
+            padding: 20px;
+            font-size: 30px;
+        }
+
+        .two {
+            color: rgb(177, 72, 219);
+        }
+
+        .overtwo {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="demo">
+        <ul>
+            <li>❤</li>
+            <li>❤</li>
+            <li>❤</li>
+            <li>❤</li>
+            <li>❤</li>
+            <li>❤</li>
+            <li>❤</li>
+            <li>❤</li>
+            <li>❤</li>
+        </ul>
+    </div>
+</body>
+<script>
+    // var index
+    var oli = document.querySelectorAll("li");
+    var num = null;
+    for (var i = 0; i < oli.length; i++) {
+        now_li = oli[i]
+        now_li.index = i;
+        now_li.onmouseover = function () {
+            
+            for (var i = 0; i < oli.length; i++) {
+                if (this.index < 2) {
+                    for (var j = 0; j <= this.index; j++) {
+                        oli[j].style.color = "rgb(177, 72, 219)";
+                    }
+                }
+                else {
+                    oli[i].style.color = "#000";
+                }
+                if (this.index >= 2) {
+                    for (var j = 0; j <= this.index; j++) {
+                        oli[j].style.color = "red";
+                    }
+                }
+                else {
+                    oli[i].style.color = "#000";
+                }
+            }
+        }
+        now_li.onmouseout = function () {
+   
+            for (var i = 0; i < oli.length; i++) {
+                oli[i].style.color = "#000";
+            }
+            for (var i = 0; i <= num; i++) {
+
+                if (num < 2 && num != null) {
+                    oli[i].style.color = "rgb(177, 72, 219)";
+                }
+                else if (num < oli.length && num != null) {
+                    oli[i].style.color = "red";
+                }
+            }
+        }
+        now_li.onclick = function () {
+            num = this.index;
+        }
+       
+    }
+
+</script>
+
+</html>

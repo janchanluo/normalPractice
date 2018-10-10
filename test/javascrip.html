@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+   <style>
+  .point{
+      color: red;
+      font-size: 12px;
+  }
+  input {
+    color: #333;
+    caret-color: red;
+}
+   </style>  
+</head>
+<body>
+    <input type="text">
+    <div id="app">
+        <span>23
+        </span>
+    </div>
+    <div class="app">
+            <span>23</span>
+    
+        </div>
+        <h1  onclick="app()">h1</h1>
+        <h2>h2</h2>
+        <div>
+            <input type="text"  class="firnum">
+            <select>
+                    <option value ="+">+</option>
+                    <option value ="-">-</option>
+                    <option value="*">*</option>
+                    <option value="/">/</option>
+                  </select>
+                  <input type="text"  class="secnum">
+                  <input type="button" value="=" onclick="result() ">
+                  <input type="text"  class="result"><span class="point"></span>
+                  </div>
+
+</body>
+<script>
+        //    document.documentElement.innerHTML="<h2>321321</h2>";
+            var app1=document.querySelectorAll(".app");
+            // document.write(app1[0].innerHTML);
+            document.querySelector("h1,h2").style.cssText ="background-color:#ccc; display:block;color:White;font-size:20px;";
+            function app(){
+                alert("hello world!")
+        
+            }
+            function result(){
+              var selectval= document.querySelectorAll("select")[0].value;
+              var firnum=document.querySelectorAll(".firnum")[0].value , secnum=document.querySelectorAll(".secnum")[0].value ;
+              if(firnum==""||secnum==""||!isNaN(firnum)||!isNaN(secnum))
+              {
+                document.querySelectorAll(".point")[0].innerHTML="请输入数字进行计算"
+              }
+              else{
+                switch(selectval){
+                case "+":
+                num=parseInt(firnum)+parseInt(secnum);
+                break;
+                case "-":
+                num=firnum-secnum;
+                break;
+                case "*":
+                num=firnum*secnum;
+                break;
+                case "/":
+                num=firnum/secnum;
+                break;
+            }
+            document.querySelectorAll(".result")[0].value=num;
+            document.querySelectorAll(".point")[0].innerHTML=""
+              }
+  
+        }
+        var arr= new Array();
+        var x,txt="";
+        arr[0]="0";
+        arr.unshift("css","2311");
+
+        for(x in arr){
+            txt+=arr[x];
+
+        }
+        console.log(txt);  
+        var obj=new Object();
+        console.log(obj);
+        obj.first="213";
+        obj["second"]="23";
+        var arr1=[
+            {first:1112323,second:2222},
+            {second:112443},
+            {seco:112323,test:function(){
+                return 1;
+            }}
+        ]
+
+        console.log( ""+5+5+"abc")
+
+
+        arr3=["1",1,312,4,1];
+       box1= arr3.splice(0,2,"5",2,4);
+       box2= arr3.slice(0,2)
+        console.log(arr3,box1) 
+        console.log(arr3,box2) 
+        </script>
+</html>

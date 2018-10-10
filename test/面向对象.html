@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+// var car1={};
+// cat1.name="damao";
+// cat1.color="red";
+
+// var car2={};
+// cat2.name="ermao";
+// cat2.color="yellow";
+
+// function car1(name,color) {  
+//     return{
+//     name:name,
+//     color:color
+//     } 
+// }
+// function cat2(name,color){
+//     var obj={};
+//    return [
+//    obj.name=name,
+//    obj.color=color
+//    ]
+  
+// }
+// function Animal() { 
+// //  this.animal="动物";
+//  this.say=function(){          
+//      alert(1);
+//  }
+//  }
+//  Animal.prototype.animal="动物1";
+// function Cat3(name,color){
+//     this.name=name;
+//     this.color=color;
+// }
+// // Cat3.prototype=Animal.prototype;
+// // Cat3.prototype.type="狗子";
+// // var a=new Cat3("三毛","white");
+
+// function extend(child,parent) {
+//     function F() {  }
+// F.prototype=parent.prototype;
+// child.prototype=new F();
+// child.prototype.constructor =child;
+// child.uber= parent.prototype;
+//   }
+//   extend(Cat3,Animal);
+//   xx=new Cat3();
+//   console.log(xx.animal,1)
+//   function extend2(child,parent) {
+//       var p=new parent;
+//       var c=child.prototype;
+//       for (var i in p){
+//           c[i]=p[i];
+//       }
+//       c.uber=p;
+//     }
+// //    extend(Cat3,Animal);
+//  extend2(Cat3,Animal);
+// var b=new Cat3("四毛","red");
+// console.log(b.animal,b.constructor)
+// // console.log(car1("damao","red"));
+// // console.log(cat2("ermao","blue"));
+// // console.log(a.name,a.color);
+// // console.log(a.animal);
+// // console.log(Animal.prototype.isPrototypeOf(a))
+
+
+//    var x = 10;
+//       var obj = {
+//          x:20,
+//          f:function(){
+//             console.log(this.x);  
+//            function foo(){
+//                console.log(this.x);
+//             }
+//             // console.log(foo());
+//             return foo;  
+//          }
+//       };
+
+//       obj.f()(); 
+
+
+//       var z=10;
+//       function zz() {
+//           var z=0;
+//           console.log(z);
+//         }
+//         zz(); // 0
+//         console.log(z) //10
+
+
+//      function user() {
+//          this.name=name;
+//          this.say=function(){
+//             console.log(this)
+//          }
+//        }
+//        var xxx=new user("wabn");
+//        var ccc=new user("zhang");
+//        console.log(xxx.say()==ccc.say())
+//     ccc.say()
+
+function Person() {
+    this.sex="nan"
+  };
+  Person.prototype.show=function(){
+      console.log("555")
+  }
+
+  function Student(name,age) {  
+      this.name=name,
+      this.age=age
+  }
+  
+
+Student.prototype.show1=function () {
+    alert(1)
+  }
+
+  Student.prototype=new Person();
+
+  Student.prototype.show1="ssss"
+  
+  Student.prototype.constructor=Student;
+   var a=new Student();
+   a.show()
+//    a.show1()
+console.log(a.show1)
+    </script>

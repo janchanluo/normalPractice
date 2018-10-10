@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/*
+			     reverse()   :   让数组倒序
+			     	改变原数组
+			     	
+			     	
+			     sort(function(a,b){
+			     	  return  负数 :  不变位置
+			     	  		    正数        交换位置
+			     	  		    
+			     	  		a - b  : 从小到大排列
+			     	  		b- a : 从大到小
+			     	  		打乱顺序 :  随机排列		
+			     })  :
+			 * 
+			*/
+			
+			var arr = [1,2,9,45,4]; //2 1 9 45 4
+				// 2 9 1 45 4
+			
+			//var box = arr.reverse();
+			// 0 -1   Math.random() : 0-1之间的随机小数
+			var box = arr.sort(function(a,b){
+				return Math.random() - 0.5; // -0.5  0.5
+			});
+			
+			
+			console.log(box)
+		</script>
+	</body>
+</html>

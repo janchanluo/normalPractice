@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#blue{
+				width: 100px;
+				height: 100px;
+				position: absolute;
+				background: blue;
+				top: 200px;
+				left: 200px;
+				border-radius: 50%;
+			}
+			#red{
+				width: 100px;
+				height: 100px;
+				position: absolute;
+				background: red;
+				top: 400px;
+				left: 200px;
+				border-radius: 50%;
+				
+			}
+		</style>
+	</head>
+	<body>
+		<div id="blue"></div>
+		<div id="red"></div>
+		<script type="text/javascript">
+			var blue = document.getElementById("blue");
+			var red  = document.getElementById("red");
+			blue.onmousedown = function(e){
+				var disX = e.clientX - this.offsetLeft;
+				var disY = e.clientY - this.offsetTop;
+				document.onmousemove = function(e){
+					var l = e.clientX - disX;
+					var t = e.clientY - disY;
+					blue.style.left = l + 'px';
+					blue.style.top = t + 'px';									
+                    if(!isCrash(red,blue)){
+                    	red.style.background = "red";
+                    }else{
+                    	red.style.background = "green";
+                    }
+				}
+				document.onmouseup = function(){
+					document.onmousemove = document.onmouseup = null;
+				}
+			}
+			function isCrash(obj1,obj2){
+				//red	
+				var L1 = obj1.offsetLeft;
+				var R1 = obj1.offsetLeft + obj1.offsetWidth/2;
+				var T1 = obj1.offsetTop;
+				var B1 = obj1.offsetTop + obj1.offsetHeight/2;
+				//obj2 碰到 obj1
+				var L2 = obj2.offsetLeft;
+				var R2 = obj2.offsetLeft + obj2.offsetWidth/2;
+				var r  = obj2.offsetWidth/2 + (obj1.offsetWidth/2);
+				var B2  = obj2.offsetTop+ (obj2.offsetHeight/2);
+				
+				//什么情况下不会碰撞
+					if((R1 - R2)*(R1 - R2) + (B1 - B2)*(B1 - B2) > r * r){
+						return false;
+					}else{
+						return true;
+					}
+			}
+		</script>
+	</body>
+</html>
+<!--
+	碰撞检测:
+	 排除所有不会碰撞的情况,剩下的就是能碰撞的情况
+	 
+-->
+

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>首页</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="css/mint-ui.css"/>
+		<link rel="stylesheet" type="text/css" href="css/index.css"/>
+	</head>
+	<body>
+		<div id="app">
+			<!--头部开始-->
+		<header>
+			<img src="img/index.jpg"  />
+			<form action="###">
+				<input type="text" placeholder="Montagne jeunesse" />
+				<button></button>
+			</form>
+		</header>
+		<!--头部结束-->	
+		<!--内容区域开始-->
+		<div class="content">
+			<div class="hot">
+				<div class="title">
+					<img src="img/hot.png"  />
+					<h3>今日疯抢</h3>
+				</div>
+				<ul>
+					<li v-for="(hot,index) in hotList">
+						<img  :src="hot.src" />
+						<span class="sell" v-text="hot.price"></span>
+						<span class="sell1" v-text="hot.sell"></span>
+						<div class="clear"></div>
+						<p v-text="hot.content"></p>
+					</li>
+				</ul>
+			</div>
+			<div class="zhuanqu">
+			<ul>
+				<li v-for="qu in zhuanQu">
+					<div class="title">
+						<img :src="qu[0].src"/>
+						<h3 v-text="qu[0].title"></h3>
+					</div>
+					<ol>
+						<li v-for="fenqu in qu[1]">
+							<img :src="fenqu.src"/>
+							<p v-text="fenqu.content"></p>
+							<span class="sell" v-text="fenqu.price"></span>
+							<span class="sell1" v-text="fenqu.sell"></span>
+						</li>
+					</ol>
+				</li>
+			</ul>
+		</div>
+		</div>
+		
+		
+		<mt-tabbar class="tab">
+		  <mt-tab-item id="tab1">
+		    <img slot="icon" src="img/tab_home_hig.png">
+		    首页
+		  </mt-tab-item>
+		  <mt-tab-item id="tab2">
+		    <img slot="icon" src="img/tab_menu_nor.png">
+		    分类
+		  </mt-tab-item>
+		  <mt-tab-item id="tab3">
+		    <img slot="icon" src="img/tab_shopping_nor.png">
+		    购物车
+		  </mt-tab-item>
+		  <mt-tab-item id="tab4">
+		    <img slot="icon" src="img/tab_me_nor.png">
+		    我
+		  </mt-tab-item>
+		</mt-tabbar>
+		<router-view>123</router-view>
+		
+			<router-link to="/a">首页</router-link>
+	         <router-link to="/b">分类</router-link>
+			 <router-link to="/c">购物车</router-link>
+	         <router-link to="/d">我</router-link>
+	         <div class="clear"></div>
+			 
+	
+		
+		
+		 
+		
+		
+		
+		
+		</div>
+	</body>
+</html>
+<script type="text/javascript" src="js/rem.js"></script>
+<script type="text/javascript" src="js/vue.js"></script>
+<script type="text/javascript" src="js/vue-resource.js"></script>
+<script type="text/javascript" src="js/mint-ui.js"></script>
+<script type="text/javascript" src="js/router.js"></script>
+<script type="text/javascript">
+	const shouye = { template: '<div class="aaa">我是首页</div>' }
+    const fenlei = { template: '<div class="aaa">我是分类</div>' }
+    const shopcar = { template: '<div class="aaa">我是购物车</div>' }
+    const myself = { template: '<div class="aaa">我是is我</div>' }
+    const routes = [
+		  { path: '/a', component: shouye },
+		  { path: '/b', component: fenlei },
+		  { path: '/c', component: shopcar },
+		  { path: '/d', component: myself }
+		]
+    const router = new VueRouter({
+		  routes 
+		})
+	new Vue({
+		el:"#app",
+		router,
+		data(){
+			return{
+				hotList:null,
+				zhuanQu:null
+			}
+		},
+		created(){
+			this.$http.get('js/index-hot.js').then((res)=>{
+				
+				//console.log(res)
+				this.hotList=res.body
+				
+				
+				
+			}),
+			this.$http.get('js/zhuanqu.js').then((res)=>{
+				
+				this.zhuanQu=res.body
+				
+			})
+			
+			
+		}
+		
+		
+		
+	})
+	
+	
+	
+	
+</script>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/*
+			      string:
+			      	indexOr()  :  
+			 * 
+			 *    一串字符串里面某个字符出现的次数
+			 * 
+			 */
+			
+			var str = "高考镜里观镜花";
+			var str1 = 'nhcfkhfkljgfjhjhfghegerh';
+			
+
+			//var box = str.indexOf('镜',3);
+			
+			//num = 2;
+			var num = str1.indexOf('h',0);
+			var nub = 1;
+			while(str1.indexOf('h',num+1) != -1){
+				
+				num = str1.indexOf('h',num+1);
+				nub++;
+			}
+			
+			console.log(nub)
+		</script>
+	</body>
+</html>

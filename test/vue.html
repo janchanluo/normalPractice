@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>vue.js</title>
+    <style>
+        .col1 {
+            background-color: rgb(123, 199, 199);
+        }
+
+        .col2 {
+            background-color: red;
+        }
+
+        .col3 {
+            background-color: #000;
+        }
+        .txt{
+            background-color: red;
+            color: #fff;
+        }
+        .one li{
+            float: left;
+            padding:10px 20px ;
+            border: 1px solid red;
+            border-bottom: none;
+            list-style: none;
+            position: relative;
+            top: 1px;
+            background-color: #fff;
+        }
+        .two{
+            clear: both;
+            padding: 20px ;
+            border-top: 1px solid blue;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div v-html="cs"></div>
+        <label> 蓝色</label>
+        <input v-on:click="change()" v-model="col1" type="radio" name="ck" id="ck1">
+        <label> 红色</label>
+        <input v-model="col2" type="radio" name="ck" id="ck2">
+        <label> 黑色</label>
+        <input v-model="col3" type="radio" name="ck" id="ck3">
+   
+    </div>
+    <div>
+        <ul class="one">
+            <li>12</li>
+            <li>34</li>
+            <li>45</li>
+        </ul>
+        <ul class="two">
+            <li>测试Vue v-bind
+
+                    0 username, 乔治</br>
+                    1 age, 19
+                    2 fav, 恐龙
+                    !dlrow eht era ew , We Are The World!</li>
+        </ul>
+    </div>
+<div class="vue_det">
+ <h1>{{site}}</h1>
+ <h2 @click="test">{{something}}</h2>
+ <h3>{{dosome()}}</h3>
+
+
+ <input type="text" v-model="site">
+
+ <div v-html="message"></div>
+
+ <input type="checkbox" v-model="checked" >
+   <p  v-bind:class="{'txt':checked}">测试Vue v-bind</p>
+
+<div v-for="(val,key,index) in object"> 
+ {{index}} {{key}}, {{val}}   
+</div>
+
+<div class="reverse" >
+  {{norerse}} , {{reverse | upper}} 
+</div>
+
+</div>
+
+</body>
+<script src="https://cdn.bootcss.com/vue/2.5.17-beta.0/vue.js"></script>
+<script>
+
+
+
+
+var something="xixi"
+    var vm= new Vue({
+        el:".vue_det",
+        data:{
+            site:"hello",
+            name:"佩奇",
+            something:something,
+            message:"<h1>13213</h1>",
+            checked:false,
+            object:{
+                username:"乔治",
+                age:"19",
+                fav:"恐龙",
+
+            },
+            norerse:"!dlrow eht era ew",
+            },
+        methods:{
+            dosome:function(){
+                return this.name + "mdzz！";
+            },
+            test:function(){
+                alert("yes")
+            },
+           
+        },
+        filters: {
+            upper:function(value){
+              var arr=value.split(" ");
+              var txt="";
+              for(var i=0;i<arr.length;i++){
+                txt+=arr[i].charAt(0).toUpperCase() +arr[i].slice(1) + " ";
+              }
+              return txt;
+            }
+        },
+         computed:{
+            reverse:function(){
+                return this.norerse.split("").reverse().join("");
+            },
+      
+
+         }
+
+    })
+
+</script>
+
+</html>

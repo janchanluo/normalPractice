@@ -1,0 +1,109 @@
+ npm install -g cnpm
+1.安装webpack
+1.n'p'm  i   webpack  -g全局安装
+2.npm i webpack --save-dev安装到项目根目录
+
+2.新建一个文件夹
+1.src：放源代码
+2.dist  发布文件
+3.src下面文件夹css,img,js,index.html
+js下面建一个main.js
+
+3.安装jQuery 
+先init        npm init -y   初始化pack.json文件
+
+在安装npm i jquery -s
+
+4.不建议直接安装包，拖延加载速度，在main. js里面引入jquery，直接应用main.js
+
+5.引入import $ from jquery   es6用法
+6.由于es6语法浏览器承受不住，所有引入有问题
+7.const  $ =require('jquery')  node 语法
+8.通过cmd   当前文件下面   webpack   .\src\main.js  .\dist\bundle.js
+把文件夹处理到dist里面
+9.直接引入dist里面文件
+
+10.wabpack可以做什么事情
+1.js里面引入js
+2.能够处理js兼容问题把高级的浏览器不能识别的语法转化为正常识别语法
+
+10.如果需要修改必须重新使用webpack
+11.直接webpack不能自动刷新
+12.在根目录中键一个webpack.config.js
+13.在webpack.config.js   起始就是一个js文件，通过node中的模块操作向外暴漏一个配置对象
+module.exports={手动指定入口和出口，entry代表入口  entry:path.jion(__dirname,'./src/main.js')   
+
+出口文件output:{path:path.join(__dirname,./dist),  filename:'bundle.js'}
+}
+
+14.当在控制台直接输入webpack直接执行的时候，做了几件事
+1.没有通过命令的形式，给他指定入口和出口
+2.webpack就会去项目的跟目录中查找webpack.config.js
+3.当找到配置文件后，webpac解析执行配置文件，就得到了配置文件中，到处的配置对象
+4.当webpack拿到配置对象侯，就拿到了配置对象中指的的入口和出口，然后进行打包创建
+
+15.每次改完都需要在控制台输入webpak很麻烦
+
+16.运用webpack-dev-server  来实现自动打包编译功能
+1.运行npm i webpack-dev-server -D把这个工具安装到更目录本地开发依赖
+2.安装完毕后，这个工具和webpack用法一样
+3.由于我们在项目中本地安装的webpack-dev-server，所以无法把他当作脚本命令
+在powershell终端中直接运行（只有安装到全局 -g的工具，才能在终端中执行）
+4.但是不能只能在本地使用
+5.找到webpack.json找到scripts中写上“dev”:"webpack-dev-server"
+6.只要执行npm run dev就可以执行scripts中的dev
+7.注意webpack-dev-server这个工具，如果想要正常运行，要求在本地安装 npm i webpack -D
+
+
+17.我们引入的是dist里面的bundle.js，所以引入不对，我们直接引入/bundle。js,
+这个bundle.js没有存到实际的物理磁盘上，而是直接托管到电脑内存中，所以我在项目目录中，根本找不到打包好的bundle.js
+我们可以认为webpack-dev-server,把打包好的文件以一种虚拟的形式托管到了砸门项目的根目录中，虽然看不到。但是可以认为和dist src平级有一个看不到的bundle.js
+
+18.如何让服务器自动运行dev
+1.在webpack。config。js中的webpack-dev-server后面加参数--open
+--port 3000更改端口为3000
+--contentBase src  打开src里面的首页
+--hot  局部更新代码，异步刷新页面
+
+19.如何把页面也存储到内存借助插件
+1.npm i html-webpack-plugin -D
+2.导入在内存中生成的html页面的插件只要是插件都要放入plugins节点中去
+const htmlwebpackplugin = require('html-webpack-plugin')
+
+在scripts里面写上
+devserver同级
+plugins：[ new htmlwebpackplugin({  template：path.join(__dirname,'./src/index.html')，filename：'index.html'  }) ]创建一个在内存中生成的html页面的插件
+1.指定模板页面，将来会根据指定的页面路径，去生成内存中的页面
+2.指定生成页面名称
+3作用 ：1.自动生成内存页面  2.把打包后的bundle.js追加到页面
+
+
+4.如何配置css
+1.在css文件夹下面新建css文件
+2.如果直接引用会引起二次请求
+3.直接在main。js里面导入css   import './css/index.css'
+4.为什么jquery可以，css不行
+webpack默认只能打包处理js，无法处理其他的非js类型文件，如果处理非js文件，需要手动安装一些合适的第三方loader加载器
+5.
+1.如果想要打包处理css文件需要安装 npm i style-loader css-loader -D
+2.打开webpack.config.js这个配置文件，在里面新增一个配置节点叫做moudle。他是一个对象，在这个module对象身上，有个rules属性，这个属性是个数组，在这个数组中存放所有第三方文件的匹配和处理规则
+6.打开webpack.config.js里面plugins同级建一个modules
+module：{rules:[{test:/\.css$/,use:['style-loader','css-loader']}]}  //配置处理css文件的第三方loader规则
+rules：所有第三方模块的匹配规则
+module：这个节点，用于配置所有第三方模块加速器
+
+6.less
+1.如果想要打包处理css文件需要安装 npm i less-loader -D
+2.安装 npm i less -D
+module：{rules:[{test:/\.less$/,use:['style-loader','css-loader','less-loader']}]}
+
+
+6.scss
+1.如果想要打包处理css文件需要安装 npm i sass-loader -D
+2.安装 cnpm i node-sass -D  node-sass要用cnpm
+module：{rules:[{test:/\.css$/,use:['style-loader','css-loader','sass-loader']}]}
+
+
+
+
+ 

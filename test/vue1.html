@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        padding: 0;
+        margin: 0;
+    }
+    #app{
+        margin: 50px;
+    }
+    .score{
+        color: red;
+    }
+    ul{
+        margin-top: 20px;
+    }
+    li{
+        list-style: none;
+        background-color: #ccc;
+        padding: 5px 0;
+        margin: 5px 0;
+    }
+    .on{
+        background-color: red;
+        color: #fff;
+    }
+</style>
+<body>
+    <div id="app">
+     <!-- <p v-text="msg"></p>
+     <p v-html="msgH"></p> -->
+     
+     <input type="text" name="" v-model="value" id=""><span class="score" >请输入查询成绩</span>
+       <ul v-show="value">
+          
+           <li v-if="value<60">不及格</li>
+           <li v-else-if="60<=value && value<70">及格</li>
+           <li v-else-if="70<=value && value<90">良好</li>
+           <li v-else-if="90<=value && value<=100">优秀</li>
+           <li v-else>输入错误</li>
+       </ul>
+
+
+       <ul class="user">
+           <li v-for="(item,i) in user" @click="check(i)"><span>姓名：{{item.name}}</span>
+            <span>年龄：{{item.age}}</span></li>
+       </ul>
+     <rout v-bind:todo="item"></rout>
+    </div>
+    
+</body>
+<script src="https://cdn.bootcss.com/vue/2.5.17-beta.0/vue.js"></script>
+<script>
+    var value='';
+    var arr=[
+        {
+        name:"小明",
+        age:"18"
+            },
+     {
+        name:"小李",
+        age:"21"
+            },
+      {
+        name:"小张",
+        age:"19"
+            }
+
+    ];
+  Vue.component('rout',{
+      props: ['todo'],
+      template:`<div>
+       <h2>学习Vue好快乐</h2> 
+       <p v-for="item in todo">{{item}}</p> 
+      </div>`
+  })
+  
+  new Vue({
+      el:"#app",
+      data:{
+          msg:"hellow world",
+          msgH:"<strong>hellow world</strong>",
+          value:value,
+          user:arr,
+          on:false,
+          item:["laoge","nihao","zhang"]
+      },
+      methods:{
+          check:function(i){
+             var Oul= document.getElementsByClassName("user")[0];
+             var Oli =Oul.getElementsByTagName("li");
+             Oli[i].className="on";
+             this.on=!this.on
+          }
+      }
+  })
+</script>
+
+</html>

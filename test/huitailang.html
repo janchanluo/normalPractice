@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <img src="images/h0.png"/>
+    </div> 
+</body>
+<script type="text/javascript">
+	var timer1,timer2,timer3;
+    var img=document.getElementsByTagName("img")[0];
+    var i=0,j=5,a=5;
+    var times=0;
+    timeFoo1();
+    function timeFoo1() {
+             timer1= setInterval(function(){
+              i++;
+              img.src='images/h'+i+'.png';
+         if(i>=5){ 
+            clearInterval(timer1);
+            timeFoo2();
+      }
+          },400) 
+     i=0;
+        }
+   function timeFoo2(){
+    clearInterval(timer1);
+    timer2= setInterval(function(){
+                 j--;
+              img.src='images/h'+j+'.png';
+              if(j<=0){
+                clearInterval(timer2);
+                timeFoo1();	
+              }
+          },400);
+          j=5;
+  } 
+  function timeFoo3(){
+    timer3= setInterval(function(){
+        clearInterval(timer1);
+        clearInterval(timer2);
+        a++;
+              img.src='images/h'+a+'.png';
+              if(a>=9){
+                    a=5;
+                    timeFoo2();	
+                    clearInterval(timer3);  
+              }
+
+  },400 );
+  }
+      img.onclick=function(){
+        timeFoo3();
+    }
+</script>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.box{
+				width:400px;
+				height:400px;
+				border: 1px solid #000;
+				margin: 0 auto;
+				position: relative;
+				transform-style: preserve-3d;
+				perspective: 800px;
+			}
+			.item{
+				width:100px;
+				height:100px;
+				position: absolute;
+				top:50%;
+				margin: -50px 0 0 -50px;
+				transform-style: preserve-3d;
+				left:50%;
+				transition: 5s;
+				transform-origin: 50px 50px 50px;
+			}
+			
+			.box:hover .item{
+				transform: rotateY(720deg);
+			}
+			span{
+				position: absolute;
+				top:0;
+				left:0;
+				font-size: 40px;
+				color: #f60;
+				width:100px;
+				height:100px;
+				line-height: 100px;
+				text-align: center;	
+				opacity: 0.5;		
+			}
+			span:nth-of-type(1){
+				background: palevioletred;
+			}
+			span:nth-of-type(2){
+				background: chartreuse;
+				transform: rotateY(90deg);
+				transform-origin: 100px 0;
+			}
+			span:nth-of-type(3){
+				background: chocolate;
+				transform: rotateY(-90deg);
+				transform-origin: 0px 0;
+			}
+			span:nth-of-type(4){
+				background: hotpink;
+				transform: rotateX(90deg);
+				transform-origin: 0px 0;
+			}
+			span:nth-of-type(5){
+				background: aqua;
+				transform: rotateX(-90deg);
+				transform-origin: 0px 100px;
+			}
+			span:nth-of-type(6){
+				background: fuchsia;
+				/*transform: rotateX(-90deg);
+				transform-origin: 0px 100px;*/
+				transform: translateZ(100px);
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div class="box">
+			<div class="item">
+				<span>1</span>
+				<span>2</span>
+				<span>3</span>
+				<span>4</span>
+				<span>5</span>
+				<span>6</span>
+			</div>
+		</div>
+		
+		<script type="text/javascript">
+			/*
+			 
+			 * 
+			*/
+		</script>
+	</body>
+</html>

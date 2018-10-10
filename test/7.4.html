@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    input{
+        -webkit-appearance: none;
+        width: 10px;
+        height: 10px;
+        background-color: #ccc
+        }    
+    input:checked{
+        background-color: rgb(132, 221, 217);
+    }
+    </style>
+</head>
+<body>
+        <button id="all">全选</button><input type="checkbox">
+    <ul>
+    <input type="checkbox">苹果
+    <input type="checkbox">香蕉
+    <input type="checkbox">菠萝
+    <input type="checkbox">芒果
+    </ul>
+    <button>反选</button>
+</body>
+<script src="https://cdn.bootcss.com/jquery/3.3.0/jquery.js"></script>
+<script>
+    // var inputChecked= document.querySelectorAll("ul>input");
+    $("#all").click(function(){
+        $("ul>input").prop("checked",true);
+        console.log($("ul>input").prop("checked"))
+    })
+    
+
+</script>
+</html>

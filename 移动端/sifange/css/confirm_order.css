@@ -1,0 +1,284 @@
+.info {
+  width: 7.5rem;
+  background: white;
+  position: relative;
+}
+
+.info h3 {
+  margin-left: 0.54rem;
+  font-size: 0.36rem;
+  color: #666666;
+}
+
+.info h3 span {
+  margin-right: 0.34rem;
+  display: block;
+  float: right;
+  font-size: 0.24rem;
+  margin-top: 0.08rem;
+}
+
+.info h4 {
+  margin-top: 0.1rem;
+  font-size: 0.24rem;
+  margin-left: 0.22rem;
+  color: #666666;
+}
+
+.info h4 img {
+  width: 0.32rem;
+  height: 0.38rem;
+  display: block;
+  float: left;
+  margin: 10px 0 0 0;
+}
+
+.info p {
+  font-size: 0.24rem;
+  color: #fcbc72;
+  margin-left: 0.72rem;
+}
+
+.info a {
+  width: auto;
+  height: auto;
+  position: absolute;
+  right: 0.2rem;
+  top: 0;
+}
+
+.info a img {
+  width: 0.2rem;
+  height: 0.3rem;
+}
+
+.shopinfo {
+  overflow: hidden;
+  background: white;
+  margin-top: 0.1rem;
+}
+
+.shopinfo h6 {
+  font-size: 0.24rem;
+  color: #444444;
+  float: right;
+  margin-top: 0.15rem;
+  margin-bottom: 0.15rem;
+  margin-right: 0.2rem;
+}
+
+.shopinfo h6 span {
+  font-size: 0.28rem;
+  color: #ec5252;
+}
+
+.shopinfo ul {
+  width: 7.5rem;
+  border-top: 1px solid #ececec;
+}
+
+.shopinfo ul li {
+  height: 0.6rem;
+  line-height: 0.6rem;
+  margin: auto;
+  width: 7.1rem;
+  font-size: 0.24rem;
+  border-bottom: 1px solid #e9e9e9;
+}
+
+.shopinfo ul li input {
+  width: 5rem;
+  columns: #999999;
+  background: white;
+  border: none;
+}
+
+.shopinfo ul li a {
+  color: #666666;
+}
+
+.shopinfo ul li a span {
+  float: right;
+}
+
+.shopinfo ul li a span img {
+  width: 0.2rem;
+  height: 0.3rem;
+  margin-bottom: -0.05rem;
+  margin-left: 0.05rem;
+}
+
+.shopinfo div {
+  padding: 0.2rem;
+}
+
+.shopinfo div img {
+  width: 2.22rem;
+  height: 2.22rem;
+  float: left;
+}
+
+.shopinfo div h3,
+.shopinfo div h4,
+.shopinfo div h5,
+.shopinfo div p {
+  width: auto;
+  margin-left: 2.6rem;
+  font-size: 0.24rem;
+}
+
+.shopinfo div h3 {
+  color: #999999;
+}
+
+.shopinfo div h4 {
+  color: #333333;
+  font-weight: 600;
+}
+
+.shopinfo div h5 {
+  color: #666666;
+}
+
+.shopinfo div p {
+  margin-top: 0.92rem;
+  color: #ec5252;
+}
+
+.shopinfo div p b {
+  font-size: 0.28rem;
+  font-weight: 400;
+}
+
+.shopinfo div p span {
+  float: right;
+  color: #666666;
+}
+
+footer {
+  width: 7.5rem;
+  height: 0.9rem;
+  background: white;
+}
+
+footer a {
+  width: 2.08rem;
+  height: 0.9rem;
+  display: block;
+  float: right;
+  background: #ff2626;
+  line-height: 0.9rem;
+  font-size: 0.4rem;
+  color: white;
+  text-align: center;
+}
+
+footer p {
+  width: 2.45rem;
+  float: left;
+  margin-left: 2.94rem;
+  height: 0.9rem;
+  line-height: 0.9rem;
+  font-size: 0.26rem;
+  color: #777777;
+}
+
+footer p span {
+  font-size: 0.36rem;
+  color: #ec5252;
+}
+
+.payp {
+  transition: all 1s;
+}
+
+.show-enter .payp {
+  transform: translateY(7.27rem);
+}
+
+.pay {
+  width: 100%;
+  height: 100%;
+  z-index: 99;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+
+.pay .mask {
+  width: 100%;
+  height: 100%;
+  background: black;
+  opacity: 0.25;
+}
+
+.pay .payall {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 7.5rem;
+  background: white;
+  height: 7.28rem;
+}
+
+.pay .payall a.paysure {
+  width: 7.5rem;
+  height: 0.8rem;
+  background: #f4b469;
+  font-size: 0.36rem;
+  color: white;
+  text-align: center;
+  line-height: 0.8rem;
+  position: fixed;
+  bottom: 0;
+}
+
+.pay .payall ul li:last-child {
+  color: #ff2626;
+}
+
+.pay .payall ul li {
+  height: 0.6rem;
+  width: 7.1rem;
+  padding-left: 0.2rem;
+  padding-right: 0.2rem;
+  font-size: 0.24rem;
+  border-top: 1px solid #ececec;
+  line-height: 0.6rem;
+  color: #999999;
+}
+
+.pay .payall ul li span {
+  float: right;
+}
+
+.pay .payall h2 {
+  position: relative;
+  width: 100%;
+  height: 0.66rem;
+  line-height: 0.66rem;
+  font-size: 0.28rem;
+  color: #444444;
+}
+
+.pay .payall h2 a {
+  color: #444444;
+  margin-left: 0.32rem;
+  float: left;
+  font-size: 0.4rem;
+}
+
+.pay .payall h2 span {
+  margin: auto;
+  text-align: center;
+  display: block;
+}
+
+.pay .payall h2 img {
+  width: 0.24rem;
+  height: 0.24rem;
+  position: absolute;
+  right: 0.24rem;
+  top: 0.22rem;
+  cursor: pointer;
+}

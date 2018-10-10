@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div class="box">
+			<a href="javascript:;">></a>
+			<img src="img/01.jpg"/>
+			<a href="javascript:;"><</a>
+		</div>
+		<script type="text/javascript">
+			var arr = ["img/01.jpg","img/02.jpg","img/03.jpg","img/4.jpg"];
+			
+			var allA = document.getElementsByTagName('a');
+			var imgs = document.getElementsByTagName('img')[0];
+			
+			allA[0].onclick = function(){
+				
+				var num = arr.pop();
+				
+				arr.unshift(num);
+				
+				imgs.src = arr[0];
+				
+			}
+			allA[1].onclick = function(){
+				var first = arr.shift();
+				arr.push(first);
+				imgs.src = arr[0];
+			}
+			
+			
+		</script>
+	</body>
+</html>

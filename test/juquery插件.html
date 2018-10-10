@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            height: 2000px;
+        }
+        .nav {
+            background-color: blue;
+            color: #fff;
+        }
+        .nav1 {
+            background-color: red;
+            color: #fff;
+        }
+        #app span {
+            padding: 0 5px;
+        }
+        .appchange li {
+            display: none;
+            border: 1px blue solid;
+        }
+        .appchange {
+            width: 400px;
+        }
+
+        /* button {
+        margin: 20px;
+  border: 5px solid transparent;
+  background: #AED6D1;
+  color: #55706D;
+  border-radius: 40px;
+  padding: 15px 30px;
+  overflow: hidden;
+  width: 200px;
+  white-space: nowrap;
+  text-indent: 23px;
+  transition: all   1.2s, box-shadow 0.3s 0.5s;
+}
+button:hover {
+  text-indent: 0;
+  background: #55706D;
+  color: #FFE8A3;
+  width: 250px;
+  box-shadow: 5px 3px 2px rgba(0, 0, 0, 0.15);
+} */
+
+        .bag {
+            background-color: rgb(191, 221, 218);
+            width: 500px;
+            height: 200px;
+        }
+
+        .form {
+            margin: 50px;
+        }
+        #gotop{
+            background-color: #666;
+            color: #fff;
+            position:fixed;
+            right: 10px;
+            bottom: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="hide">
+
+    </div>
+    <div id="app">
+        <span class="nav">我是标题一</span>
+        <span>我是标提二</span>
+        <span>我是标题三</span>
+        <span>我是标题四</span>
+    </div>
+    <div class="appchange">
+        <ul>
+            <li style="display: block">1ixins are a way of including ("mixing in") a bunch of p roperties from one r ule-set into another rule-set.
+                So say we have the following class:</li>
+            <li>2Mixins are a way of including ("mixing in") a bunch of properties fro m one rule-set into another rule-set.
+                So say we have the following class:</li>
+            <li>3Mixins are a way of including ("mixing in") a bunch of properties from one r ule-set into another rule-set.
+                So say we have the following class:</li>
+            <li>4Mixins are a way of including ("mixing in") a bunch of properties from one r ule-set into another rule-set.
+                So say we have the following class:</li>
+        </ul>
+    </div>
+    <div class="bag">
+        11111111111
+    </div>
+    <button>woshianniu</button>
+
+
+    <div class="form">
+        <form method="POST" action="http://www.yonejs.com/yone/index.php/Home/Index/nav">
+            <input type="text" name="username" placeholder="姓名">
+            <br>
+            <input type="text" name="password" placeholder="密码">
+            <br>
+            <input type="submit" value="登录">
+        </form>
+
+        <button class="ajax">ajax</button>
+    </div>
+    <div id="gotop">
+        返回顶部
+    </div>
+</body>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+<script src="js/jqueryuse.js"></script>
+<script>
+    $('#app').change();
+    $('#gotop').gotop();
+
+        $(".ajax").click(function () {
+            $.ajax({
+                type:"get",
+                url:"http://www.yonejs.com/yone/index.php/Home/Index/nav",
+                data:{
+                },
+                success:function(no){
+                    document.body.innerHTML = no[4].name;
+                },
+                error:function(){
+                    alert(1);
+                }
+            })
+        })
+
+        console.log(no[4].name);
+
+</script>
+
+</html>

@@ -1,0 +1,119 @@
+{
+  "registe.html": {
+    "href": "registe.html",
+    "resources": [
+      "css/registe.css",
+      "css/base.css",
+      "js/rem.js"
+    ],
+    "refer": [
+      "login.html",
+      "registe.html"
+    ],
+    "priority": 0
+  },
+  "login.html": {
+    "href": "login.html",
+    "resources": [
+      "css/login.css",
+      "css/base.css",
+      "js/rem.js"
+    ],
+    "refer": [
+      "login.html",
+      "registe.html"
+    ],
+    "priority": 0
+  },
+  "user.html": {
+    "href": "user.html",
+    "resources": [
+      "css/user.css",
+      "css/base.css",
+      "js/rem.js",
+      "images/\u000býQ_ýu_08.jpg",
+      "images/tab_home_nor.png",
+      "images/tab_me_nor.png",
+      "images/tab_shopping_nor.png",
+      "images/tab_menu_hig.png",
+      "images/order1.jpg",
+      "images/order2.jpg",
+      "images/order3.jpg",
+      "images/order4.jpg"
+    ],
+    "refer": [
+      "index.html",
+      "kind.html",
+      "shop_car.html",
+      "user.html"
+    ],
+    "priority": 0
+  },
+  "shop_car.html": {
+    "href": "shop_car.html",
+    "resources": [
+      "css/shop_cart.css",
+      "css/base.css",
+      "js/rem.js",
+      "images/tab_home_nor.png",
+      "images/tab_me_nor.png",
+      "images/tab_shopping_hig.png",
+      "images/tab_menu_nor.png",
+      "images/goods.png"
+    ],
+    "refer": [
+      "login.html",
+      "index.html",
+      "kind.html",
+      "shop_car.html",
+      "user.html"
+    ],
+    "priority": 0
+  },
+  "kind.html": {
+    "href": "kind.html",
+    "resources": [
+      "js/iscroll.js",
+      "css/kind.css",
+      "css/base.css",
+      "js/rem.js",
+      "images/tab_home_nor.png",
+      "images/tab_me_hig.png",
+      "images/tab_shopping_nor.png",
+      "images/tab_menu_nor.png",
+      "images/goods1.png",
+      "images/goods2.png",
+      "images/goods3.png",
+      "images/goods4.jpg"
+    ],
+    "refer": [
+      "index.html",
+      "kind.html",
+      "shop_car.html",
+      "user.html"
+    ],
+    "priority": 0
+  },
+  "index.html": {
+    "href": "index.html",
+    "resources": [
+      "css/index.css",
+      "css/base.css",
+      "js/rem.js",
+      "images/tab_home_hig.png",
+      "images/tab_me_nor.png",
+      "images/tab_shopping_nor.png",
+      "images/tab_menu_nor.png",
+      "images/\u000býQ_ýu_02.jpg",
+      "images/\u000býQ_ýu_05.jpg",
+      "images/\u000býQ_ýu_08.jpg"
+    ],
+    "refer": [
+      "index.html",
+      "kind.html",
+      "shop_car.html",
+      "user.html"
+    ],
+    "priority": 0
+  }
+}
