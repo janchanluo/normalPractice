@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script type="text/javascript" src="js/jquery-1.11.1.js"></script>
+	</head>
+	<body>
+		
+		<div id="item">事件</div>
+		<input type="text" />
+		<ul>
+			<li>111
+				<p>fcek kb</p>
+			
+			</li>
+			<li class="lis">22</li>
+			<li>33</li>
+			<li class="lis">44</li>
+			<li class="lis">55</li>
+			<li>66</li>
+			<li>77</li>
+			<li>88</li>
+		</ul>
+		
+		<script type="text/javascript">
+			
+			/*
+			 	js  :  
+			 		1. DOM
+			 		2. BOM
+			 		3. ecma
+			 		4.....  
+			  	
+			  	sizzle
+			  	
+			  	
+			  	jq的DOMc操作：
+			  		
+			  		css()  :  给选中的元素添加样式
+			  			$('li').css('background','red');
+			  			$('li').css({
+							border:"1px solid #000",
+							background:'green'
+						})
+			  	
+			  		click():  给找到的元素添加点击事件
+			  		
+			  		
+			  		on('事件的名称'，function(){})  : 给找到的元素添加点击事件
+			  		
+			  		
+			  		设置 ：
+			  			attr('添加的属性名称'，'属性值')  : 给元素添加属性
+			  		
+			  		获取：
+			  			attr('添加的属性名称')  : 获取元素的属性值
+			  			
+			  		
+			  		html()  :  
+			  		设置 ：  给元素添加内容
+			  		获取 ： 不传参，就是获取
+			  		
+			  		
+			  		val()  :
+			  		设置 ：  给元素添加value值
+			  		获取 ： 不传参，就是获取
+			  		
+			  		
+			  		prev()  : 找上一个兄弟标签
+			  		prevAll() : 找到全部的上一个兄弟元素
+			  			prevAll('.pox') : 带参数的在筛选上一个元素
+			  			
+			  		
+			  		next() : 	找下一个兄弟标签
+			  		nextAll() : 找到全部的上一个兄弟元素
+			  			nextAll('.pox') : 带参数的在筛选上一个元素
+			  			
+			  			
+			  		parent()  : 找到元素的父元素
+			  		parents() : 找到所有的直系父级
+			  		parents('body'):  通过参数在筛选元素
+			  		
+			  		
+			  		chlidern: 找到元素的子元素
+			  		children('.lis4') : 筛选出才参数的子元素
+			  		
+			  		
+			  		find()  :  找到元素的后代元素,必须传参数，参数是指定某一类型的标签
+			  			find('.lis4');
+			  			
+			  		var box = $('<div>') : 用jq创建标签
+					var p1 = $('<p></p>'); 用jq创建标签
+					
+					append()  :  
+						$('.pox').append(box): 往父级的末尾插入一个标签
+						
+					$('.pox').append(box):往父级末尾里面插入
+					box.appendTo('.pox')： 插入到父级末尾
+					
+					
+					box.prependTo('.pox'): 往父级的开头插入元素
+					$('.pox').prependTo(box): 往父级的开头插入元素
+					
+					
+					wrap('<div>') : 给获取到的元素各添加一个父级
+					
+					
+					wrapAll('<div>'): 给获取的元素添加同一个父级
+					
+					wrapInner('<div>我是子元素</div>') : 给获取的元素添加一个子标签
+					
+					
+					unwrap()  : 删除父级元素，但是body删除不了
+					
+					
+					
+					把jq元素变成原生元素
+						1. 通过下标  
+						    $('li')[下标]
+						2. 	$('li').get(3);
+						
+					把原生元素转换为jq对象
+						$(原生元素)
+						
+						
+					eq(下标) : 从选择的jq元素里面在选出某一个jq元素	
+						$('li').eq(6).css({
+							color:'#fff'
+						})
+					
+					
+					index()  :  获取元素在兄弟标签里面的排序
+						index(选择器) ： 元素在指定的兄弟标签里面的排序
+						
+						
+					addClass()  : 给元素添加class
+					
+					
+					removeClass() : 
+					
+					toggleClass()  :
+					
+					
+					width() : 获取元素的宽度
+						width(200) ： 设置元素的宽度
+						
+					height() : 获取元素的高度
+						height(200) ： 设置元素的高度
+					
+			 
+			 		siblings()  : 排开某个元素以外的所有兄弟元素
+			 			siblings('选择器') ： 排开某个元素以外的选择器兄弟元素
+			 		
+			*/
+			
+//			var all = $('*');
+//			var even = $('li:even');
+//			console.log(all,even)
+
+			//$('li').css('background','red').css('height','30px');
+			$('li').css({
+				border:"1px solid #000",
+				background:'green'
+			})
+			
+//			$('li').mousemove(function(){
+//				alert()
+//			})
+//			$('li').on('click mouseout',function(){
+//				alert(1);
+//			})
+
+//			$('div').attr('index',3);
+//			
+//			console.log($('div').attr('index'))
+
+			
+//			var a = $('div').html();
+//			
+//			console.log(a)
+
+//			$('input').val('我设置了值')
+//			
+//			console.log($('input').val())
+
+
+			//var prev = $('.lis4').prev();
+//			var prevAll = $('.lis4').prevAll('.pox');
+//			console.log(prevAll)
+
+
+//			var next = $('.lis4').next();
+//			
+//			console.log(next)
+
+
+//			var parent = $('.lis4').parents('body');
+//			
+//			console.log(parent)
+
+
+//			var all = $('ul').children('.lis4');
+//			console.log(all)
+
+//			var box = $('ul').find('.lis4');
+//			
+//			console.log(box)
+
+//			var box = $('<div>');
+//			var p1 = $('<p></p>');
+//			var obj = document.createElement('p');
+//			box.html('我是添加的div标签');
+//			p1.html('我是添加的dp标签');
+//			//$('.pox').append(box);
+//			//box.appendTo('.pox');
+//			
+//			box.prependTo('.pox');
+//			
+//			console.log(box,p1,obj)
+
+
+		//$('ul').wrap('<div style="padding: 20px;"></div>');
+		
+			//$('li').wrap('<div>');
+			
+			//$('li').wrapAll('<div>');
+			
+			//$('div').wrapInner('<div>我是子元素</div>')
+			
+			//$('div').unwrap();
+			
+//			$('li').attr('index',1).on('click',function(){
+//				console.log()
+//			})
+
+//			for(var i=0;i<$('li').length;i++){
+//				
+//			}
+
+			//var li1 = $('li')[];
+//			var lis = $('li').get(3);
+//			console.log(lis)
+//			var item = document.getElementById('item');
+//			
+//			$(item).css({
+//				background:'red'
+//			})
+//			console.log(item)
+
+//			$('li').eq(6).css({
+//				color:'#fff'
+//			})
+
+//			$('.lis').on('click',function(){
+//				
+//				var num = $(this).index('.lis');
+//				console.log(num)
+//			})
+
+//			$('li').addClass('active')
+
+			//$('li').removeClass('lis')
+			
+//			$('li').toggleClass('lis')
+
+			$('li').on('click',function(){
+//				console.log($(this).width())
+//				console.log($(this).height())
+
+				console.log($(this).siblings('.lis'))
+			})
+		</script>
+	</body>
+</html>

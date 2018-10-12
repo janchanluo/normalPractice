@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery-1.11.1.js"></script>
+		
+	</head>
+	<body>
+		
+		<input type="button" value="显示"/>
+		<input type="button" value="隐藏"/>
+		<input type="button" value="toggle"/>
+		<ul>
+			<li>111</li>
+			<li>222</li>
+			<li>333</li>
+			<li>444</li>
+			<li>555</li>
+			<li>666</li>
+		</ul>
+		
+		
+		<script type="text/javascript">
+			/*
+			 	
+			 	each()  : 用于遍历数组或者元素的
+			 		$('li').each(function(i,el){
+						console.log(el,i)	
+					})
+					
+					$.each(arr,function(i,el){
+						console.log(el)
+					})
+					
+				
+				hide() :让元素隐藏
+				
+					hide(时间，function(){运动结束执行回调函数}) :让元素隐藏
+				
+				
+				show() : 让元素显示
+					show(时间，function(){运动结束执行回调函数}) :让元素显示
+				
+				
+				toggle()  : 如果元素隐藏就显示出来
+							如果显示就隐藏
+							
+							
+				fadeOut(3000，function(){}): 淡入
+				
+				
+				fadeIn(3000,回调函数)： 淡出
+				
+				fadeToggle(1000) : 淡入淡出
+				
+				slideUp(5000);
+				
+				slideDown(5000);
+				
+				slideToggle(5000);
+				
+				
+				
+			*/
+			
+			
+//			$('li').each(function(i,el){
+//				console.log(el,i)
+//				
+//				$(el).on('click',function(){
+//					alert()
+//				})
+//			})
+//			
+//			var arr = [44625,57457,454];
+//			
+//			$.each(arr,function(i,el){
+//				console.log(el)
+//			});
+			
+			
+			$('input').eq(1).on('click',function(){
+				
+//				$('ul').hide(2000,function(){
+//					console.log('已经隐藏')
+//				})
+
+//				$('ul').fadeOut(3000);
+
+				$('ul').slideUp(5000);
+
+			})
+			
+			$('input').eq(0).on('click',function(){
+				
+//				$('ul').show(3000,function(){
+//					console.log('xian')
+//				})
+
+//				$('ul').fadeIn(2000);
+
+				$('ul').slideDown(5000);
+
+			})
+			
+			$('input').eq(2).on('click',function(){
+				
+//				$('ul').toggle(3000,function(){
+//					console.log('运动结束')
+//				})
+
+//				$('ul').fadeToggle(1000);
+				
+				$('ul').slideToggle(5000);
+			})
+		</script>
+	</body>
+</html>

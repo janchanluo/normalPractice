@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery-1.11.1.js"></script>
+		<style type="text/css">
+			div{
+				position: absolute;
+				width:2px;
+				height:3px;
+				background: #000;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<script type="text/javascript">
+			
+			document.onmousedown = function(){
+				document.onmousemove = function(ev){
+					var divs = $('<div>');
+					divs.css({
+						left:ev.pageX,
+						top:ev.pageY
+					})
+					
+					$('body').append(divs);
+				}
+				
+				document.onmouseup = function(){
+					document.onmousemove = null;
+					document.onmouseup =null;
+				}
+				ev.preventDefault();
+			}
+			
+			
+			
+		</script>
+	</body>
+</html>

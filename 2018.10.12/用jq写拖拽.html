@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery-1.11.1.js"></script>
+		<style type="text/css">
+			.box{
+				width:50px;
+				height:50px;
+				position: absolute;
+				background: green;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="button" value="回放" />
+		<div class="box"></div>
+		<script type="text/javascript">
+			var arr = [];
+			var timer = null;
+			
+			$('.box')[0].onmousedown = function(ev){
+				ev = ev||window.event;
+				var disx = ev.pageX - $('.box')[0].offsetLeft;
+				var disy = ev.pageY - $('.box')[0].offsetTop;
+				document.onmousemove = function(ev){
+					ev = ev||window.event;
+					$('.box').css({
+						left:ev.pageX - disx,
+						top:ev.pageY-disy
+					})
+					
+					arr.push({
+						left:ev.pageX - disx,
+						top:ev.pageY-disy
+					})
+				}
+				document.onmouseup = function(){
+					document.onmousemove = null;
+					document.onmouseup = null;
+					console.log(arr)
+				}
+				
+				ev.preventDefault();
+			}
+			
+			
+			$('input').on('click',function(){
+				
+				timer = setInterval(function(){
+					var obj = arr.pop();
+					$('.box').css({
+						left:obj.left,
+						top:obj.top
+					})
+					if(arr.length == 0){
+						clearInterval(timer);
+					}
+					
+				},20)
+			})
+		</script>
+</html>
