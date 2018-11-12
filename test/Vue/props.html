@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/vue.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			
+		</div>
+		
+		<script type="text/javascript">
+			
+	Vue.component('parent',{
+				template:`
+				   <div>
+				    <button @click="add">父切换</button>
+				   传过来的参数是count :{{parent}}
+				      <son :son="parent" @add="add"/>
+				   </div>
+				`,
+				props:['parent'],
+				data(){
+					return {
+						kd:this.parent
+					}
+				},
+				methods:{
+					add(){
+						this.$emit('add','小明')
+					}
+				}
+			});
+			
+	Vue.component('son',{
+				template:`
+				   <div>
+				    <button @click="add">子切换</button>
+				   传过来的参数是count :{{son}}</div>
+				`,
+				props:['son'],
+				data(){
+					return {
+						kd:this.son
+					}
+				},
+				methods:{
+					add(){
+						this.$emit('add')
+					},
+					
+				}
+			})
+						
+						
+			var vm = new Vue({
+				template:`
+				   <div id="app">
+				   	   <button @click="add">点击切换</button>
+				   	  父级的值 {{count}}
+			           <parent :parent="count" @add="fn"/>
+					</div>
+				`,
+				el:"#app",
+				data:{
+					count:0
+				},
+				methods:{
+					add(){
+						this.count++;
+					},
+					fn(index){
+						this.count--;
+						console.log(index)
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<button id="aa">123123</button>
+		<button id="bb">55555555</button>
+	</body>
+	<script type="text/javascript">
+		
+		var btn = document.getElementById("aa");
+		
+		btn.onclick = function(){
+			alert(123123123)
+		}
+		// 将onclick属性置为空
+		btn.onclick = null;
+		
+		
+		//addEventListener 绑定事件监听函数的方式是可以绑定多个相同事件
+		var bb = document.getElementById("bb");
+		function one(){
+			alert(22222)
+		}
+		function two(){
+			alert(3333)
+		}
+		bb.addEventListener('click',one)
+		bb.addEventListener('click',two)
+		// 因为能绑定多个相同事件，所以在删除的时候一定要传入需要解绑那个监听函数。这就要求我们在绑定事件监听的时候使用函数名而不要直接传入匿名函数
+		bb.removeEventListener("click",one);
+		bb.removeEventListener("click",two);
+		
+		
+	</script>
+</html>

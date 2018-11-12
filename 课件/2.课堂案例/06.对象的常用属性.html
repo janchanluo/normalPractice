@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		
+		
+		function Person(name,age){
+			
+			this.name = name
+			
+			this.age = age;
+			
+		}
+		
+		
+		
+		console.log(Person.prototype )
+		console.log(Person.prototype.__proto__)
+		
+		
+/*•在JS中，每当定义一个函数时候，函数中都会包含一些预定义的属性。其中的一个属性就是原型对象 prototype，原型的作用就是给这个类的每一个对象都添加一个统一的方法,在原型中定义的方法和属性都是被所以实例对象所共享.
+•__proto__是一个对象拥有的内置属性，是JS内部使用寻找原型链的属性。当实例化一个对象时候，内部会新建一个__proto__属性并把prototype赋值给它。
+prototype对象就是让你有能力向对象添加属性和方法。__proto__相当于继承了prototype。*/
+		
+	</script>
+</html>

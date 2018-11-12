@@ -1,0 +1,73 @@
+.content{
+	background: url(../../img/index-bj.png) repeat-x;
+	width: 7.5rem;
+}
+.logo {
+	text-align: center;
+	padding-top: 1.2rem;
+}
+.logo img{
+	width:1.6rem;
+	height:1.6rem;
+}
+.inp{
+	margin-top: 0.4rem;
+}
+.inp input{
+	width: 6.1rem;
+	border: none;
+	box-shadow: 1px -2px 5px #ccc;
+	height: 0.8rem;
+    display: block;
+    margin: 0 auto;
+    padding-left: 0.2rem;
+}
+.inp button{
+	width: 6.1rem;
+	margin-left: 0.7rem;
+	border: none;
+	background: #387ef5;
+	color: #fff;
+	border-radius: 5px;
+	display: block;
+	height: 0.8rem;
+	margin: 0 auto;
+	margin-top:1.2rem;
+}
+.msg{
+	width: 6.1rem;
+	margin: 0 auto;
+	font-size: 0.28rem;
+	margin-top: 0.5rem;
+}
+.register{
+	float: left;
+}
+.forget{
+	float: right;
+}
+.footer{
+	position: fixed;
+	bottom: 0;
+	height: 2rem;
+	width: 7.5rem;
+	background: #fff;
+}
+.footer .router-link-active{
+	color: #ef8d0e;
+}
+.footer ul li{
+	float: left;
+	width: 25%;
+	text-align: center;
+
+}
+.footer ul li span{
+	display: block;
+	text-align: center;
+	font-size: 0.23rem;
+}
+.footer ul li img{
+	width: 0.5rem;
+	height: 0.5rem;
+}

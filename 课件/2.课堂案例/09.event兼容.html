@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#btn{
+				width: 100px;
+				height: 40px;
+				margin-left: 20px;
+				margin-top: 10px;
+			}
+		</style>
+		
+	</head>
+	<body>
+		<button id="btn">123123</button>
+		<a href="http://www.baidu.com">123</a>
+	</body>
+	<script src="myevent.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+
+		alert(EventUtil)
+		alert(2222)
+		var btn = document.getElementById("btn");
+		
+		btn.onclick = function(event){
+			
+			var aa = EventUtil.getTarget(event);
+            console.log(event)
+		}
+		
+		var a = document.getElementsByTagName("a")[0];
+		a.onclick = function(event){
+			
+		}
+		
+		
+	</script>
+</html>

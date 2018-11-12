@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    // JS里面JS在运行之前会将所有的声明变量以及函数都会放到JS当前所在作用域的最前面。
+
+    // 在全局作用域如果声明变量没有用var也可以的。默认加了。但是没有声明提前
+    var aaa;
+    function add(){
+        console.log(22222)
+    }
+
+    console.log(aaa); // undefined
+
+    aaa = 10;
+
+    add();
+
+    //console.log(bbb);  // 报错
+
+    bbb=1000;
+
+    console.log(bbb);
+
+
+
+
+    var zz = 200;
+    function mm(){
+        zz +=10;
+        zz =20;
+        console.log(zz);
+    }
+    mm()
+    console.log(zz);
+
+
+</script>
+</html>

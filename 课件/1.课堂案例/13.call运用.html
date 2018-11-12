@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		
+		
+		
+		/* 用对象的call方式调用方法的apply/call方法调用方法时，this则被绑定到apply/call方法的第一个参数。	
+		 *  call()函数可以有任意个参数
+		*/
+		
+//		var joins = function(p1,p2,p3) { 
+//			console.log(this);
+//			return this+"-"+p1+"-"+p2+"-"+p3;
+//		}
+//		console.log(joins.call('妹子', 'hello', 'hi', '你好'));
+//		console.log(joins.call(null, 'hello', 'hi', '你好'));
+
+
+//      var joins = function(a,b,c){
+//      	alert(this.name)
+//      	alert(a+b+c)
+//      }
+//		var peter={
+//			name:"peter"
+//		}
+//		joins.call(peter,1,2,3)
+
+
+
+        function Person(name,age){
+        	this.name=name,
+        	this.age=age
+			// this.eye=2
+        }
+    Person.prototype.eye=1
+        //console.log(Person.prototype)
+        
+        function Student(){
+        	//Person.call(this)
+        
+        }
+        //console.log(Student.prototype)
+        //console.log(Person.prototype==Student.prototype)
+        //Student.prototype = Object.create(Person.prototype);
+		
+        Student.prototype=new Person();
+		Student.prototype.constructor=Student;
+		console.log(Student.prototype.constructor)
+        var p = new Student();
+		console.log(p.eye)
+        //Person.prototype.constructor=Person
+        console.log(p.constructor)
+	</script>
+</html>

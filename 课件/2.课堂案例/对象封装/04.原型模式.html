@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		
+		function Cat(name,color){
+		　　　　this.name = name;
+		　　　　this.color = color;
+		}
+		Cat.prototype.type = "猫科动物";
+		Cat.prototype.eat = function(){console.log("吃老鼠")};
+				
+		var cat1 = new Cat("大毛","黄色");
+		var cat2 = new Cat("二毛","黑色");
+		console.log(cat1.type); // 猫科动物
+		cat1.eat(); // 吃老鼠
+		
+		console.log(cat1.eat == cat2.eat); //true
+		
+		
+		
+		function Student() {}
+		Student.name = "中原第一帅！"; 
+		Student.age = 20; 
+		Student.sayHello = function() {
+			console.log("江湖人称" + this.name);
+		}
+		console.log(Student.name);
+		console.log(Student.age); 
+		Student.sayHello();
+		// 注意name属性是默认自带的。指向这个构造函数的名字
+		
+		
+		// 构造函数升级！ 通过this解决
+		function Student2(name, age) { 
+		    this.name = name; 
+		    this.age = age;
+		
+		    this.sayHello = function() { 
+		        console.log("my name is " + this.name);
+		    }
+		}
+		
+		stu = new Student2("中原第一帅！", 18); 
+		console.log(stu.name); 
+		console.log(stu.age); 
+		stu.sayHello();
+		
+		
+		// 原型模式
+		function Student3(){};
+		Student3.prototype.name = "中原第一帅！"; 
+		Student3.prototype.age = 18; 
+		Student3.prototype.sayHello = function() {
+			console.log("my name is " + this.name);
+		}
+		var stu = new Student3();
+		console.log(stu.name); 
+		console.log(stu.age); 
+		stu.sayHello();
+		
+		
+		function Student4(name,age){ 
+			this.name = name;
+			//私有属性
+			var age = age;
+			this.sayHello=function(){
+				console.log("my name is "+this.name+" age "+age);
+			}
+		}
+		var stu = new Student4("中原第一帅！",19); 
+		console.log(stu.name);
+		//私有属性只能在对象(函数)内部使用
+		console.log(stu.age);
+		stu.sayHello();
+				
+		
+	</script>
+</html>

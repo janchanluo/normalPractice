@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+var add = function() {
+//传统的函数是没有状态的，它们的局部变量都是保存在函数调用栈(Stack)上的，随着函数调用的结束、退出，这些栈上变量的值也会被清空。 
+    var v = 1; 
+    return v++;
+};
+console.log(add());
+console.log(add());
+
+// 闭包的做法
+var add = (function() {
+    //局部变量
+    var v = 1; 
+    //返回一个内嵌的闭包函数引用
+    return function() {
+        //当外部add()函数return后，这里的v不再是外部函数的局部变量v了。
+        //v有了记忆
+        return v++;
+    };
+})();
+console.log(add()); //1
+console.log(add()); //2
+console.log(add()); //3
+console.log(add()); //4
+
+
+
+
+
+//全局变量，test1是全局变量
+var test1=111 
+function outer(){
+    alert(test1);
+}
+outer(); //111
+alert(test1); //111
+ 
+ 
+
+//闭包，test2是局部变量，这是闭包的目的
+//我们经常在小范围使用全局变量，这个时候就可以使用闭包来代替。
+(function(){
+var test2=222;
+function outer(){
+    alert(test2);
+}
+function test(){
+    alert("测试闭包："+test2);
+}
+outer(); //222
+test(); //测试闭包：222
+}
+)(); 
+alert(test2); //未定义，这里就访问不到test2
+
+
+</script>
+</html>

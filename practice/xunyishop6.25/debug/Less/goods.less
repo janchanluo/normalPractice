@@ -1,0 +1,140 @@
+@import "conmond";
+#header_background{
+    width: 100%;
+    background-color: #dedada;
+    height: 30px;
+    .navigation{
+        width: 1200px;
+        font-size: @fon;
+        position: relative;
+        .auto;
+    .header_left{
+        .fl;
+        &::after{
+            content: ".";
+            clear: both;
+            display: block;
+            overflow: hidden;
+            font-size: 0;
+            height: 0;
+        }
+        li{
+            .fl;
+            .listnone;
+            padding: 0 25px;
+            line-height: 30px;
+            &:last-child{
+                padding: 0 0 0 80px;
+            }
+            &:nth-child(2){
+             padding: 0 0 0 60px;
+            }
+            p{
+                background: url(../images/location.png) no-repeat;
+                width: 10px;
+                .fr;
+                position: relative;
+                top: 5px;
+                left: 5px;
+                height: 15px;
+            }
+        }
+    }
+    .header_right{
+        .fr;
+        li{
+            .fl;
+            .listnone;
+            padding: 0 20px;
+            line-height: 30px;
+        }
+        #hovererweim{
+            .erweim{
+                display: none;
+                position: absolute;
+                right: 0;
+            }
+            &:hover .erweim{
+                display: block;
+            }
+        }
+    }
+}
+}
+#header{
+	width: 1200px;
+    height: 150px;
+     .auto;
+     position: relative;
+     margin-top: 50px;
+     .logo{
+        background: url(../images/logo.png) no-repeat; 
+        width: 240px;
+        .fl;
+         height: 60px;
+     }
+     .search{
+        width: 830px; 
+        height: 40px;
+        .fr;
+        position: relative;    
+        input{
+             .fl;
+             &:first-child{
+                width: 400px; 
+                height: 36px;
+               .border;
+             &[type=submit]{
+                width: 70px;
+                height: 38px; 
+                background: url(../images/search.png);
+                background-repeat: no-repeat;
+                position: relative;
+                left: -5px;
+                display: block;
+                border: none;
+               }
+             }
+        }
+        .car_img{
+            background-color:@col;
+            height: 36px;
+            width: 180px; 
+           .border();
+           .fl; 
+           img{
+            width: 32px;
+            height: 30px;
+            position: relative;
+            left: 20px;
+            top: 2px;
+           }
+           span{
+            z-index: 1;
+            position: relative;
+            top:-5px;
+            left: 30px;
+            color: #fff;
+           }
+        }
+       
+        ul{
+            clear: both;
+           li{
+               .fl;
+	            padding: 0 15px;
+	            margin: 5px 0;
+                border-right: 1px #605f5f solid ;  
+                &:first-child{
+                    margin-left: -15px;
+                }
+                a{
+                    color:#8f8e8e;
+                    &:hover{
+                        color: @col;
+                    }
+                }
+             }
+        }
+     }
+ }

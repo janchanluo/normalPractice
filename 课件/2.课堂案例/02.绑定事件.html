@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<button id="aa">123123</button>
+	</body>
+	<script type="text/javascript">
+		// onclick 方式只能添加一个事件函数
+		var aa = document.getElementById("aa");
+		/*aa.onclick = function(){
+			alert(3434)
+		}
+		
+		aa.onclick = function(){
+			alert(456456)
+		}*/
+		
+		// IE8 以上兼容  
+		// 绑定事件监听函数的方式可以绑定多个相同的事件
+		/*aa.addEventListener('click',function(){
+			alert(111)
+		})
+		
+		aa.addEventListener('click',function(){
+			alert(222)
+		})*/
+		
+		/*aa.attachEvent("onclick",function(){
+			alert(11111)
+		})*/
+		
+		aa.attachEvent("onclick",function(){
+			alert(2222)
+		})
+		
+		
+		
+		
+	</script>
+</html>

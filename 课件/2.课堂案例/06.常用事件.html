@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" />
+		
+		<input type="text" value="请输入用户名" />
+		
+		
+		<button>123123</button>
+	</body>
+	<script type="text/javascript">
+		
+		var ipt = document.getElementsByTagName("input")[0];
+		// 输入框失去焦点事件
+		ipt.onblur = function(){
+			console.log("哎呀，我出来了")
+			ipt.style.cssText = ""
+		}
+		
+		//获取焦点事件
+		ipt.onfocus = function(){
+			console.log("哎呀，我进来了")
+			ipt.style.cssText = "border:1px solid blue;font-size:40px;"
+		}
+		
+		
+		var user = document.getElementsByTagName("input")[1];
+		user.onfocus = function(){
+			user.value = ""
+		}
+		user.onblur = function(){
+			if(user.value==""){
+				user.value = "请输入用户名"
+			}
+		}
+		
+		// 双击事件66
+		var btn = document.getElementsByTagName("button")[0];
+		
+		btn.ondblclick = function(){
+			alert(22)
+		}
+		
+		// 给文档节点绑定事件
+		document.onmousedown = function(){
+			console.log("123123123123")
+		}
+		// 给文档添加 鼠标松起事件
+		document.onmouseup = function(){
+			console.log(" 鼠标松起事件")
+		}
+		
+	</script>
+</html>

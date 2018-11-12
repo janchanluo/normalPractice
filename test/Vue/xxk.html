@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/vue.js"></script>
+		<style type="text/css">
+			.box{
+				overflow: hidden;
+			}
+			.box input{
+				float: left;
+			}
+			.clearfix{
+				content: '';
+				overflow: hidden;
+				clear: both;
+				height: 0;
+			}
+			.content{
+				border: 1px #000 solid;
+				width: 300px;
+				height: 200px;
+				display: none;
+			}
+			.active{
+				background: blue;
+				color: #fff;
+			}
+			.show{
+				display: block;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div id="app">
+			<div class="box">
+				<input  v-for="(item,index) in arr" type="button" v-model="item.title" :class="index==num?active:''" @click="add(index)"/>
+				<div class="clearfix"></div>
+				<div :class="index==num?show:''" v-for="(item,index) in arr" class="content" >
+					{{item.content}}
+				</div>
+				
+			</div>
+		</div>
+	</body>
+	
+	<script type="text/javascript">
+		var arr=[{
+			title:'按钮1',
+			content:'内容1'
+		},{
+			title:'按钮2',
+			content:'内容2'
+		},{
+			title:'按钮3',
+			content:'内容3'
+		},{
+			title:'按钮4',
+			content:'内容4'
+		}];  
+		let vm = new Vue({
+			el:'#app',
+			data:{
+				arr,
+				num:0,
+				active:'active',
+				show:'show'
+			},
+			methods:{
+				add(index){
+					this.num=index;
+				}
+			}
+		})
+	</script>
+</html>

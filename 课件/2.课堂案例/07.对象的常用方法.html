@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		
+		
+		function Person(name,age){
+			this.name = name
+			this.age = age;
+		}
+		
+		
+		var lisi = new Person("李四",20);
+		
+		// 这个方法用来判断，某个proptotype对象和某个实例之间的关系。
+		console.log(Person.prototype.isPrototypeOf(lisi)); //true
+		
+		
+		//用来判断某一个属性到底是本地属性，还是继承自prototype对象的属性。
+		console.log(lisi.hasOwnProperty("name")); // true
+		
+		
+		// 用来获取对象属性的描述信息，其中包括属性的value(值)、writable(是否可写)、configurable(是否可设置)、enumerable(是否可枚举)
+		console.log(Object.getOwnPropertyDescriptor(lisi,"name"));
+		
+		
+		//Object.defineProperty() 方法会直接在一个对象上定义一个新属性，或者修改一个对象的现有属性， 并返回这个对象。
+		Object.defineProperty(lisi,"name",{
+			configurable:false,	//能否使用delete、能否修改属性特性、或能否修改访问器属性，false为不可重新定义，默认值为true
+			enumerable:false,	//对象属性是否可通过for-in循环，false为不可循环，默认值为true
+			writable:false,	//对象属性是否可修改,false为不可修改，默认值为true
+			value:'mao'	//对象属性的默认值，默认值为undefined
+		});
+		//lisi.name='zs'
+		//delete.lisi.name
+//		for(key in lisi){
+//			console.log(lisi[key])
+//		}
+		//delete lisi.name
+		console.log(lisi)
+		
+		
+		console.log(lisi.propertyIsEnumerable("name"));//true
+		console.log(lisi.propertyIsEnumerable("constructor"));//f alse
+		
+	</script>
+</html>

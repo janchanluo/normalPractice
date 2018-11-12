@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			/**{
+				margin: 0;
+				padding: 0;
+			}*/
+			#box{
+				margin-left: 20px;
+				margin-top: 930px;
+				background-color: blue;
+				width: 200px;
+				height: 200px;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div id="box"></div>
+		
+		
+	</body>
+	<script type="text/javascript">
+		
+		var box = document.getElementById("box");
+		box.onclick =  function(event){
+			console.log("相对于页面左上角："+event.pageX)
+			console.log("相对于页面左上角："+event.pageY)
+			
+			console.log("相对于浏览器可视左上角："+event.clientX)
+			console.log("相对于浏览器可视左上角："+event.clientY)
+			
+			console.log("相对于屏幕左上角："+event.screenX)
+			console.log("相对于屏幕左上角："+event.screenY)
+			
+			console.log("相对于事件目标对象左上角："+event.offsetX)
+			console.log("相对于事件目标对象左上角："+event.offsetY)
+		}
+		
+		
+		
+	</script>
+</html>

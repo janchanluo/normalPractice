@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		
+		<div id="app">
+			<input type="text" v-model="msg" />
+			{{msg}}
+		</div>
+	</body>
+	<script type="text/javascript">
+		var vm = new Vue({
+			el:'#app',
+			data:{
+				msg:'hellow world',
+				arr:[{name:'2'},{age:'22'}]
+			},
+			watch:{
+				msg:{
+				 handler(val1,val2){
+					console.log(val1,val2)
+				 }
+				},
+				arr:{
+				  handler(val1,val2){
+					console.log(val1,val2)
+				 },
+				 deep:true
+	
+				}
+			
+			}
+			
+		})
+	</script>
+</html>

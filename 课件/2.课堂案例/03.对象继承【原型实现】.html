@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		
+		function Person(){}
+		Person.prototype.name = "tom"; 
+		Person.prototype.sayHello = function(){
+			alert(this.name);
+		}
+		
+		function Student(){} 
+		Student.prototype = new Person();
+		Student.prototype.show = function(){ 
+			alert("student--");
+		}
+		
+		var stu = new Student(); 
+		stu.sayHello();
+		
+		stu.name="韩非子"; 
+		stu.sayHello(); 
+		stu.show();
+		
+		
+	</script>
+</html>

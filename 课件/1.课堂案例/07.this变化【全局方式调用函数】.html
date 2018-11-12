@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		
+		
+		/* 调用全局函数
+		- 全局变量或函数都相当于window对象的属性。
+		- 这里 this绑定到 window对象。
+		- 下面2个代码等价
+		*/
+		
+		var show = function() { 
+		    console.log("1"); 
+		    console.log(this === window);
+		}
+		show();
+		
+		window.show = function() { 
+			console.log("2"); 
+			console.log(this === window);
+		}
+		window.show(); 
+		
+		
+	</script>
+</html>

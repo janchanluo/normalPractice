@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/vue-router.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			li{
+				list-style: none;
+			}
+			.box{
+				border: 1px solid #000;
+				width: 300px;
+				height: 300px;
+				margin: 0 auto;
+			}
+			.box ul{
+				overflow: hidden;
+			}
+			.box ul li{
+				float: left;
+				width: 33.3%;
+				text-align: center;
+				padding: 10px 0;
+			}
+			.box .router-link-active{
+				background: cadetblue;
+				color: #fff;
+			}
+			.item{
+				clear: both;
+				text-align: center;
+				padding-top: 50px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			<div class="box">
+				<ul>
+				<router-link :to="{name:'Index'}" tag="li">index</router-link>
+				<router-link to="/info" tag="li">info</router-link>
+				<router-link to="/my" tag="li">my</router-link>
+
+				</ul>
+				<div class="item">
+					<router-view></router-view>
+				</div>
+			 </div>
+		</div>
+		<script type="text/javascript">
+			
+			var Index={
+				template:`<div>
+				 	<router-link to="/index/sp" >体育</router-link>
+					<router-link to="/index/bg" >八卦</router-link>
+					<router-link to="/index/mx" >明星</router-link>
+					<router-view />
+				</div>`
+			};
+			var router=new VueRouter({
+				routes:[{
+						path:'/index',
+						component:Index,
+						name:'Index',
+						children:[{
+							path:'sp',
+						},{
+							path:'bg',
+							
+						},{
+							path:'mx',
+							
+						}]
+					},{
+						path:'/info',
+						component:{
+							template:`<div>info</div>
+							`
+						}	
+					},{	
+						path:'/my',
+						component:{
+							template:`<div>my</div>
+							`
+						}	
+					},
+					{
+						 path:'*',
+						 redirect:'/index'	
+						}
+						
+				
+				]
+			});
+			var vm= new Vue({
+				el:'#app',
+				router
+			})
+		</script>
+	</body>
+</html>

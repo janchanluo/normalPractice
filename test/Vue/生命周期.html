@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+			
+		</div>
+	</body>
+	<script type="text/javascript">
+		
+		var vm =new Vue({
+			el:"#app",
+			data:{
+				mes:'123'
+			},
+			beforeCreate(){
+				console.log(this.$el,this.$data,this.mes)
+				console.log("创建之前")
+			},
+			created(){
+				console.log(this.$el,this.$data,this.mes)
+				console.log("创建之后")
+				
+			},
+			beforeMount(){
+				console.log(this.$el,this.$data,this.mes)
+				console.log("挂载之前")
+			},
+			mounted(){
+				console.log(this.$el,this.$data,this.mes)
+				console.log("挂载之后")
+			}
+		})
+	</script>
+</html>

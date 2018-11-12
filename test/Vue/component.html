@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+			
+		</div>
+		<script type="text/javascript">
+			
+			var item = Vue.extend({
+					data(){
+						 return {
+						 	msg:{
+						 		name:'张三',
+						 		age:15
+						 	},
+						 }
+					},
+				template:` <div class="box">
+								<h1>hellow world {{post}}</h1>
+								<p>welcome to javascript s world</p>
+								 <list  :title="msg"/>
+							</div>`,
+			   props:['post']
+				
+			})
+			
+			Vue.component('comen',item);
+			
+			
+			Vue.component('list',{
+				 props:['title'],
+				template:`<div>
+				    <p>1234</p> {{title.name}}
+				    {{title.age}}
+				</div>`,
+				data(){
+					return {
+						num:50
+					}
+				}
+			})
+			var vm = new Vue({
+				el:"#app",
+				data:{
+					post:'我是vue传递的值'
+				},
+				template:`<div id="app">
+								<comen :post="post"></comen>
+						 </div>`
+				
+			})
+		</script>
+	</body>
+</html>

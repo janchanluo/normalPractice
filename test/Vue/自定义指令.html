@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			.box{
+				width: 100px;
+				height: 100px;
+				background:blueviolet;
+				position: absolute;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			<input type="button" value="点击切换" @click="change"/>
+			<div class="box" v-drag='onoff'>
+				
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		
+		Vue.directive('drag',{
+			bind(el,obj){
+				if(obj.value){
+					drag(el);
+				 }else{
+					el.onmousedown=null;
+				}
+			},
+			inserted(el,obj){
+				if(obj.value){
+					drag(el);
+				 }else{
+					el.onmousedown=null;
+				}
+			},
+			update(el,obj){
+				if(obj.value){
+					drag(el);
+				}else{
+					el.onmousedown=null;
+				}
+				console.log(obj.value)
+			}	
+		})
+	let vm =new Vue({
+			el:'#app',
+			data:{
+				onoff:true,
+			},
+			methods:{
+				change(){
+					this.onoff=!this.onoff;
+				}
+			}
+		})
+		
+		
+				function drag(el){
+						el.onmousedown=function(ev){
+//					var _this=this;
+					var disx=ev.clientX-this.offsetLeft;
+					var disy=ev.clientY-this.offsetTop;
+					document.onmousemove=function(ev){
+						el.style.left=ev.clientX-disx+'px';
+						el.style.top=ev.clientY-disy+'px';
+						
+//							console.log(el.style.left)
+					document.onmouseup=function(){
+						document.onmouseup=document.onmousemove=null
+					   }
+					}
+					ev.preventDefault();
+				}
+		}
+	</script>
+</html>

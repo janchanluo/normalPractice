@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>变量的作用域</title>
+</head>
+<body>
+
+</body>
+<script>
+
+    // JS 里  分为全局作用域和局部作用域【函数作用域】
+    //  全局变量   局部变量
+
+    //  局部作用域可以访问全局变量
+    //  在全局不能访问局部变量
+
+    // 作用域链
+
+    // 如果在所在的作用域内，一个变量有var 那么整个变量就是当前所在的作用域的。
+    // 在函数内访问某个变量，如果这个变量当前作用域没有，那么就访问外一层作用域的，如果外一层也没有再外一层，一直往外，直到全局作用域，全局作用域没有就报undefined
+    var  aa = 20;
+
+    if(true){
+        console.log(aa);
+    }
+
+    function add(){
+        var cc = 10;
+        console.log(aa);  // 输出了外面全局的变量aa
+        function eee(){
+            var cc =200;
+            cc += 100;
+            console.log(cc)
+        }
+        eee();
+        console.log(cc);
+    }
+    add()
+
+    console.log(cc);
+
+
+
+
+
+
+
+</script>
+</html>

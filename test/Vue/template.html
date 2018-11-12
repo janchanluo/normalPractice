@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			.box{
+				width: 100px;
+				height: 100px;
+				background: red;
+				margin-top: 50px;
+			}
+			.show-leave{
+				opacity: 1;
+				transform:translateX(0);
+			}
+			.show-leave-to{
+				opacity: 0.3;
+				transform:translateX(-100px);
+				
+			}
+			.show-leave-active{
+				transition: 1s linear;
+			}
+			
+			.show-enter{
+				opacity: 0;
+				transform:translateX(-100px);
+				
+			}
+			.show-enter-to{
+				opacity: 1;
+				transform:translateX(0);
+				
+			}
+			.show-enter-active{
+				transition: 1s linear;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			<!--<script type="text/template" id="cd">
+			    <div>
+			       hellow world1
+			    </div>
+			</script>
+			
+			<template id="cd1">
+				<div>
+			       hellow world2
+			    </div>
+			</template>-->
+			
+ 				<input type="button" name="" id="" value="切换" @click="onoff"/>
+ 				<transition name="show">
+				<div class="box" v-if="show"></div>
+			   </transition>
+
+		</div>
+		<script type="text/javascript">
+			var vm = new Vue({
+				 el:'#app',
+                 data:{
+                 	show:true
+                 },
+                 methods:{
+                 	onoff(){
+                 		this.show=!this.show
+                 	}
+                 },
+         
+				
+			})
+		</script>
+	</body>
+</html>

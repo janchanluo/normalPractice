@@ -1,0 +1,46 @@
+@fonz: 16px;
+@mainfz:20px;
+@bgcol: #101113;
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+
+}//消除边距
+header,footer,nav,section,article{
+  display: block;
+}
+button,input,select,textarea{
+  font-size:100%;
+  outline:none;
+}
+.cur{
+  cursor: pointer;
+}
+ul, ol { list-style: none; }//标签小圆点
+a {
+  text-decoration: none;
+}//a标签下划线清除
+.clearfix:after {
+  content: ".";
+  clear: both;
+  display: block;
+  overflow: hidden;
+  font-size: 0;
+  height: 0;
+}
+.clearfix{
+    zoom: 1;
+}//伪类清除浮动兼容ie 6，7
+.auto {
+  margin: 0 auto;
+}//元素水平居中
+.fl {
+  float: left;
+}//左浮动
+.fr {
+  float: right;
+}//右浮动
+.border(@px:1px,@bordercol:#1c8984) {
+  border: @px solid @bordercol;
+}//边框

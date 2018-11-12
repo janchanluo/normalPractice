@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>页面懒加载</title>
+    <style type="text/css">
+        img {
+            display: block;
+            width: 500px;
+            height: 400px;
+        }
+    </style>
+</head>
+<body>
+    <img src="" class="lazyload" data-src="http://old.bz55.com/uploads/allimg/150210/139-150210134411-50.jpg">
+    <img src="" class="lazyload" data-src="http://old.bz55.com/uploads/allimg/150210/139-150210134411-50.jpg">
+    <img src="" class="lazyload" data-src="http://imgsrc.baidu.com/imgad/pic/item/7c1ed21b0ef41bd5221ae1d15bda81cb39db3d4d.jpg">
+    <img src="" class="lazyload" data-src="http://imgsrc.baidu.com/imgad/pic/item/faf2b2119313b07e8c62703307d7912397dd8c29.jpg">
+    <img src="" class="lazyload" data-src="http://imgsrc.baidu.com/imgad/pic/item/7e3e6709c93d70cf48ebdd13f2dcd100baa12b9e.jpg">
+
+
+    <script type="text/javascript">
+        var imgs = document.querySelectorAll('img.lazyload');
+        var n = 0;//存储图片加载到的位置，避免每次都从第一张图片开始遍历
+        window.onscroll = function() {
+            showImg();
+        };
+        
+        function showImg(){
+        	var seeHeight = document.documentElement.clientHeight;
+            var scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
+
+            for (var i = n; i < imgs.length; i++) {
+                console.log(seeHeight,scrollTop,imgs[i].offsetTop)
+                if (imgs[i].offsetTop < seeHeight + scrollTop) {
+                    if (imgs[i].getAttribute('src') == '') {
+                        imgs[i].src = imgs[i].getAttribute('data-src');
+                    }
+                    //n = i + 1;
+                }
+            }
+        }
+        showImg()  // 第一次进入页面就要调用一次
+    </script>
+</body>
+</html>

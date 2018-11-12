@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			/*#aa{
+				background-image: url("http://img.taopic.com/uploads/allimg/130104/240392-13010415433920.jpg");
+				background-position: -999999px  -999999px;
+			}
+			#bb{
+				background-image: url("http://old.bz55.com/uploads/allimg/150210/139-150210134411-50.jpg");
+				background-position: -999999px  -999999px;
+			}*/
+		</style>
+	</head>
+	<body>
+		<div id="aa"></div>
+		<div id="bb"></div>
+	</body>
+	<script type="text/javascript">
+		
+		function preloader() {  
+		    if (document.getElementById) {  
+		        document.getElementById("aa").style.background = "url(http://imgs/image-01.png) no-repeat -9999px -9999px";  
+		        document.getElementById("bb").style.background = "url(http://imgs/image-02.png) no-repeat -9999px -9999px";  
+		    }  
+		}  
+		
+		window.onload = function(){
+			preloader();
+		}
+		
+//		window.onload:document加载完毕
+	</script>
+</html>

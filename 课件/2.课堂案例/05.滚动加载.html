@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.box{
+				width: 100px;
+				height: 100px;
+				border: 1px solid blue;
+				float: left;
+				text-align: center;
+				line-height: 100px;
+			}
+		</style>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		
+		
+		// 创建div
+		function createDiv(num){
+			// 创建文档碎片片段
+			var doc = document.createDocumentFragment();
+			for (var i=0; i<num; i++) {
+				// 创建div
+				var div = document.createElement("div");
+				// 设置class
+				div.className = "box"
+				// 获取随机颜色
+				var r = parseInt(Math.random()*255);			
+				var g = parseInt(Math.random()*255);			
+				var b = parseInt(Math.random()*255);
+				var a = Math.random();
+				// 设置颜色
+				div.style.backgroundColor = "rgba("+r+","+g+","+b+","+a+")"
+				// 添加到页面里
+				doc.appendChild(div);
+			}
+			document.body.appendChild(doc)
+		}
+		createDiv(200);
+		
+		
+		// 重点在如何判断页面滚动到了底部
+		
+		// 页面滚动出去的大小   		window.scrollY
+		// 浏览器窗口可以高度			window.innerHeight
+		
+		// 页面的高度     
+		//document.body.offsetHeight   
+		//document.documentElement.offsetHeight
+		
+		// 到底部了说明     页面滚动出去的大小+浏览器可视高度 = 页面的高度
+		
+		var wH = window.innerHeight;
+		
+		//console.log(wH)
+		// 添加需求：  只让加载3次
+		var num= 0;
+		
+		// 滚动的时候
+		window.onscroll = function(){
+			if(num==3){
+				return;
+			}
+			// 获取页面的高度，写在里面的原因是因为，添加后页面的高度变了
+			var dH = document.body.offsetHeight || document.documentElement.offsetHeight;
+			
+			// 滚动出去的距离
+			var sT = window.scrollY;
+			console.log(sT,wH,dH)
+			if(sT+wH==dH){
+				console.log("到底了")
+				createDiv(500);
+				num++;
+				console.log(num)
+			}
+		}
+		
+		
+	
+		
+		
+	</script>
+</html>

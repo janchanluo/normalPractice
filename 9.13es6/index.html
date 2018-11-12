@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		
+	</body>
+</html>
+<script type="text/javascript">
+//	function test(x,y){
+//		console.log(x,y)
+//	}
+//	test(3,4)
+
+
+// function test(x,y=10){
+// 	  console.log(arguments)  //这个只打印传入的值，不打印本身定义的值
+// 	  console.log(x,y)
+// }
+// test(10)
+
+// function test(x,y=10,z){
+// 	console.log(x,y,z)   //定义变量未传值，相当于，未定义undefind
+// }
+//
+// test()
+
+
+   //...代表是rest函数
+   
+// function test(...value){
+// 	  console.log(value)
+// }
+// test(1,2,3,4,5)   //rest通常是把单个数字转化为数组，一般用在函数的参数里面
+   
+   
+   //spread用法
+   //console.log(...1,2,3,4,5)  //1 is not iterable
+   //spread用法是盒rest相反,是吧 数组转化为单个数字
+	//console.log(...[1,2,3,4,5,6])   //进行转化
+	
+//	function test(x,...value,y){
+// 	  console.log(value)   //rest函数参数后面不能再加数
+// }
+// test(1,2,3,4,5)
+
+
+   // console.log(7,...[1,2,3,4,5])  //spread他前面也是可以放数字的
+   //console.log(7,...[1,2,3,4,5],12,18,50)  //spread后面是可以加数字的
+   
+// function test(arr,...item){
+// 	  return item
+// }
+// 
+//console.log( ...test([5,6,7],6,7,8,9,10))
+
+
+// function test(arr,...item){
+// 	item.forEach(function(itmes){
+// 		arr.push(itmes)
+// 		
+// 		
+// 	})
+// 	console.log(arr)
+// 	
+// }
+// test([5,6,7],6,7,8,9,10)
+   
+   //类似两个数组的合并
+   
+// var sum = 0
+// for(var i = 0; i<10;i++){
+// 	  sum+=i
+// }
+// console.log(sum)
+
+//  var arr = [1,2,3,4,5]
+//  let sum = 0
+//  for(var key in arr){
+//  	sum+=arr[key]
+//  }
+//   console.log(sum)
+
+
+   //var str = "𠮷"
+//  
+// for(var i = 0 ;i<str.length;i++){
+//      console.log(str.charAt(i))
+// }
+
+
+//  for(var val of str){
+//  	console.log(val)
+//  }   和for循环的用法一样的
+
+   //es5中合并数组方法
+// var arr =[1,2,3];
+// var arr1 =[4,5,6];
+// var arr2 =[4,5,6];
+// var arr2 = arr.concat(arr1,arr2)
+// console.log(arr2)
+    
+   //es6合并数组方法
+// var arr =[1,2,3];
+// var arr1 =[4,5,6];
+// var arr2 =[4,5,6];
+// var arr3 = [...arr,...arr1,...arr2]
+// 
+// console.log(arr3)
+
+
+
+// var dateFields = readDateFields(database); 
+// var d = new Date(...dateFields);
+// console.log(d)   不支持，从数据库获取一段字符
+
+
+
+   //字符串转化为数组
+	 //var str = "hello";
+	// console.log(str.split(""))
+	//console.log([...str])
+	
+	//箭头函数
+//	function test(v){
+//		console.log(v)
+//	}
+//   test(10)
+
+
+//  var test = function(v){
+//  	console.log(v)
+//  }
+//  test(10)
+
+
+//   let test = (v)=>{
+//   	console.log(v)
+//   }
+//   test(10)
+     
+     
+     //用箭头替代了function
+     
+     
+     
+//   let test = v =>{
+//   	console.log(v)
+//   }
+//   test(20)
+     //如果只有一个参数的时候，可以省略小括号
+     
+     
+//   let test = v =>v;  
+//   console.log(test(10))
+//   
+//   let test = v=>{return v}
+     
+     //如果箭头函数后面只有一句代码，可以省略大括号，相当于return
+     
+     
+//   let test = (x,y)=>console.log(x,y)
+//   test(10,20)
+
+   //怎么求两个数之间的随机数
+//  let test = (min,max)=>{
+//  	console.log(Math.floor(Math.random()*(max-min+1)+min))
+//  }
+//  test(5,10)
+
+
+// var test = function(){
+// 	console.log(this)
+// }
+// test()
+
+
+
+// let test = x =>{
+// 	console.log(this)
+// }
+// test()
+
+
+    
+</script>

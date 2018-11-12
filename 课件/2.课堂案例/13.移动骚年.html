@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#box{
+				width: 200px;
+				height: 200px;
+				background-color: red;
+				position: absolute;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box"></div>
+	</body>
+	<script type="text/javascript">
+		
+		var box = document.getElementById("box");
+		
+		
+		// 当鼠标按下去的时候
+		box.onmousedown = function(){
+			// 鼠标移动事件
+			box.onmousemove = function(event){
+				// 相对于浏览器可视窗口的位置
+				var x = event.clientX;
+				var y = event.clientY;
+				
+				// 元素的大小
+				var width = box.offsetWidth;
+				var height = box.offsetHeight;
+				
+				// 边缘处理
+				if(x<=width/2){
+					box.style.left = "0px"
+				}else if(x>=window.innerWidth-width/2){
+					box.style.left = window.innerWidth- width +"px";
+				}else{
+					box.style.left = x-width/2 +"px";
+				}
+				
+				if(y<=height/2){
+					box.style.top = "0px"
+				}else if(y>=window.innerHeight-height/2){
+					box.style.top = window.innerHeight- height +"px";
+				}else{
+					box.style.top  = y-height/2 +"px";
+				}
+				
+				
+			}
+		}
+		// 鼠标松起的时候
+		box.onmouseup = function(){
+			// 清除移动事件
+			box.onmousemove = null;
+		}
+		
+		
+	</script>
+</html>

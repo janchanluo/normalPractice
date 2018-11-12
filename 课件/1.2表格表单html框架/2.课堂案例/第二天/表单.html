@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<fieldset id="">
+			<legend>调查表</legend>
+			<form action="url" method="">
+			<label>用户:</label>
+			<input type="text" name="box" id="a" value="账号" placeholder="邮箱手机微信" size="" /><br />
+			<label>密码:</label>
+			<input type="password"  value=""  placeholder="请输入密码"/><br />
+			<label>性别:</label>
+			<input type="radio" name="box"  />男
+			<input type="radio" name="box"  />女
+			<input type="radio" name="box"  />中性<br />
+			<label>爱美女:</label>
+			<input type="checkbox" />王祖贤
+			<input type="checkbox" />张敏
+			<input type="checkbox" />赵雅芝
+			<input type="checkbox" />李若彤<br />
+			<label>选择文件:</label>
+			<input type="file" />
+			<button>上传</button><br />
+			<label>您的家乡:</label>
+			<select name="">
+				<option value="">北京</option>
+				<option value="">上海</option>
+				<option value="">广州</option>
+				<option value="">深圳</option>
+			</select><br />
+			<label>请填写您的建议</label>
+			<textarea></textarea><br />
+			<input type="submit" value="提交" />
+			<input type="reset" value="重置" />
+		</form>
+			
+		</fieldset>
+	</body>
+</html>
+<!--
+form:表单
+action：请求后台接口
+method：数据传输模式   get   post
+label:行内标签，类似于span常配合input使用
+input:输入框
+type：类型
+text：文本
+name：给输入框取得名字
+value：只要在输入框中的字都属于value值
+placeholder：输入框中有value值他会消失，没有他会显示
+size:控制输入框宽度
+password：密码框
+radio:单选框，所有的name名字必须一样，只有它是例外
+checkbox：多选框
+file：选择文件框
+button:按钮
+<select name="">
+				<option value="">北京</option>
+				<option value="">上海</option>
+				<option value="">广州</option>
+				<option value="">深圳</option>
+</select>下拉框
+submit：提交按钮
+reset：重置按钮
+textarea:文本域框又称建议框
+fieldset:外框
+legend：标题
+
+
+-->
+<!--<script type="text/javascript">
+	var a =document.getElementById('a');
+	a.onfocus=function(){
+		if(a.value=="你好"){
+		a.value=""
+	}
+		
+		
+	}
+	
+	
+	
+</script>-->

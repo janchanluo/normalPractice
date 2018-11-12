@@ -1,0 +1,22 @@
+// 你所有的css都可以兼容
+
+@col : red;
+@fz : 20px;
+
+
+.f(@l: left) {
+    float: @l;
+}
+
+
+// 也可以传参
+.bor(@c: @col, @px : 1px) {
+    border:@px solid @c;
+}
+
+// 八种清除浮动
+.clear() {
+    content: "";
+    display: table;
+    clear: both;
+}

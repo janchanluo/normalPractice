@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#preload-01 { background: url(http://g.search1.alicdn.com/img/i1/10764789/TB2jUbhprArBKNjSZFLXXc_dVXa_!!0-saturn_solar.jpg_220x220.jpg_.webp) no-repeat -9999px -9999px; }  
+			#preload-02 { background: url(http://g.search1.alicdn.com/img/i1/10764789/TB2jUbhprArBKNjSZFLXXc_dVXa_!!0-saturn_solar.jpg_220x220.jpg_.webp) no-repeat -9999px -9999px; }  
+			#preload-03 { background: url(http://g.search1.alicdn.com/img/i1/30055185/TB2dKoOnLImBKNjSZFlXXc43FXa_!!0-saturn_solar.jpg_220x220.jpg_.webp) no-repeat -9999px -9999px; }
+		</style>
+	</head>
+	<body>
+		<div id="preload-01"></div>
+		<div id="preload-02"></div>
+		<div id="preload-03"></div>
+		<img src="http://g.search1.alicdn.com/img/i1/10764789/TB2jUbhprArBKNjSZFLXXc_dVXa_!!0-saturn_solar.jpg_220x220.jpg_.webp" alt="" />
+		<!--通过将CSS背景图的方式将图片引入到页面中加载，但是这种方式比较影响网页加载速度-->
+		<!--<img src="http://g.search1.alicdn.com/img/i1/10764789/TB2jUbhprArBKNjSZFLXXc_dVXa_!!0-saturn_solar.jpg_220x220.jpg_.webp" alt="" />-->
+	</body>
+</html>
+<script type="text/javascript">
+	console.log(document.getElementById('preload-01').style.background)
+</script>

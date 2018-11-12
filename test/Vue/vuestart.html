@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/vue.js"></script>
+		<style type="text/css">
+			.show {
+					width: 500px;
+					margin-top: 50px;
+				}
+			.show table{
+				width: 100%;
+				text-align: center;
+				border-collapse: collapse;
+				border: 1px solid #000;
+			}
+			.show table td,th{
+				border: 1px solid #000;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			<!--{{mes}}-->
+			<div class="add">
+				姓名：<input type="text" v-model='person.name'/>
+				年龄：<input type="text" v-model='person.age' />
+				<button v-on:click="addPerson">添加</button>
+			</div>
+			
+			<div class="show">
+				<table>
+					<tr>
+						<th>序号</th>
+						<th>姓名</th>
+						<th>年龄</th>
+						<th>操作</th>
+						
+					</tr>
+					<tr v-for="(item,index) in list">
+						<td>{{index+1}}</td>
+						<td v-if="list[index].name">{{item.name}}</td>
+						<td v-else><input type="text" v-on:blur="updateName(item,index)" v-model="newName"/></td>
+						<td>{{item.age}}</td>
+						<td>
+							<span  @click="deletePerson(index)">删除</span>
+							<span  @click="update(item)">编辑</span>
+						</td>
+
+						
+					</tr>
+				</table>
+			</div>
+		</div>
+	</body>
+	
+	<script type="text/javascript">
+		
+		  list=[
+			  {name:'张三',age:25},
+			  {name:'李四',age:21},
+			  {name:'王五',age:51},
+		  ]
+		let app = new Vue({
+			el:'#app',
+			data:{
+				list,
+//				updateInput:list,
+                newName:'',
+				person:{
+					age:'',
+					name:''
+				}
+			},
+			methods:{
+				addPerson(){
+					this.list.push(this.person);
+					this.person={
+						name:'',
+						age:''
+					}
+				},
+				deletePerson(index){
+					this.list.splice(index,1);
+				},
+				update(item){
+					item.name='';
+//					console.log(this.list)
+				},
+				updateName(item,index){
+					this.list[index].name=this.newName;
+					this.newName=''
+//					console.log(item.name)
+				}
+			}
+			
+		})
+	</script>
+</html>

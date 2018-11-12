@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		
+		
+		/* 对象方法调用内部函数
+		*out()中的this绑定到obj，因为out()是以对象方法方式调用的，this都绑定的是宿主对象。
+		*inner()中的this绑定到window,因为inner()是以函数方式调用的。- 不论有多少级函数嵌套，只要是以函数的方式调用，this 都是绑定 window 对象。
+		*/
+		
+		var obj = {};
+		obj.out = function() { 
+			console.log(this === obj);
+			//私有方法	
+			var inner = function() {
+				console.log("1 this===obj="+(this === obj));
+				console.log("2 this===window="+(this === window));
+			}
+			inner();
+			//对象方法
+			this.inner = function() {
+				console.log("3 this===obj="+(this === obj)); 
+				console.log("4 this===window="+(this === window));
+			}
+			this.inner();
+		}
+		obj.out();
+				
+		
+	</script>
+</html>

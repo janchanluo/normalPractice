@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/vue-router.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			#app ul li{
+				float: left;
+				margin: 15px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			<ul>
+				<li @click="index">index</li>
+				<li @click="info">info</li>
+				<li @click="my">my</li>
+			</ul> 
+			<br/>
+			<input type="button" name="" id="" value="go" @click="go"/>
+			<input type="button" name="" id="" value="back" @click="back" />
+			<input type="button" name="" id="" value="forward" @click="forward"  />
+			
+		</div>
+		<script type="text/javascript">
+			var router = new VueRouter({
+				
+			})
+			
+			var vm = new Vue({
+				el:"#app",
+				methods:{
+					index(){
+						this.$router.push({
+							path:'index?user=zhangsan',
+							query:{
+								name:12,
+								pass:23
+							}
+						})
+					},
+					info(){
+						this.$router.push('/info')	
+					},
+					my(){
+						this.$router.push('/my')
+					},
+					go(){
+						this.$router.go(-1)
+					},
+					back(){
+						this.$router.back()
+					},
+					forward(){
+						this.$router.forward()
+					}
+				},
+				 watch:{
+				 	$route:{
+				 		handler(val1,val2){
+				 			console.log(val1,val2)
+				 		},
+				 		deep:true
+				 	}
+				 },
+				router,
+			})
+		</script>
+	</body>
+</html>

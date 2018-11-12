@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<link href="https://cdn.bootcss.com/twitter-bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
+		<script src="https://cdn.bootcss.com/twitter-bootstrap/4.1.3/js/bootstrap.min.js"></script>
+		<style type="text/css">
+			li{
+				list-style: none;
+			}
+			.h3_bj{
+				background: red;
+				height: 50px;
+			}
+			.h3_bj h3{
+				color: #fff;
+				width: 1200px;
+				line-height: 50px;
+				margin: 0 auto;
+			}
+			.container h4{
+				margin: 10px 0;
+			}
+			.task{
+				margin: 20px 0;
+			}
+			.task button{
+				margin: 0 15px;
+			}
+			.task .btn{
+				float: right;
+			}
+			.clearfix:after{
+				content:'';
+				clear: both;
+				height: 0;
+				overflow: hidden;
+			}
+			.list{
+				margin-top: 25px;
+			}
+			.list ul li{
+				/*padding: 10px 15px;*/
+				font-size: 16px;
+				background: lightgoldenrodyellow;
+				border-radius:5px ;
+				margin: 5px 0;
+			}
+			.del{
+				float: right;
+				display: none;
+			}
+			.list ul li:hover .del{
+				display: block;
+			}
+			.hua{
+				text-decoration: line-through;
+				color: #ccc;
+			}
+			.active{
+				background:goldenrod ;
+				color: #fff;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app">
+		
+		</div>
+		
+		<script type="text/javascript">
+			Vue.component('task',{
+				template:`<div class="task clearfix">
+								<span>{{num}}个未完成任务</span>
+								<div class="btn">
+									<a href="#all"> <button type="submit" class="btn btn-default" :class="{active:hash=='#all'}">所有任务</button></a>
+									<a href="#unfinsh"> <button type="submit" class="btn btn-default" :class="{active:hash=='#unfinsh'}">未完成任务</button></a>
+									<a href="#finsh"> <button type="submit" class="btn btn-default" :class="{active:hash=='#finsh'}">完成的任务</button> </a>
+								</div>
+							</div>`,
+				props:['hash','num']
+				
+			}) //组件替换
+			
+			var vm = new Vue({
+				el:'#app',
+				template:`
+					<div id="app">
+						<div class="h3_bj">
+							<div class="container">
+								<h3>任务计划列表</h3>
+							</div>
+						</div>
+						<div class="container">
+							<h4>添加任务:</h4>
+							<input class="form-control" type="text" placeholder="例如:吃饭睡觉打豆豆" v-model="msg" @keydown.enter="add"/>
+							
+				 <task :hash="hash" :num="num"/>
+							
+							<div class="list">
+								<ul>
+									<li v-for="(item,index) in arrCop" >
+										<input type="checkbox" v-model="item.hua"/>
+									    <span v-show="item.on" @dblclick="db(index)" v-bind:class="{hua:item.hua}">{{item.content}}</span>
+									    <input v-model="item.content" v-show="!item.on" type="text" @blur="change(index)" v-focus="item.on==false"/> 
+									    <span  class="del" @click="del(index)">叉</span>
+									</li>
+									    <p v-show='!arr'>还没有任何内容哦</p>
+								</ul>
+							</div>
+						</div>
+			      </div>`,
+				data:{
+					arr:[],
+					msg:'',
+					num:0,
+					inputShow:true,
+					hua:false,
+					hash:'#all'
+				},
+				computed:{
+					arrCop(){
+						console.log(this.hash)
+						if(this.hash=='#all'){
+							return  this.arr;
+							
+						}else if(this.hash=='#unfinsh'){
+							return  (this.arr.filter(function(item,index){
+							   return item.hua ==false;
+							}))
+						}else if(this.hash=='#finsh'){
+							return  (this.arr.filter(function(item,index){
+							   return item.hua ==true;
+							}))
+						}
+					}
+				},
+				methods:{
+					add(){
+						this.arr.push({'content':this.msg,'on':this.inputShow,'hua':this.hua});
+						this.msg='';
+					},//添加留言
+					del(index){
+						this.arr.splice(index,1)
+//                       console.log(index)
+					},//删除留言
+					db(index){
+						this.arr[index].on=!this.arr[index].on
+						
+					},//双击表单显示 原值消失
+					change(index){
+						this.arr[index].on=!this.arr[index].on
+					},//表单值改变
+					
+				},
+				watch:{
+					arr:{
+						handler(val1,val2){
+							this.num=0;
+							var newArr={};
+							var old = window.localStorage.getItem('msg');
+							 newArr.msg=val1;
+							 window.localStorage.setItem("msg",JSON.stringify(newArr))
+							 
+							var msgLoca=JSON.parse(window.localStorage.getItem('msg')); 
+							for(var i =0;i<this.arr.length;i++){
+								if(this.arr[i].hua==false){
+										this.num++
+								}
+							}
+						},
+						deep:true
+					}, //监测arr变换改变页面
+			
+				},//hash值改变任务状态
+				directives:{
+					focus(el,obj){
+						if(obj.value){
+							el.focus();
+						}
+					}
+				}, //自定义组件表单获取焦点
+				created(){
+					var msgLoca=JSON.parse(window.localStorage.getItem('msg'));
+					window.location.hash='#all'
+					if(msgLoca){
+						this.arr=msgLoca.msg;
+					}
+				}
+				
+			})//加载完成时获取本地存储数据付给arr
+			
+			window.onhashchange=function(){
+				vm.hash=window.location.hash;
+			} //切换hash值改变任务状态
+		</script>
+	</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<img src="http://old.bz55.com/uploads/allimg/150210/139-150210134411-50.jpg" />
+	</body>
+	<script type="text/javascript">
+		
+		window.onload = function(){
+			// 创建一个 img节点
+			var img = new Image();
+		
+			img.src  = "http://old.bz55.com/uploads/allimg/150210/139-150210134411-50.jpg"
+			
+			setInterval(function(){
+				console.log( img.width) 
+				console.log( img.height) 
+			},10)
+		}
+		
+	</script>
+</html>

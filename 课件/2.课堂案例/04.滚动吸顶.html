@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			body{
+				min-height: 2000px;
+			}
+			.box{
+				width: 100%;
+				height: 80px;
+				background-color: red;
+				margin-top: 400px;
+			}
+			.fixed{
+				position: fixed;
+				left: 0;
+				top: 0;
+				margin-top: 0;
+			}
+		</style>
+	</head>
+	<body>
+		
+		
+		<div class="box"></div>
+		
+	</body>
+	<script type="text/javascript">
+		
+		var box = document.getElementsByTagName("div")[0];
+		
+		// 获取 元素距离顶部的位置，切记不能再滚动事件里面去获取，因为每一次都不一样
+		var H = box.offsetTop;
+		
+		// 监听页面的滚动事件
+		window.onscroll = function(){
+			
+			// 获取滚动出去的距离
+			console.log(window.scrollY)
+			
+			if(window.scrollY>=H){
+				//box.className = "fixed"
+				box.classList.add("fixed");
+			}else{
+				//box.className = ""
+				box.classList.remove("fixed")
+			}
+		}
+		
+		
+		
+		
+	</script>
+</html>

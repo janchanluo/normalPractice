@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/jq1.1.3.js"></script>
+		<script type="text/javascript" src="js/cityInfo.js"></script>
+		<script type="text/javascript">
+			
+			$(function(){
+				
+				$.each(cityData, function() {
+					
+					
+					$('<option></option>').val(this.code).text(this.name).appendTo('#provice')
+					
+					
+				});
+				
+				
+				//得到第一个选中的val值或者text值
+				
+				$('#provice').change(function(){
+					//获取选中省的code也就是val值
+					var num = $(this).val();
+			console.log(01)
+						$('#city>option:gt(0)').remove()
+				
+				
+					$.each(cityData, function() {
+						if(this.code==num){
+							
+							var arraycitys=this.citys;
+						
+						$.each(arraycitys, function() {
+							
+							$('<option></option>').val(this.code).text(this.name).appendTo('#city')
+							
+							
+						});
+						
+						
+							
+						}
+						
+						
+						
+						
+					});
+					
+					
+					
+					
+					
+					
+				})
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+			})
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+		</script>
+	</head>
+
+	<body>
+		<select style="height:30px;width:155px;" name="provice" id="provice">
+			<option value="0">==请选择省份==</option>
+		</select>
+		<select style="height:30px;" name="city" id="city">
+			<option value="0">==请选择城市==</option>
+		</select>
+	</body>
+
+</html>

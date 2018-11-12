@@ -1,0 +1,137 @@
+header{
+	width: 7.2rem;
+	text-align: center;
+	margin-top: 0.05rem;
+	overflow: hidden;
+}
+header input{
+	width: 4.5rem;
+	height: 0.55rem;
+	border: none;
+	border-radius: 100px;
+	display: inline-block;
+	background: #efeff7;
+	float: left;
+	padding-left: 0.2rem;
+	margin-left: 0.2rem;
+	font-size: 0.24rem;
+}
+header span{
+	display: inline-block;
+	line-height: 0.55rem;
+}
+header span:first-child{
+	float: left;
+	font-size:0.35rem ;
+	margin-left: 0.2rem;
+}
+header span:first-child i{
+	background: url(../img/1_06.png);
+	background-size:100% 100%;
+	width: 0.26rem;
+	height: 0.13rem;
+	display: inline-block;
+}
+header span:first-child{
+	float: left;
+}
+header span:last-child{
+	float: right;
+	background: url(../img/1_03.gif) no-repeat;
+	width: 0.35rem;
+	height: 0.38rem;
+	background-size:100% 100%;
+	margin-top: 0.08rem;
+	margin-right: 0.2rem;
+}
+.content{
+	width: 100%;
+	overflow: hidden;
+	margin-top: 0.2rem;
+}
+.content-small{
+	width: 95%;
+	margin: 0 auto;
+	overflow: hidden;
+}
+.logo{
+	width: 100%;
+	font-size: 0;
+}
+.logo img{
+	width: 100%;
+}
+.menu ul{
+	overflow: hidden;
+	margin-top: 0.2rem;
+}
+.menu ul li{
+	float: left;
+	padding: 0.02rem;
+	overflow: hidden;
+	font-size: 0;
+}
+
+.menu ul li {
+	width: 33.3%;
+}
+.menu ul li img{
+	width: 100%;
+}
+.nav-menu{
+	width: 100%;
+}
+.nav-menu ul li{
+	float: left;
+	width: 20%;
+	text-align: center;
+}
+.nav-menu ul li img{
+	width:0.36rem;
+	height: 0.4rem;
+}
+.nav-menu ul li span{
+	font-size: 0.26rem;
+	display: block;
+}
+.hot{
+	width: 100%;
+	background: #f7f7f7;
+	margin-top: 0.2rem;
+	text-align: center;
+	overflow: hidden;
+}
+.hot h2{
+	font-size: 0.36rem;
+	line-height: 0.6rem;
+	text-align: center;
+	color: #ff4b00;
+	height: 0.6rem;
+}
+.hot h2 i{
+	background: url(../img/hot.gif);
+	width: 0.32rem;
+	height: 0.38rem;
+	display: inline-block;
+	vertical-align: middle;
+	margin-right: 0.1rem;
+}
+.hot ul{
+	width: 100%;
+	margin-top: 0.2rem;
+	overflow: hidden;
+}
+
+.hot ul li{
+	float: left;
+	font-size: 0.28rem;
+	width: 23%;
+	background: #f7f7ff;
+	margin: 0.06rem;
+	line-height: 0.45rem;
+	text-align: center;
+	height: 0.45rem;
+	border-radius:100px ;
+}
+
+

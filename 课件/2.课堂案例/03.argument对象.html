@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/*arguments是一个函数内置的参数数组，可以通过for循环来遍历这个参数列表，可以获取到参数的值*/
+			function myFun(x,y,z,k){
+				//console.log(arguments.length)
+				for(var i=0;i<arguments.length;i++){
+					console.log(arguments[i]);
+				}
+			}  
+			myFun(2,3,5,6)
+		</script>
+	</body>
+</html>

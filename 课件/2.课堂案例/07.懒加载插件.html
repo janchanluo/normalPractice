@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="jquery-1.11.0.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="jquery.lazyload.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		
+		<img  class="lazy" src="aa.png" data-original="http://img.taopic.com/uploads/allimg/130104/240392-13010415433920.jpg">
+	    <img  class="lazy" src="aa.png" data-original="http://old.bz55.com/uploads/allimg/150210/139-150210134411-50.jpg">
+	    <img  class="lazy" src="aa.png" data-original="http://imgsrc.baidu.com/imgad/pic/item/7c1ed21b0ef41bd5221ae1d15bda81cb39db3d4d.jpg">
+	    <img  class="lazy" src="aa.png" data-original="http://imgsrc.baidu.com/imgad/pic/item/faf2b2119313b07e8c62703307d7912397dd8c29.jpg">
+	    <img  class="lazy" src="aa.png" data-original="http://imgsrc.baidu.com/imgad/pic/item/7e3e6709c93d70cf48ebdd13f2dcd100baa12b9e.jpg">
+		
+		
+	</body>
+	<script type="text/javascript" charset="utf-8">
+	  $(function() {
+	       $("img.lazy").lazyload({
+	       		effect: "slideDown",
+	       		placeholder : "aa.png" //用图片提前占位
+	       	});
+	  });
+	</script>
+</html>

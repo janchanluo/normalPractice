@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#box,#box2{
+				width: 200px;
+				height: 200px;
+				border: 1px solid red;
+			}
+			#box3{
+				width: 100px;
+				height: 100px;
+				border: 1px solid red;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box"></div>
+		
+		<div id="box2">
+			<div id="box3">内</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		
+		var box = document.getElementById("box");
+		
+		/*box.onmouseenter = function(){
+			console.log("进来了")
+		}
+		
+		box.onmouseleave = function(){
+			console.log("出去了")
+		}*/
+		
+		// 封装一个hover事件
+		function myhover(target,fnin,fnout){
+			target.onmouseenter = fnin
+			target.onmouseleave = fnout
+		}
+		
+		myhover(box,function(){
+			console.log("进来了")
+		},function(){
+			console.log("出去了")
+		})
+		
+		// mousemove
+		box.onmousemove = function(){
+			console.log("我是一只快乐的小青蛙，跳啊跳")
+		}
+		
+		
+		var box2 = document.getElementById("box2");
+		box2.onmouseover = function(){
+			console.log("我在上面")
+		}
+		box2.onmouseout = function(){
+			console.log("我不在上面了")
+		}
+		
+		
+		// 鼠标滚轮事件，一般加给document
+		var i=0;
+		document.onmousewheel = function(){
+			//console.log("23423")
+			i+=10;
+			box2.style.width = i+"px";
+			box2.style.height = i+"px";
+		}
+		
+		
+		/*document.onkeydown = function(){
+			console.log("按住我不放手")
+		}*/
+
+
+		document.onkeypress = function(){
+			console.log("按住我不放手")
+		}
+		
+		document.onkeyup = function(){
+			console.log("松开了")
+		}
+		
+	</script>
+</html>

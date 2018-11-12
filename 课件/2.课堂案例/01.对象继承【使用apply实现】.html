@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		
+		
+		
+		// 定义一个人类
+		function Person(name){ 
+			this.name = name; 
+			this.sayHello = function(){
+				alert(this.name);
+			}
+		}
+		// 定义一个学生类
+		function Student(name,age){ 
+		    // 学生类调用人类去实例化，继承了人类
+			Person.apply(this,new Array(name)); 
+			//console.log(Person.apply(this,new Array(name)))
+			this.age =age;
+			this.show= function(){ 
+				alert(this.name+"---"+this.age);
+			}
+		}
+		var stu = new Student("中原一点红",20); 
+		stu.sayHello();
+		stu.show();
+		
+	</script>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>You must love me</title>
+
+<script type="text/javascript">
+function f1(){
+	alert("Yes. you are right ") 
+} 
+var flag=1;
+function f(){ 
+	var Bn = document.getElementById('Bn');
+	var aWidth= document.body.clientWidth || document.documentElement.clientWidth;
+	var aHeight= document.body.clientHeight || document.documentElement.clientHeight;
+	var sJs1=Math.floor(Math.random()*aHeight);
+	var sJs2=Math.floor(Math.random()*aWidth);
+	if(flag==1){
+		Bn.style.top=sJs1 + 'px';
+		Bn.style.left=sJs2+'px'; 
+		flag=2;
+		
+	}else if(flag==2){
+		Bn.style.top=sJs1+'px';
+		Bn.style.left=sJs2+'px';
+		flag=3;
+	}else if(flag==3){
+	Bn.style.top=235 + 'px';
+		Bn.style.left=286 + 'px';
+		flag=4;
+	}else if(flag==4){
+		Bn.style.top=235 + 'px';
+		Bn.style.left=360 + 'px';
+		flag=1;
+	}
+}
+function f2(){
+		alert('你竟然点到了，厉害');
+	}
+ </script>
+</head>
+
+<body>
+<h1 style="position:absolute; left:220px; top:175px; width:auto; height:210px;">Do you love me?</h1>
+<div id="By" style="position:absolute; left:285px; top:235px;">
+	<input type="button" value=" Yes " onclick="f1()">
+</div>
+<div id="Bn" style="position:absolute; left:360px; top:235px;">
+	<input type="button" value=" N o " onmouseover="f()" onclick="f2()">
+</div>
+
+
+
+</body></html>

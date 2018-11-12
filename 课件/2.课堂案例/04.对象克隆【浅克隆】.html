@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		function cloneObj(obj){ 
+			if(obj!=null && typeof obj==="object"){
+				var newobj = {};
+				//遍历传进的对象，将其属性赋值给新的对象
+				for (var key in obj) {
+					newobj[key] = obj[key];
+				}
+				return newobj;
+			}else{
+				return obj
+			}
+			
+		}
+		
+		var obj = { 
+			a:1,
+			b:"str",
+			c:[1,2,3]
+		}
+		
+		var cobj = cloneObj(obj); 
+//		console.log(obj.a);//1 
+//		cobj.a = 1000; 
+//		console.log(obj.a);//1 
+//		console.log(cobj.a);//1000
+
+         console.log(cobj)
+	</script>
+</html>

@@ -1,0 +1,55 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+#header ul {
+  color: blue;
+  font-size: 14px;
+}
+#header ul li {
+  float: left;
+  padding: 0 5px;
+  margin: 0 5px;
+  list-style: none;
+  border: 5px solid #000;
+  color: blue;
+  /*  多行注释*/
+}
+#header ul li:hover {
+  background-color: #000;
+  color: #fff;
+  cursor: pointer;
+}
+#header .clearli::after {
+  content: ".";
+  clear: both;
+  display: block;
+  overflow: hidden;
+  font-size: 0;
+  height: 0;
+}
+#content {
+  width: 1200px;
+  margin: 0 auto;
+}
+#content .nav {
+  height: 50px;
+  color: #fff;
+  background-color: #000;
+}
+#content .nav ul {
+  width: 400px;
+  margin: 0 auto;
+  height: 50px;
+  line-height: 50px;
+}
+#content .nav ul li {
+  list-style: none;
+  float: left;
+  padding: 0 26px;
+}
+#content .nav ul li:hover {
+  color: #000;
+  background-color: #ccc;
+  cursor: pointer;
+}

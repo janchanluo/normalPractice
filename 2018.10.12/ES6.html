@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div class="box">
+			<!--<a href="https://www.baidu.com">111</a>-->
+		</div>
+	</body>
+	<script type="text/javascript">
+		 
+		 var a=[1,2,3,5,6];
+		 var t=[...a];
+		 
+		 let fn =(a)=>1;
+		 let fn1=()=>{
+		 	
+		 	let a=21;
+		 	let b=18;
+		 	return a+b;
+		 }
+		 console.log(t,fn(),fn1())
+		 
+		 let arr=['11',25,23];
+//		 var box=arr.filter(function(item,i){
+//		 	return item !=25;
+//		 })
+//		 var box1=arr.map(function(item,i){
+//		 	return item+1;
+//		 })
+//		 console.log(box,box1)
+		 let name ="小明"
+		 let Odiv=document.createElement("ul");
+		   let html=`<li> 
+		           <span class="user">${name}</span>
+		           <a href="https://www.baidu.com"><img src="img/1.jpg" /></a>
+		          </li>`;
+		  let box=document.getElementsByClassName('box')[0];
+		  Odiv.innerHTML=html;
+		  box.appendChild(Odiv);
+		  
+		   class Coding{
+		   	  constructor(name,age){
+		   	  	 this.name=name,
+		   	  	 this.age=age
+		   	  }
+		   }
+		   
+		   let cod = new Coding("xiaoming",15);
+		   console.log(cod)
+	</script>
+</html>

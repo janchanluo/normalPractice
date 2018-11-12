@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<button id="aa">你好</button>
+	</body>
+	<script type="text/javascript">
+		
+		var aa = document.getElementById("aa");
+		
+		
+		// 处理兼容的对象
+		
+		var eventHandler = {
+			bindEvent:function(target,type,fn){
+				if(window.addEventListener){   // 非IE
+					target.addEventListener(type,fn)
+				}else{  // IE
+					target.attachEvent('on'+type,fn)
+				}
+			},
+			removeEvent:function(target,type,fn){
+				if(window.removeEventListener){
+					target.removeEventListener(type,fn)
+				}else{
+					target.detachEvent('on'+type,fn)
+				}
+			}
+		}
+		
+		function one(){
+			alert(1111)
+		}
+		function two(){
+			alert(222)
+		}
+		
+		eventHandler.bindEvent(aa,'click',one)
+		eventHandler.bindEvent(aa,'click',two)
+		
+		eventHandler.removeEvent(aa,'click',one)
+	</script>
+</html>

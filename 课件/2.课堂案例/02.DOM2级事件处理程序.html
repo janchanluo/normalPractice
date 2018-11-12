@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<button id="btn">点击</button>
+	</body>
+	<script type="text/javascript">
+		
+		// 跨浏览器解决方案
+		var EventUtil = {
+		   addHandlers: function (element, type, handlers) {
+		      if (element.addEventListener) {
+		         element.addEventListener(type, handlers, false);
+		      } else if (element.attachEvent) {
+		         element.attachEvent(on + type, handlers);
+		      } else {
+		         element['on' + type] = handlers;
+		      }
+		   },
+		   removeHandlers: function (element, type, handlers) {
+		      if (element.removeEventListener) {
+		         element.removeEventListener(type, handlers, false);
+		      } else if (element.detachEvent) {
+		         element.detachEvent(on + type, handlers);
+		      } else {
+		         element['on' + type] = null;
+		      }
+		   }
+		};
+		
+		var btn=document.getElementById('btn');
+		var handlers=function(){
+		   console.log('123')
+		};
+		EventUtil.addHandlers(btn,'click',handlers);
+		
+		EventUtil.removeHandlers(btn,'click',handlers);
+		
+		
+		
+		
+		
+		
+		
+	</script>
+</html>

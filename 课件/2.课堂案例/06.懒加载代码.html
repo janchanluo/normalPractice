@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+		</style>
+	</head>
+	<body>
+		  <img src="aa.png" class="lazyload" data-src="http://imgsrc.baidu.com/imgad/pic/item/7c1ed21b0ef41bd5221ae1d15bda81cb39db3d4d.jpg">
+	     <img src="aa.png" class="lazyload" data-src="http://old.bz55.com/uploads/allimg/150210/139-150210134411-50.jpg">
+	    <img src="aa.png" class="lazyload" data-src="http://imgsrc.baidu.com/imgad/pic/item/7c1ed21b0ef41bd5221ae1d15bda81cb39db3d4d.jpg">
+	    <img src="aa.png" class="lazyload" data-src="http://imgsrc.baidu.com/imgad/pic/item/faf2b2119313b07e8c62703307d7912397dd8c29.jpg">
+	    <img src="aa.png" class="lazyload" data-src="http://imgsrc.baidu.com/imgad/pic/item/7e3e6709c93d70cf48ebdd13f2dcd100baa12b9e.jpg">
+		
+	</body>
+	<script type="text/javascript">
+		// 1.不要给IMG添加真正的src路径，而是放在自定义属性里面
+		// 2.记得给懒加载的图片相同的class，同时可以给一个占位图
+		
+		var img = document.querySelectorAll("img.lazyload")
+		
+		
+		window.onload = function(){
+			
+		}
+		
+		
+		
+		var n = 0 ; //记录我们已经加载了到哪一个图片
+		
+		
+		function showImg(){
+			
+			// 浏览器可视高度
+			var seeHeight = document.documentElement.clientHeight;
+			
+			// 滚动出去的距离的兼容写法
+	        var scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
+			
+			// 遍历所有需要懒加载的图片
+			for (var i=n; i<img.length; i++) {
+				//console.log(img[i].offsetTop<=seeHeight+scrollTop)
+				if(img[i].offsetTop<=seeHeight+scrollTop){
+					// 如果是默认图片
+					//console.log(typeof img[i].src)
+					if(img[i].getAttribute('src')=="aa.png"){
+						img[i].src = img[i].getAttribute("data-src");
+					}
+					// 
+					n = i +1;
+				}
+				
+			}
+		}
+		showImg();
+		
+		
+		 window.onscroll = function() {
+            showImg();
+        };
+		
+		
+		
+		
+	</script>
+</html>

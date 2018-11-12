@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		
+		<div id="app">
+			<input type="text" name="" id="" v-model="msg" />
+		     {{msg|upper}}	
+		</div>
+		
+		<script type="text/javascript">
+			var vm = new Vue({
+				el:'#app',
+				data:{
+					msg:'qian ying li ll'
+				},
+				filters:{
+					upper:function(value){
+						var str='';
+						if(!value) return '';
+						arr=value.split(' ');
+						for(var i=0;i<arr.length;i++){
+							str+=arr[i].charAt(0).toLocaleUpperCase()+arr[i].substr(1,value.length)+' ';
+						}
+						return str;
+					}
+				}
+				
+			})
+		</script>
+	</body>
+</html>

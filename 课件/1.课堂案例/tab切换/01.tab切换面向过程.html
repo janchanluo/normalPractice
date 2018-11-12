@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        #tabBox input {
+            background: #F6F3F3;
+            border: 1px solid #FF0000;
+        }
+        #tabBox .active {
+            background: #E9D4D4;
+        }
+        #tabBox div {
+            width:300px; 
+            height:250px; 
+            display:none;
+            padding: 10px;
+            background: #E9D4D4;
+            border: 1px solid #FF0000;
+        }
+    </style>
+    <meta charset="utf-8" />
+    <title>选项卡</title>
+    <script>
+        //将在嵌套函数里的变量提取到全局中
+        var tabBtn = null;
+        var tabDiv = null;
+        
+        window.onload = function(){
+            var tabBox = document.getElementById('tabBox');
+            tabBtn = tabBox.getElementsByTagName('input');
+            tabDiv = tabBox.getElementsByTagName('div');
+            
+            for(var i=0;i<tabBtn.length;i++){
+          	
+                tabBtn[i].index = i;
+//              console.log(tabBtn[i].index)
+                //此处调用函数即可
+                tabBtn[i].onclick = clickBtn;
+            }
+        };
+        
+        //将嵌套函数提取到全局中
+        function clickBtn(){
+            for(var j=0;j<tabBtn.length;j++){
+                tabBtn[j].className='';
+                tabDiv[j].style.display='none';
+            }
+            this.className='active';
+            tabDiv[this.index].style.display='block';
+        };
+        
+    </script>
+</head>
+
+<body>
+     <div id="tabBox">
+        <input type="button" value="新闻" class="active" />
+        <input type="button" value="电影" />
+        <input type="button" value="音乐" />
+        <div style="display:block;">新闻的内容</div>
+        <div>电影的内容</div>
+        <div>音乐的内容</div>
+    </div>
+</body>
+</html>

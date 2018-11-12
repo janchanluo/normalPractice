@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>面向对象</title>
+	</head>
+
+	<body>
+		<script>
+			//混合模式
+			function Createperson(name, qq) { //构造函数，构造了对象出来（属性）
+				this.name = name;
+				this.qq = qq;
+			};
+			//原型（在类上加方法，就是css中的class）
+			Createperson.prototype.showName = function() {
+				alert("名字是：" + this.name);
+			};
+			Createperson.prototype.showQQ = function() {
+				alert("qq是：" + this.qq);
+			};
+			var obj1 = new Createperson('6688jingtian', '2405878063');
+			var obj2 = new Createperson('小明', '456465644');
+			alert(obj1.showName == obj2.showName);
+		</script>
+	</body>
+
+</html>

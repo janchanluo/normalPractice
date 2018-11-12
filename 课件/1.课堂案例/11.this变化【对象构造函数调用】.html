@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		
+		
+	/* 对象构造函数调用- 如果通过new用某个函数，那么这个函数就是一个对象,就会创建一个连接到该函数prototype属性的新对象，再把this绑定到该对象，然后执行该函数，最后返回该对象。
+	*如果返回值，且返回值为[字符串|数字|布尔值]等简单数据类型，该返回值会被丢弃。
+	*如果返回值，且返回值为[对象|函数|数组]等复合类型对象，该函数则会返回该返回值，将丢弃this绑定的对象。
+	*/
+	
+	function Person(name, age) { 
+		this.name = name;
+		this.age = age;
+		return "1223";
+	}
+	var p = new Person('中原一点红', 18);
+	//JSON.stringify()简单说就是将js对象转换成json格式的字符串
+	//var jsonObj = JSON.stringify(p);
+	console.log(p);
+				
+		
+	</script>
+</html>

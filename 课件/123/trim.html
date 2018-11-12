@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<p></p>
+	</body>
+</html>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript">
+	//删除字符串开始和末尾的空格
+
+$(function () { 
+    var str = "         你是最帅的         ";
+   // $( "p" ).html( str);
+    $( "p" ).html($.trim(str));
+})
+</script>

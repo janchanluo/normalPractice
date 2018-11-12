@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		
+		
+		/* 用对象的apply方式调用方法的apply/call方法调用方法时，
+		 * this则被绑定到apply/call方法的第一个参数。*apply第2个参数必须是数组否则报异常
+		*/
+		
+		// 函数引用.apply(调用者, [数组|arguments]);
+		
+		var joins = function(p1,p2,p3) { 
+			console.log(this);
+			return this+"-"+p1+"-"+p2+"-"+p3;
+		}
+		
+		var params = ['hello', 'hi', '你好']
+		console.log(joins.apply('你好',params));
+		
+		
+	</script>
+</html>

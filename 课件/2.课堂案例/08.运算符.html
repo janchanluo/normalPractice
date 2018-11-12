@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		
+		
+		function Person(name,age){
+			this.name = name
+			this.age = age;
+		}
+		
+		var lisi = new Person("李四",20);
+		
+		
+		// in 判断是否存在属性
+		console.log("name" in lisi); // true
+		console.log("age" in lisi); // true
+		
+		// delete
+		var person2 = {age : 28, title : 'fe'};
+		delete person2.age; // true 
+		delete person2['title']; // true 
+		console.log(person2.age) // undefined 
+		console.log(delete person2.age ) // true
+		//不存在或者特定属性是无法删除的
+		delete Object.prototype; // false
+		
+		
+		//instanceof
+		function Cat(){}
+		var cat1 = new Cat();
+		console.log(cat1 instanceof Cat)//true
+		
+				
+		
+	</script>
+</html>

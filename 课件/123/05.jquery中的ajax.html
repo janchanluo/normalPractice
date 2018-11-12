@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery.js"></script>
+	</head>
+	<body>
+		<div id="ccc"></div>
+	</body>
+	<script type="text/javascript">
+		
+//		$.ajax({
+//			url:"js/json.js",
+//			type:"get",
+//			//data:{},
+//			//dataType:"json",
+//			success:function(data,msg){
+//				 console.log(data,msg)
+//			},
+//			error:function(err){
+//				console.log(err)
+//			}
+//		})
+        $.ajax({
+        	type:"get",
+        	url:"js/json.js",
+        	async:true,
+        	success:function(m,s){
+        		console.log(m,s)
+        	}
+        });
+		
+		
+		// 地址		数据对象		成功回调		数据格式[可选]
+//		$.get("js/cityInfo.js",{
+//			classID:1
+//		},function(data){
+//			console.log(data)
+//		},'json')
+		
+		
+//		$.post("js/cityInfo.js",{
+//			classID:1
+//		},function(data){
+//			console.log(data)
+//		},'json')
+		
+		
+//		$.getScript("js/cityInfo.js",function(data){
+//			console.log(data)
+//		})
+		
+		
+		
+		
+	 	//$(选择器).load(地址，function(){})
+//		$("#ccc").load("js/cityInfo.js",function(data){
+//			console.log(data)
+//		})
+		
+	</script>
+</html>

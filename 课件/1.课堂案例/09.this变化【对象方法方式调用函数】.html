@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		
+		
+		/* 全局函数调用内部函数
+		- 不论有多少级函数嵌套，只要是以函数的方式调用，this 都是绑定 window 对象。
+		*/
+		
+		var out = function() { 
+			console.log(this === window); 
+			var inner = function() {
+				console.log(this === window);
+			}
+			inner();
+		}
+		out();
+				
+		
+	</script>
+</html>

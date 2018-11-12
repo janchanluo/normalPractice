@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+				function preloader() {  
+				    if (document.images) {  
+				        var img1 = new Image();  
+				        var img2 = new Image();  
+				        var img3 = new Image();  
+				        img1.src = "http://g.search3.alicdn.com/img/i3/52073375/TB2PoZSpVooBKNjSZPhXXc2CXXa_!!0-saturn_solar.jpg_220x220.jpg_.webp";  
+				        img2.src = "http://domain.tld/path/to/image-002.gif";  
+				        img3.src = "http://domain.tld/path/to/image-003.gif";  
+				    }  
+		}  
+		function addLoadEvent(func) {  
+		    var oldonload = window.onload;  
+		    if (typeof window.onload != 'function') {  
+		        window.onload = func;  
+		    } else {  
+		        window.onload = function() {  
+		            if (oldonload) {  
+		                oldonload();  
+		            }  
+		            func();  
+		        }  
+		    }  
+		}  
+		addLoadEvent(preloader)
+		// 我们这段代码里面，第一段内容写了一个preloader方法用于将css样式写入节点里去。第二段代码我们去监听是否页面加载完成，只有页面加载完成之后我们才会去执行预加载。
+	</script>
+</html>

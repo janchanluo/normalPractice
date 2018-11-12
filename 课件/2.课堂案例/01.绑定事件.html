@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			function say(){
+				alert("小伙很帅！")
+			}
+		</script>
+	</head>
+	<body>
+		<span onclick="say()">123123123123</span>
+		<button onclick="javascript:alert('222')" >你好</button>
+		<button>他好</button>
+		<b>123123</b>
+	</body>
+	<script type="text/javascript">
+		
+		
+		
+		// 1.绑定到节点上的onclick属性
+		var btn =  document.getElementsByTagName("button");
+		console.log(btn)
+		
+		// onclick="javascript:JS语句"
+		
+		// 2.获取节点。绑定到节点的onclick属性
+		var btn = document.getElementsByTagName("button")[1];
+		btn.onclick = function(){
+			alert("tainhao")
+		}
+		
+		// 3. 绑定事件监听
+		var b = document.getElementsByTagName("b")[0];
+		b.addEventListener('click',function(){
+			alert("bbbb")
+		},false)
+		
+		
+	</script>
+</html>

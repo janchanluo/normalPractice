@@ -1,0 +1,41 @@
+#app {
+  font-size: 20px;
+  border: 1px solid red;
+}
+#app1 {
+  font-size: 20px;
+  border: 5px solid blue;
+}
+#app2 > div:first-child {
+  float: left;
+  border: 1px solid red;
+}
+#app2 > div:last-child {
+  float: left;
+  border: 1px solid red;
+}
+#app2:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.header {
+  background-color: red;
+}
+.header:hover {
+  background-color: yellowgreen;
+}
+.header > .center {
+  background-color: blue;
+  width: 1200px;
+  margin: 0 auto;
+}
+.header > .center > div:first-child {
+  float: left;
+}
+.header > .center > div:last-child {
+  float: right;
+}
+/**
+     * 这是注释
+ */

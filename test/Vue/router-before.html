@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/vue-router.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			.list{
+				overflow: hidden;
+			}
+			.list li{
+				list-style: none;
+				float: left;
+				padding-right: 20px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			<ul>
+				<router-link tag="li" to="/index">index</router-link>
+				<router-link tag="li" to="/info">info</router-link>
+				<router-link tag="li" to="/my">my</router-link>
+				<router-view></router-view>
+			</ul>
+		</div>
+		<script type="text/javascript">
+			arr=[{
+					name:"张三",
+					age:25,
+					fav:"洗澡"
+				},
+				{
+					name:"李四",
+					age:25,
+					fav:"洗澡"
+				},
+				{
+					name:"王五",
+					age:25,
+					fav:"洗澡"
+					},
+				{
+					name:"堵心",
+					age:25,
+					fav:"洗澡"
+				}]
+			var router = new VueRouter({
+				mode:'hash',
+				routes:[
+					{
+						path:"/index",
+						component:{
+							template:`
+							<div>
+								首页
+							<ul class="list">
+									<router-link :to="'/index/'+item.name" tag="li" v-for="item in arr">{{item.name}}</router-link>
+								</ul>
+								<router-view />
+							</div>
+							 	
+							`,
+						data(){
+								return{
+									arr:arr
+								}
+						},
+							},
+					children:[{
+							path:':name',
+							component:{
+								template:`
+								  <div>
+								     <p v-for="item in list">{{item}}</p>
+								  </div>
+								`,
+							 data(){
+							 	return {
+							 		arr:arr,
+							 		msg:''
+							 	}
+
+							 },
+							beforeRouteUpdate(to,from,next){
+									this.msg = to.params.name;
+									next();
+									},
+							computed:{
+								list(){
+									
+								return	(arr.filter((item,index)=>{
+										return item.name==this.msg
+									}))[0]
+								}
+							}
+								},
+		
+						}
+						  ]
+					}
+				]
+			})
+			var vm = new Vue({
+				el:"#app",
+				router,
+
+			})
+		</script>
+	</body>
+</html>

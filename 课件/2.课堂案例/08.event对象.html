@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#btn{
+				width: 100px;
+				height: 40px;
+				margin-left: 20px;
+				margin-top: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<button id="btn">123123</button>
+		<a href="http://www.baidu.com">123</a>
+	</body>
+	<script type="text/javascript">
+		
+		
+		var btn = document.getElementById("btn");
+		
+		btn.onclick = function(ev){
+			//  IE里面使用window.event 来获取事件对象 
+			var ev = ev || window.event;
+			console.log(window.event)
+			alert(111)
+			alert(window.event)
+			//console.log(ev.type)
+			alert(ev.target || ev.srcElement)
+			
+			
+			// 事件类型
+			alert(ev.type)
+			
+		}
+		
+		var a = document.getElementsByTagName("a")[0];
+		btn.onclick = function(event){
+			// 阻止默认事件
+			event.preventDefault();
+//			var event = event || window.event;
+//			event.preventDefault ? event.preventDefault() : (event.returnValue = false);
+			alert(22222)
+		}
+		
+		
+	</script>
+</html>

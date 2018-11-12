@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		//公园里有一堆桃子，猴子每天吃掉一半，挑出一个坏的扔掉，第6天的时候发现还剩1个桃子，问原来有多少个桃子
+		var sl;
+  		function shuliang (n){
+	    	if(n==6){
+	          sl=1;
+	        }else{
+	           sl=(shuliang(n+1)+1)*2;
+	        }
+	        return sl;
+	    }
+   		alert( shuliang(0));
+	</script>
+</html>

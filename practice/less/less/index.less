@@ -1,0 +1,47 @@
+// 引入外部less文件
+@import "common.less";
+#app {
+    font-size: @fz;
+    .bor;
+}
+#app1 {
+    font-size: @fz;
+    .bor(blue, 5px);
+}
+#app2 > div:first-child {
+    .f;
+    .bor;
+}
+#app2 > div:last-child {
+    .f;
+    .bor;
+}
+#app2:after {
+    .clear;
+}
+.header {
+    background-color: red;
+    &:hover {
+        background-color: yellowgreen;
+    }
+    > .center {
+        background-color: blue;
+        width: 1200px;
+        margin: 0 auto;
+        > div:first-child {
+            .f;
+        }
+        > div:last-child {
+            .f(right)
+        }
+    }
+}
+
+// 因为我的代码太少了
+
+// 单行，多行
+// 单行注释不会被编译到css中，多行可以
+
+/**
+     * 这是注释
+ */

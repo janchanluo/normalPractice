@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script type="text/javascript">
+//	var arr = [4,5,6]
+//	for(var i = 0; i<arr.length;i++){
+//		console.log(arr[i])
+//	}
+//	let[a,b,c,d]=[4,5,6]
+//	console.log(a,b,c)
+// let[a,[[b],c]] = [10,[20,30]]
+//
+// console.log(a,b,c)  [10,[20,30]] is not iterable
+  
+  
+//let [a,c,...b] = [4,5,6,7,8,9]
+// console.log(a,b,c)
+
+
+  //三个点之后就不能加了
+  //let [a,c,...b,f] = [4,5,6,7,8,9]
+ // console.log(a,b,c,f)  //Rest element must be last element
+ 
+ 
+   // let [x=10,y] =[30,20]   //如果给了赋值，后面不传参数，会显示赋值，给了会显示参数
+   // console.log(x,y)
+   
+   
+// function test(x=50,y){
+// 	  console.log(x,y)
+// }
+// test("",20)   //如果是函数就要传值，哪怕空字符串
+
+
+
+
+// function test(...value){
+// 	
+// 	console.log(value)   //...还可以把伪数组转化为数组
+// 	
+// }
+//test(10,20,30,40)   //这种方法也是可以的
+
+//let [x=1,y = x] = [];
+//let [y = x , x = 1]=[];   //Identifier 'y' has already been declared
+//  
+//console.log(x,y)
+
+
+   //对象结构
+  // let o = {x,y} = {x:"侯宇",y:"杜欣"}   //对象结构是键值对
+  // console.log(o.x,o.y)
+  //let o = {"x":"侯宇","y":"杜欣"}
+  //console.log(o.x,o.y)
+  
+  //let {"x":u} = {"x":"李佳","y":"杜欣"}   //可以直接打印值
+ // console.log(u,y)
+ 
+ 
+   //字符串结构
+   
+   //let str = "你好，美女"
+   // console.log(str.charAt(3))  //根据字符串查字
+   //console.log(str.indexOf("你"))  //根据字差字符串
+   
+//	const [...value] = str;
+//	console.log(value)  通过三点也可以
+
+    //交换变量
+//  let x =10; let y = 20;
+//	[x,y]=[y,x]
+//	console.log(x,y)
+
+    //变量不能重复定义
+//  let x = 10;
+//  let x = 20;
+//  console.log(x) //Identifier 'x' has already been declared
+
+
+    //提取json数据
+//  var obj = {
+//  	x:10,
+//  	y:"houyu",
+//  	z:"duxin"
+//  }
+//  
+//  let {x,y,z} = obj
+//  console.log(x,y,z)
+
+
+
+//  let {sin,cos,log} = Math;
+//  console.log(sin,cos,log)  //类似函数
+
+// let arr = [1,2,3,4,5,6,7,8,9]
+//
+// let {0:first,1:second,[arr.length-1]:last} = arr;
+// console.log(first,last,second)
+</script>

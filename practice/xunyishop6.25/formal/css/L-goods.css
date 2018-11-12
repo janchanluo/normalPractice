@@ -1,0 +1,159 @@
+* {
+  margin: 0;
+  padding: 0;
+  font: "微软雅黑";
+}
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+.auto {
+  margin: 0 auto;
+}
+.listnone {
+  list-style: none;
+}
+.fl {
+  float: left;
+}
+.fr {
+  float: right;
+}
+#header_background {
+  width: 100%;
+  background-color: #dedada;
+  height: 30px;
+}
+#header_background .navigation {
+  width: 1200px;
+  font-size: 14px;
+  position: relative;
+  margin: 0 auto;
+}
+#header_background .navigation .header_left {
+  float: left;
+}
+#header_background .navigation .header_left::after {
+  content: ".";
+  clear: both;
+  display: block;
+  overflow: hidden;
+  font-size: 0;
+  height: 0;
+}
+#header_background .navigation .header_left li {
+  float: left;
+  list-style: none;
+  padding: 0 25px;
+  line-height: 30px;
+}
+#header_background .navigation .header_left li:last-child {
+  padding: 0 0 0 80px;
+}
+#header_background .navigation .header_left li:nth-child(2) {
+  padding: 0 0 0 60px;
+}
+#header_background .navigation .header_left li p {
+  background: url(../images/location.png) no-repeat;
+  width: 10px;
+  float: right;
+  position: relative;
+  top: 5px;
+  left: 5px;
+  height: 15px;
+}
+#header_background .navigation .header_right {
+  float: right;
+}
+#header_background .navigation .header_right li {
+  float: left;
+  list-style: none;
+  padding: 0 20px;
+  line-height: 30px;
+}
+#header_background .navigation .header_right #hovererweim .erweim {
+  display: none;
+  position: absolute;
+  right: 0;
+}
+#header_background .navigation .header_right #hovererweim:hover .erweim {
+  display: block;
+}
+#header {
+  width: 1200px;
+  height: 150px;
+  margin: 0 auto;
+  position: relative;
+  margin-top: 50px;
+}
+#header .logo {
+  background: url(../images/logo.png) no-repeat;
+  width: 240px;
+  float: left;
+  height: 60px;
+}
+#header .search {
+  width: 830px;
+  height: 40px;
+  float: right;
+  position: relative;
+}
+#header .search input {
+  float: left;
+}
+#header .search input:first-child {
+  width: 400px;
+  height: 36px;
+  border: 1px solid #1c8984;
+}
+#header .search input:first-child[type=submit] {
+  width: 70px;
+  height: 38px;
+  background: url(../images/search.png);
+  background-repeat: no-repeat;
+  position: relative;
+  left: -5px;
+  display: block;
+  border: none;
+}
+#header .search .car_img {
+  background-color: #1c8984;
+  height: 36px;
+  width: 180px;
+  border: 1px solid #1c8984;
+  float: left;
+}
+#header .search .car_img img {
+  width: 32px;
+  height: 30px;
+  position: relative;
+  left: 20px;
+  top: 2px;
+}
+#header .search .car_img span {
+  z-index: 1;
+  position: relative;
+  top: -5px;
+  left: 30px;
+  color: #fff;
+}
+#header .search ul {
+  clear: both;
+}
+#header .search ul li {
+  float: left;
+  padding: 0 15px;
+  margin: 5px 0;
+  border-right: 1px #605f5f solid ;
+}
+#header .search ul li:first-child {
+  margin-left: -15px;
+}
+#header .search ul li a {
+  color: #8f8e8e;
+}
+#header .search ul li a:hover {
+  color: #1c8984;
+}

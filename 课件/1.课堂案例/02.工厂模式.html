@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		function cat(name,color) {
+		　　　　return {  // 返回一个对象
+			
+		　　　　　　name:name,
+		　　　　　　color:color
+		　　　　}
+		}
+		
+		
+		var cat1 = cat("大毛","黄色");
+		var cat2 = cat("二毛","黑色");
+		console.log(cat1.constructor)//得到到底是不是指的是这个函数的实例
+//		这种方法的问题依然是，cat1和cat2之间没有内在的联系，不能反映出它们是同一个原型对象的实例。
+	//f () { native code } 这个方法对象是创建 Object,Function, Array, 包括 RegExp, String Boolean  这些原始对象之父
+	</script>
+</html>

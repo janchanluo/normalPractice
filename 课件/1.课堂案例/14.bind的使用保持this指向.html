@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		var obj = {
+		    getThis: function() {
+		        console.log(this);
+		    }
+		}; 
+		obj.getThis();  // obj
+		var getThisCopy = obj.getThis; 
+		getThisCopy();   // window
+		
+		/*
+		 通过上述例子我们会发现，虽然是 getThisCopy 是复制了 obj 的 getThis 方法，但是他们所属的对象却不一样。在对象里面，所有的 this 都指向对象本身，而在全局作用域定义的变量的 this 指向 Window。 */
+		
+		
+		
+		var obj = {
+		    getThis: function(){
+		        console.log(this);
+		    }
+		}
+		var getThisCopy = obj.getThis;
+		getThisCopy.bind(obj)();
+		
+		//  fun.bind(thisArgument, argument1, argument2, ...)
+		
+	</script>
+</html>
