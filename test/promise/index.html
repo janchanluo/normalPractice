@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+	<script type="text/javascript">
+		
+		var run_a = function(){
+			
+			return new Promise(function(resolve,reject){
+		             resolve('run_a')
+			})
+		}
+		var run_b = function(data_a){
+			
+			return new Promise(function(resolve,reject){
+		              console.log(data_a);
+           			 resolve("step211111");
+
+			})
+		}
+		var run_c = function(){
+			
+			console.log(
+				new Promise(function(resolve,reject){
+		             resolve('run_c')
+			})) 
+		}
+		
+		run_a().then(function(data){
+			 return run_b(data);
+		}).then(function(data){
+			 console.log(data)
+		})
+		
+		run_c()
+	</script>	
+	</body>
+</html>
