@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	    <script type="text/javascript" src="js/react.js"></script>
+		<script type="text/javascript" src="js/react-dom.js"></script>
+		<script type="text/javascript" src="js/browser.min.js"></script>
+		<style type="text/css">
+			#app {
+				width: 1200px;
+				margin: 0 auto;
+			}
+			#app input {
+				width: 100%;
+				height: 40px;
+				border: none;
+				border: 1px #ccc solid;
+				font-size: 22px;
+				margin: 10px 0;
+			}
+			#app table{
+				width: 100%;
+				text-align: center;
+			}
+			#app table tr{
+				border-top:1px #ccc solid ;
+				padding: 5px 0;
+			}
+			#app table .del{
+				color: cornflowerblue;
+			}
+		</style>
+	</head>
+	<body>
+	<div id="app">
+			
+			</div>
+			
+		<script type="text/babel">
+			
+	  var App = React.createClass({
+	  	 render(){
+	  	 	return (
+	  	 		<div>
+	  	 		    <h1>学员信息列表</h1>
+	  	 		    <Form />    
+	  	 		    <Tab />
+	  	 		</div>
+	  	 	)	
+	  	 }
+	  })
+      var Form = React.createClass({
+      	render(){
+      		 return  (
+      	   	   	<form action="">
+					<lable>按姓名查找</lable>
+					<input type="text" name="" id="" />  <br/>
+					<lable>按性别查找</lable>
+					<input type="text" name="" id="" />
+				</form>
+      	   )
+      	}	
+      })
+      var Tab = React.createClass({
+      	render(){
+      		return (
+				<table>
+				<thead>
+					<tr>
+						<th>姓名</th>
+						<th>性别</th>
+						<th>年龄</th>
+						<th>爱好</th>
+						<th>操作</th>
+					</tr> 
+				</thead>
+				<tbody>
+					<tr>
+						<td>小美女</td>
+						<td>女</td>
+						<td>15</td>
+						<td>上网</td>
+						<td className="del">删除</td>
+					</tr>
+				</tbody>
+				</table>
+      		)
+      	}
+      })
+			ReactDOM.render(<App />,document.getElementById("app"))
+			
+//			setInterval(btn,1000)
+		</script>
+	</body>
+
+</html>
