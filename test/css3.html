@@ -24,5 +24,13 @@
     <div class="box">
         
     </div>
+    <div id = "user"  data-uname = "脚本之家" > </div>
 </body>
+<script>
+  var plant = document.getElementById("user")
+  var userName = plant . getAttribute ( 'data-uname' ) ; // userName = '脚本之家'
+  plant . setAttribute ( 'data-uid','658' ) ; // userId = '12345'
+  var userId =plant .dataset
+console.log(userName,userId)
+</script>
 </html>

@@ -20,6 +20,6 @@
 				 os.remove();
 			}
 		}
-		
+		console.log(this)
 	})()
 	

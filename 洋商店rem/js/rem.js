@@ -6,7 +6,6 @@ var i = window.devicePixelRatio;
 meta.name = "viewport";
 meta.content="device-width,initial-scale=1,minimum-scale="+i+",maximum-scale="+i+",user-scalable=no"
 head.appendChild(meta)
-  console.log(1)
 function font() {
     var pageWidth = document.documentElement.clientWidth || window.innerWidth;
     var font = pageWidth*fontSize/designWidth
